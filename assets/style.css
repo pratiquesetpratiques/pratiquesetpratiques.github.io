@@ -28,7 +28,7 @@ main { max-width: var(--max); padding: 24px; margin: 0 auto; }
 .small { font-size: .95rem; }
 
 /* 5) En-tête & pied de page */
-header { padding: 20px 16px; border-bottom: 1px solid #eee; }
+header { padding: 28px 16px; border-bottom: 1px solid #eee; }
 footer { padding: 24px 16px; border-top: 1px solid #eee; color: #666; font-size: .95rem; }
 
 /* 6) Marque */
