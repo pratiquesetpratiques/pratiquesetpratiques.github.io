@@ -77,11 +77,15 @@ main p, main li { overflow-wrap: break-word; }
     word-break: normal;
     hyphens: auto;
   }
-}
-body {
-  background-image: url('/assets/background.jpg');
+html {
+  background: url('/assets/background.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+}
+
+body {
+  background: transparent;
+}
+
+main, header, footer {
+  background: rgba(255, 255, 255, 0.9);
 }
