@@ -167,3 +167,11 @@ header, main, footer {
   height: auto;
   margin: 0 auto;
 }
+.section-logo {
+  height: 1.1em;
+  width: auto;
+  max-width: none;
+  margin-left: 0.35em;
+  vertical-align: middle;
+  display: inline-block;
+}
