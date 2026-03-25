@@ -155,3 +155,9 @@ header, main, footer {
 .leas-title.section-start {
   margin-top: 4rem;
 }
+.section-logo {
+  height: 1.2em;
+  width: auto;
+  margin-left: 0.4em;
+  vertical-align: middle;
+}
