@@ -157,11 +157,13 @@ header, main, footer {
 }
 .boma-logo-wrap {
   text-align: center;
-  margin: 0 0 1rem 0;
+  margin: 0 auto 0.8rem auto;
 }
 
 .boma-logo {
-  max-width: 180px;
+  display: block;
+  width: 45px;
+  max-width: 45px;
   height: auto;
-  display: inline-block;
+  margin: 0 auto;
 }
