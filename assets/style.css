@@ -128,7 +128,6 @@ header, main, footer {
 .leas-title,
 .leas-title * {
   font-family: 'Special Elite', cursive;
-  text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
