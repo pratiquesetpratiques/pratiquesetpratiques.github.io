@@ -107,7 +107,13 @@ header, main, footer {
   background: transparent;
 }
 
-/* 11) Polices spéciales */
+/* 11) Espacement des sections */
+.section-start {
+  margin-top: 2.8rem;
+  margin-bottom: 0.8rem;
+}
+
+/* 12) Polices spéciales */
 .gbd-title,
 .gbd-title * {
   font-family: 'Archivo Black', sans-serif;
@@ -129,6 +135,11 @@ header, main, footer {
 .leas-text,
 .leas-text * {
   font-family: 'Special Elite', cursive;
+  text-align: left !important;
+  text-justify: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
 }
 
 .baw-title,
