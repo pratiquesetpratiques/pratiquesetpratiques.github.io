@@ -39,7 +39,7 @@ footer { padding: 24px 16px; border-top: 1px solid #eee; color: #666; font-size:
   text-decoration: none;
   color: inherit;
 }
-.brand img { height: 42px; width: auto; vertical-align: middle; }
+.brand img { height: 64px; width: auto; vertical-align: middle; }
 header .title { font-weight: 700; font-size: var(--size-title); }
 
 @media (max-width: 520px) {
