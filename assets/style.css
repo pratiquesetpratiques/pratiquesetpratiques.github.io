@@ -175,3 +175,6 @@ header, main, footer {
   vertical-align: middle;
   display: inline-block;
 }
+.brand .title {
+  display: none;
+}
