@@ -159,6 +159,15 @@ header, main, footer {
   height: 2.0em;
   width: auto;
   margin-left: 0.4em;
+  .boma-logo-wrap {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.boma-logo {
+  max-width: 180px;
+  height: auto;
+}
   vertical-align: middle;
 }
 .brand .title {
