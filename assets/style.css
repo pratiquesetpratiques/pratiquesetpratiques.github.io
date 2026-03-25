@@ -1,13 +1,9 @@
-/* =========================================
-   BOE — style.css (Times partout)
-   ========================================= */
-
 /* 1) Variables */
 :root {
-  --max: 900px;                               /* largeur max du contenu */
+  --max: 900px;
   --font-body: "Times New Roman", Times, serif;
-  --size-body: 1rem;                          /* taille du corps & du menu */
-  --size-title: 1.15rem;                      /* titre à côté du logo (un peu plus grand) */
+  --size-body: 1rem;
+  --size-title: 1.15rem;
 }
 
 /* 2) Reset / base */
@@ -15,7 +11,7 @@
 html, body { margin: 0; padding: 0; }
 img { max-width: 100%; height: auto; }
 
-/* 3) Typo globale (Times partout) */
+/* 3) Typo globale */
 html, body, body * {
   font-family: var(--font-body) !important;
   line-height: 1.6;
@@ -33,23 +29,24 @@ main { max-width: var(--max); padding: 24px; margin: 0 auto; }
 header { padding: 12px 16px; border-bottom: 1px solid #eee; }
 footer { padding: 24px 16px; border-top: 1px solid #eee; color: #666; font-size: .95rem; }
 
-/* 6) Marque (logo + titre) */
+/* 6) Marque */
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
 .brand img { height: 42px; width: auto; vertical-align: middle; }
 header .title { font-weight: 700; font-size: var(--size-title); }
 
-/* Masquer le long titre sur petits écrans */
-@media (max-width: 520px) { .brand .title { display: none; } }
+@media (max-width: 520px) {
+  .brand .title { display: none; }
+}
 
 /* 7) Sélecteur de langue */
 .lang-switch { float: right; }
 
-/* 8) Navigation (même taille que le corps) */
-nav { font-size: inherit; }                  /* hérite de --size-body */
+/* 8) Navigation */
+nav { font-size: inherit; }
 nav a { margin-right: 10px; text-decoration: none; white-space: nowrap; }
 nav a:hover { text-decoration: underline; }
 
-/* 9) Contenu : justification & césure */
+/* 9) Contenu */
 main p,
 main li,
 main blockquote {
@@ -60,22 +57,21 @@ main blockquote {
   -ms-hyphens: auto;
 }
 
-/* éviter les débordements de mots très longs */
 main p, main li { overflow-wrap: break-word; }
-/* ===== Fix mobile: autoriser le retour à la ligne + gagner de la place ===== */
+
 @media (max-width: 800px) {
-  /* cacher le long titre à côté du logo pour libérer de la place */
   .brand .title { display: none; }
 
-  /* le menu peut passer sur 2 lignes proprement */
   nav { display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: .95rem; }
 
-  /* permettre les retours à la ligne et la césure du long libellé */
   nav a {
-    white-space: normal;         /* annule le nowrap global */
+    white-space: normal;
     overflow-wrap: anywhere;
     word-break: normal;
     hyphens: auto;
+  }
+}
+
 body::before {
   content: "";
   position: fixed;
