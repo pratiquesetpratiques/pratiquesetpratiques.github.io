@@ -50,7 +50,7 @@ header .title { font-weight: 700; font-size: var(--size-title); }
 .lang-switch { float: right; }
 
 /* 8) Navigation */
-nav { font-size: inherit; }
+nav { font-size: inherit; margin-top: 12px; }
 nav a {
   margin-right: 10px;
   text-decoration: none;
