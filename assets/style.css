@@ -76,11 +76,19 @@ main p, main li { overflow-wrap: break-word; }
     overflow-wrap: anywhere;
     word-break: normal;
     hyphens: auto;
-  html {
-  background: url('/assets/background.jpg') no-repeat center center fixed;
-  background-size: cover;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/assets/background.jpg') center center / cover no-repeat;
+  z-index: -1;
 }
 
 body {
-  background: transparent !important;
+  margin: 0;
+  background: transparent;
+}
+
+header, main, footer {
+  background: transparent;
 }
