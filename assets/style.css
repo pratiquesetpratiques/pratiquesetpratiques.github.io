@@ -78,3 +78,10 @@ main p, main li { overflow-wrap: break-word; }
     hyphens: auto;
   }
 }
+body {
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
