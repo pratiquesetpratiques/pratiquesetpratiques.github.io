@@ -161,3 +161,6 @@ header, main, footer {
   margin-left: 0.4em;
   vertical-align: middle;
 }
+.brand .title {
+  display: none;
+}
