@@ -38,9 +38,9 @@ footer { padding: 24px 16px; border-top: 1px solid #eee; color: #666; font-size:
   gap: 10px;
   text-decoration: none;
   color: inherit;
-  padding: 10px 0;
+  padding: 20px 0;
 }
-.brand img { height: 64px; width: auto; vertical-align: middle; }
+.brand img { height: 72px; width: auto; vertical-align: middle; }
 header .title { font-weight: 700; font-size: var(--size-title); }
 
 @media (max-width: 520px) {
