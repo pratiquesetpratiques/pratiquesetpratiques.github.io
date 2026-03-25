@@ -3,7 +3,7 @@
 /* 1) Variables */
 :root {
   --max: 900px;
-  --font-body: "Times New Roman", Times, serif;
+  --font-body: 'EB Garamond', serif;
   --size-body: 1rem;
   --size-title: 1.15rem;
 }
@@ -74,6 +74,7 @@ main p, main li { overflow-wrap: break-word; }
   }
 }
 
+/* 10) Fond */
 body::before {
   content: "";
   position: fixed;
@@ -89,4 +90,23 @@ body {
 
 header, main, footer {
   background: transparent;
+}
+
+/* 11) Polices spéciales */
+.gbd-title {
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.gbd-text {
+  font-family: 'Archivo', sans-serif;
+}
+
+.leas-title,
+.leas-text {
+  font-family: 'Special Elite', cursive;
+}
+
+.baw-title,
+.baw-text {
+  font-family: 'Noto Sans', sans-serif;
 }
