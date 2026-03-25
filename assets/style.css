@@ -32,7 +32,13 @@ header { padding: 12px 16px; border-bottom: 1px solid #eee; }
 footer { padding: 24px 16px; border-top: 1px solid #eee; color: #666; font-size: .95rem; }
 
 /* 6) Marque */
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
 .brand img { height: 42px; width: auto; vertical-align: middle; }
 header .title { font-weight: 700; font-size: var(--size-title); }
 
@@ -45,7 +51,11 @@ header .title { font-weight: 700; font-size: var(--size-title); }
 
 /* 8) Navigation */
 nav { font-size: inherit; }
-nav a { margin-right: 10px; text-decoration: none; white-space: nowrap; }
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
 nav a:hover { text-decoration: underline; }
 
 /* 9) Contenu */
@@ -64,7 +74,12 @@ main p, main li { overflow-wrap: break-word; }
 @media (max-width: 800px) {
   .brand .title { display: none; }
 
-  nav { display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: .95rem; }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    font-size: .95rem;
+  }
 
   nav a {
     white-space: normal;
@@ -93,20 +108,36 @@ header, main, footer {
 }
 
 /* 11) Polices spéciales */
-.gbd-title {
+.gbd-title,
+.gbd-title * {
   font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
 }
 
-.gbd-text {
+.gbd-text,
+.gbd-text * {
   font-family: 'Archivo', sans-serif;
 }
 
 .leas-title,
-.leas-text {
+.leas-title * {
+  font-family: 'Special Elite', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.leas-text,
+.leas-text * {
   font-family: 'Special Elite', cursive;
 }
 
 .baw-title,
-.baw-text {
+.baw-title * {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
+
+.baw-text,
+.baw-text * {
   font-family: 'Noto Sans', sans-serif;
 }
