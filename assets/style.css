@@ -180,7 +180,7 @@ header, main, footer {
 }
 @media (orientation: landscape) and (max-width: 932px) {
   body::before {
-    background-position: 65% center;
-    background-size: cover;
+    background-size: 150% 100%;
+    background-position: center center;
   }
 }
