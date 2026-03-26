@@ -178,8 +178,12 @@ header, main, footer {
 .brand .title {
   display: none;
 }
-@media (orientation: landscape) and (max-width: 932px) {
+@media (orientation: landscape) and (max-height: 500px) {
   main {
-    background: rgba(255, 255, 255, 0.8);
+    width: 72vw !important;
+    max-width: 72vw !important;
+    margin: 0 auto !important;
+    padding: 16px 18px !important;
+    background: rgba(255, 255, 255, 0.88) !important;
   }
 }
