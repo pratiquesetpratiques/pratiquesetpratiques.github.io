@@ -179,8 +179,7 @@ header, main, footer {
   display: none;
 }
 @media (orientation: landscape) and (max-width: 932px) {
-  body::before {
-    background-size: 150% 100%;
-    background-position: center center;
+  main {
+    background: rgba(255, 255, 255, 0.8);
   }
 }
