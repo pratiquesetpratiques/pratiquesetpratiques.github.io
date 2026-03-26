@@ -180,10 +180,22 @@ header, main, footer {
 }
 @media (orientation: landscape) and (max-height: 500px) {
   header,
-  main {
+  main,
+  footer {
     width: 72vw !important;
     max-width: 72vw !important;
     margin: 0 auto !important;
+  }
+
+  header {
+    padding: 12px 18px !important;
+  }
+
+  main {
     padding: 16px 18px !important;
+  }
+
+  footer {
+    padding: 12px 18px !important;
   }
 }
