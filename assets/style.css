@@ -152,9 +152,11 @@ header, main, footer {
 .baw-text * {
   font-family: 'Noto Sans', sans-serif;
 }
+
 .leas-title.section-start {
   margin-top: 4rem;
 }
+
 .boma-logo-wrap {
   text-align: center;
   margin: 0 auto 0.8rem auto;
@@ -167,6 +169,7 @@ header, main, footer {
   height: auto;
   margin: 0 auto;
 }
+
 .section-logo {
   height: 2.0em;
   width: auto;
@@ -175,9 +178,11 @@ header, main, footer {
   vertical-align: middle;
   display: inline-block;
 }
+
 .brand .title {
   display: none;
 }
+
 @media (orientation: landscape) and (max-height: 500px) {
   header,
   main,
@@ -197,5 +202,98 @@ header, main, footer {
 
   footer {
     padding: 12px 18px !important;
+  }
+}
+
+/* 13) Références GBD */
+.gbd-ref-list {
+  margin: 1.2rem 0;
+  padding: 0;
+}
+
+.gbd-ref {
+  font-family: 'Archivo', sans-serif;
+  text-align: left !important;
+  text-justify: auto;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+
+  margin: 0;
+  padding-left: 2.2em;
+  text-indent: -2.2em;
+  line-height: 1.55;
+}
+
+.gbd-ref-number {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+}
+
+.gbd-ref i,
+.gbd-ref em {
+  font-style: italic;
+}
+
+/* 14) Abstract sous référence GBD */
+.gbd-ref-abstract {
+  position: relative;
+  margin: 0.45rem 0 1.2rem 2.8em;
+  padding: 0.1rem 0 0.1rem 1.35rem;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-align: left !important;
+  text-justify: auto;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+.gbd-ref-abstract::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  bottom: 0.1em;
+  width: 22px;
+  background:
+    linear-gradient(to right,
+      #d62828 0 3px,
+      transparent 3px 5px,
+      #fcbf49 5px 8px,
+      transparent 8px 10px,
+      #2a9d8f 10px 13px,
+      transparent 13px 15px,
+      #457b9d 15px 18px,
+      transparent 18px 22px);
+}
+
+@media (max-width: 600px) {
+  .gbd-ref {
+    padding-left: 1.9em;
+    text-indent: -1.9em;
+    line-height: 1.5;
+  }
+
+  .gbd-ref-abstract {
+    margin-left: 2.35em;
+    padding-left: 1rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .gbd-ref-abstract::before {
+    width: 18px;
+    background:
+      linear-gradient(to right,
+        #d62828 0 2px,
+        transparent 2px 4px,
+        #fcbf49 4px 6px,
+        transparent 6px 8px,
+        #2a9d8f 8px 10px,
+        transparent 10px 12px,
+        #457b9d 12px 14px,
+        transparent 14px 18px);
   }
 }
