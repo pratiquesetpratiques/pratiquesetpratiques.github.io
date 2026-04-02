@@ -206,6 +206,12 @@ footer {
   max-width: 240px;
   height: auto;
   margin: 0 auto;
+  opacity: 0.9;
+  filter:
+    drop-shadow(-2px 0 0 #ff453a)
+    drop-shadow(2px 0 0 #ffd60a)
+    drop-shadow(0 -2px 0 #30d158)
+    drop-shadow(0 2px 0 #0a84ff);
 }
 
 .section-logo {
