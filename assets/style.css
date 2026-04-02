@@ -426,3 +426,27 @@ footer {
     font-size: 1.18rem;
   }
 }
+/* 17) Liens du header en polices alternées */
+.nav-mixed {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nav-mixed .f1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+}
+
+.nav-mixed .f2 {
+  font-family: 'Special Elite', cursive;
+}
+
+.nav-mixed .f3 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+}
+
+.nav-mixed .f4 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
