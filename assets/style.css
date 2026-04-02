@@ -1,3 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;1,400;1,700&family=Archivo+Black&family=EB+Garamond:wght@400;700&family=Noto+Sans:wght@400;700&family=Special+Elite&display=swap');
+
+/* 1) Variables */
+:root {
+  --max: 900px;
+  --font-body: 'EB Garamond', serif;
+  --size-body: 1rem;
+  --size-title: 1.15rem;
+}
+
+/* 2) Reset / base */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; }
+
+/* 3) Typo globale */
+html, body, body * {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: #222;
+  font-size: var(--size-body);
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* 4) Layout */
+main {
+  max-width: var(--max);
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.small { font-size: .95rem; }
+
+/* 5) En-tête & pied de page */
+header {
+  padding: 24px 16px;
+  border-bottom: none;
+}
+
+footer {
+  padding: 24px 16px;
+  border-top: none;
+  color: #666;
+  font-size: .95rem;
+}
+
+/* 6) Marque */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  padding: 20px 0;
+}
+
+.brand img {
+  height: 72px;
+  width: auto;
+  vertical-align: middle;
+}
+
+header .title {
+  font-weight: 700;
+  font-size: var(--size-title);
+}
+
+@media (max-width: 520px) {
+  .brand .title { display: none; }
+}
+
+/* 7) Sélecteur de langue */
+.lang-switch { float: right; }
+
+/* 8) Navigation */
+nav { font-size: inherit; }
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav a:hover { text-decoration: underline; }
+
+@media (max-width: 800px) {
+  .brand .title { display: none; }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    font-size: .95rem;
+  }
+
+  nav a {
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+  }
+}
+
+/* 9) Contenu */
+main p,
+main li,
+main blockquote {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* 10) Fond */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/assets/background.jpg') center center / cover no-repeat;
+  z-index: -1;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+}
+
+header,
+main,
+footer {
+  background: transparent;
+}
+
+/* 11) Espacement des sections */
+.section-start {
+  margin-top: 2.8rem;
+  margin-bottom: 0.8rem;
+}
+
+/* 12) Polices spéciales */
+.gbd-title,
+.gbd-title * {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+}
+
+.gbd-text,
+.gbd-text * {
+  font-family: 'Archivo', sans-serif;
+}
+
+.leas-title,
+.leas-title * {
+  font-family: 'Special Elite', cursive;
+  letter-spacing: 0.02em;
+}
+
+.leas-text,
+.leas-text * {
+  font-family: 'Special Elite', cursive;
+  text-align: left !important;
+  text-justify: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.baw-title,
+.baw-title * {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
+
+.baw-text,
+.baw-text * {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.leas-title.section-start {
+  margin-top: 4rem;
+}
+
+.boma-logo-wrap {
+  text-align: center;
+  margin: 0 auto 0.8rem auto;
+}
+
+.boma-logo {
+  display: block;
+  width: 240px;
+  max-width: 240px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.section-logo {
+  height: 2em;
+  width: auto;
+  max-width: none;
+  margin-left: 0.35em;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.brand .title {
+  display: none;
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  header,
+  main,
+  footer {
+    width: 72vw !important;
+    max-width: 72vw !important;
+    margin: 0 auto !important;
+  }
+
+  header {
+    padding: 12px 18px !important;
+  }
+
+  main {
+    padding: 16px 18px !important;
+  }
+
+  footer {
+    padding: 12px 18px !important;
+  }
+}
+
+/* 13) Références GBD */
+.gbd-ref-list {
+  margin: 1.2rem 0;
+  padding: 0;
+}
+
+.gbd-ref {
+  margin: 0;
+  padding-left: 2.2em;
+  text-indent: -2.2em;
+  line-height: 1.55;
+  text-align: left !important;
+  text-justify: auto;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.gbd-ref,
+.gbd-ref * {
+  font-family: 'Archivo', sans-serif;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.gbd-ref-number {
+  font-family: 'Archivo Black', sans-serif !important;
+  font-weight: 400;
+}
+
+.gbd-ref em,
+.gbd-ref i {
+  font-family: 'Archivo', sans-serif;
+  font-style: italic;
+}
+
+/* 14) Abstract sous référence */
+.gbd-ref-abstract {
+  position: relative;
+  margin: 0.5rem 0 1.4rem 2.85em;
+  padding: 0.1rem 0 0.1rem 1.5rem;
+  font-family: 'Archivo', sans-serif !important;
+  font-size: 0.78rem !important;
+  line-height: 1.45;
+  text-align: justify !important;
+  text-justify: inter-word;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.gbd-ref-abstract * {
+  font-family: 'Archivo', sans-serif !important;
+  font-size: inherit !important;
+  line-height: inherit;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.gbd-ref-abstract::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.08em;
+  bottom: 0.08em;
+  width: 26px;
+  background:
+    linear-gradient(to right,
+      #ff453a 0 3px,
+      transparent 3px 6px,
+      #ffd60a 6px 9px,
+      transparent 9px 12px,
+      #30d158 12px 15px,
+      transparent 15px 18px,
+      #0a84ff 18px 21px,
+      transparent 21px 26px);
+  border-radius: 2px;
+}
+
 /* 15) Comité éditorial avec retrait négatif */
 .editorial-list {
   margin: 1.2rem 0;
@@ -18,7 +352,35 @@
   -ms-hyphens: none;
 }
 
+/* Responsive */
 @media (max-width: 600px) {
+  .gbd-ref {
+    padding-left: 1.95em;
+    text-indent: -1.95em;
+    line-height: 1.5;
+  }
+
+  .gbd-ref-abstract {
+    margin-left: 2.35em;
+    padding-left: 1.25rem;
+    font-size: 0.72rem !important;
+    line-height: 1.4;
+  }
+
+  .gbd-ref-abstract::before {
+    width: 22px;
+    background:
+      linear-gradient(to right,
+        #ff453a 0 2px,
+        transparent 2px 5px,
+        #ffd60a 5px 7px,
+        transparent 7px 10px,
+        #30d158 10px 12px,
+        transparent 12px 15px,
+        #0a84ff 15px 17px,
+        transparent 17px 22px);
+  }
+
   .editorial-item {
     padding-left: 1.95em;
     text-indent: -1.95em;
