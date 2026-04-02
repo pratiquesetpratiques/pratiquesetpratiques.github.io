@@ -178,7 +178,7 @@ header, main, footer {
 }
 
 .section-logo {
-  height: 2.0em;
+  height: 2em;
   width: auto;
   max-width: none;
   margin-left: 0.35em;
@@ -258,8 +258,9 @@ header, main, footer {
   position: relative;
   margin: 0.5rem 0 1.4rem 2.85em;
   padding: 0.1rem 0 0.1rem 1.5rem;
-  font-size: 0.88rem;
-  line-height: 1.5;
+  font-family: 'Archivo', sans-serif !important;
+  font-size: 0.78rem !important;
+  line-height: 1.45;
   text-align: justify !important;
   text-justify: inter-word;
   word-break: normal;
@@ -269,10 +270,10 @@ header, main, footer {
   -ms-hyphens: none;
 }
 
-.gbd-ref-abstract,
 .gbd-ref-abstract * {
-  font-family: 'Archivo', sans-serif;
-  font-size: inherit;
+  font-family: 'Archivo', sans-serif !important;
+  font-size: inherit !important;
+  line-height: inherit;
   word-break: normal;
   overflow-wrap: normal;
   hyphens: none;
@@ -289,11 +290,11 @@ header, main, footer {
   width: 26px;
   background:
     linear-gradient(to right,
-      #ff3b30 0 3px,
+      #ff453a 0 3px,
       transparent 3px 6px,
       #ffd60a 6px 9px,
       transparent 9px 12px,
-      #32d74b 12px 15px,
+      #30d158 12px 15px,
       transparent 15px 18px,
       #0a84ff 18px 21px,
       transparent 21px 26px);
@@ -310,19 +311,19 @@ header, main, footer {
   .gbd-ref-abstract {
     margin-left: 2.35em;
     padding-left: 1.25rem;
-    font-size: 0.82rem;
-    line-height: 1.45;
+    font-size: 0.72rem !important;
+    line-height: 1.4;
   }
 
   .gbd-ref-abstract::before {
     width: 22px;
     background:
       linear-gradient(to right,
-        #ff3b30 0 2px,
+        #ff453a 0 2px,
         transparent 2px 5px,
         #ffd60a 5px 7px,
         transparent 7px 10px,
-        #32d74b 10px 12px,
+        #30d158 10px 12px,
         transparent 12px 15px,
         #0a84ff 15px 17px,
         transparent 17px 22px);
