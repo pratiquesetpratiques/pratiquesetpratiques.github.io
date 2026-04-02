@@ -329,3 +329,40 @@ header, main, footer {
         transparent 17px 22px);
   }
 }
+/* 15) Comité éditorial avec retrait négatif */
+.editorial-list {
+  margin: 1.2rem 0;
+  padding: 0;
+}
+
+.editorial-item {
+  margin: 0 0 0.45rem 0;
+  padding-left: 2.2em;
+  text-indent: -2.2em;
+  line-height: 1.55;
+  text-align: left !important;
+  text-justify: auto;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.editorial-item,
+.editorial-item * {
+  font-family: 'Archivo', sans-serif;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+@media (max-width: 600px) {
+  .editorial-item {
+    padding-left: 1.95em;
+    text-indent: -1.95em;
+    line-height: 1.5;
+  }
+}
