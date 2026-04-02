@@ -387,3 +387,41 @@ footer {
     line-height: 1.5;
   }
 }
+/* 16) Année stylisée avant la référence */
+.issue-year {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.08em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.issue-year span {
+  font-size: 1.35rem;
+  color: #222;
+}
+
+.issue-year .y1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+}
+
+.issue-year .y2 {
+  font-family: 'Special Elite', cursive;
+}
+
+.issue-year .y3 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+}
+
+.issue-year .y4 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .issue-year span {
+    font-size: 1.18rem;
+  }
+}
