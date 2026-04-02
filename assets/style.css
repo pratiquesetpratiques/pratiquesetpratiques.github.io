@@ -450,3 +450,30 @@ footer {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
 }
+/* 18) Texte mixte */
+.mix-4,
+.mix-2 {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.mix-4 .f1,
+.mix-2 .f1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+}
+
+.mix-4 .f2,
+.mix-2 .f2 {
+  font-family: 'Special Elite', cursive;
+}
+
+.mix-4 .f3 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+}
+
+.mix-4 .f4 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
