@@ -159,6 +159,11 @@ footer {
   font-weight: 400;
 }
 
+.gbd-title {
+  text-align: left !important;
+  text-justify: auto;
+}
+
 .gbd-text,
 .gbd-text * {
   font-family: 'Archivo', sans-serif;
@@ -388,6 +393,7 @@ footer {
     line-height: 1.5;
   }
 }
+
 /* 16) Année stylisée avant la référence */
 .issue-year {
   display: inline-flex;
@@ -426,6 +432,7 @@ footer {
     font-size: 1.18rem;
   }
 }
+
 /* 17) Liens du header en polices alternées */
 .nav-mixed {
   display: inline-block;
@@ -450,6 +457,7 @@ footer {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
 }
+
 /* 18) Texte mixte */
 .mix-4,
 .mix-2 {
