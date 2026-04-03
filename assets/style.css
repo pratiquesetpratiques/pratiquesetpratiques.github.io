@@ -52,6 +52,8 @@ footer {
   border-top: none;
   color: #666;
   font-size: .95rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* 6) Marque */
@@ -201,17 +203,24 @@ footer {
 }
 
 .boma-logo-wrap {
+  display: block;
   text-align: center;
   margin: 0 auto 0.8rem auto;
+  line-height: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .boma-logo {
-  display: block;
+  display: block !important;
   width: 240px;
-  max-width: 240px;
+  max-width: min(240px, 80vw);
   height: auto;
   margin: 0 auto;
   opacity: 0.3;
+  visibility: visible !important;
+  position: relative;
+  z-index: 2;
 }
 
 .section-logo {
