@@ -531,7 +531,7 @@ footer {
   padding: 0.1rem 0 0.1rem 1.2rem;
   font-family: 'Special Elite', cursive !important;
   font-size: 0.78rem !important;
-  line-height: 1.45;
+  line-height: 1.45 !important;
   text-align: left !important;
   text-justify: auto;
   word-break: normal;
@@ -542,10 +542,12 @@ footer {
 }
 
 .leas-ref-abstract,
-.leas-ref-abstract * {
+.leas-ref-abstract *,
+p.leas-ref-abstract,
+p.leas-ref-abstract * {
   font-family: 'Special Elite', cursive !important;
-  font-size: inherit !important;
-  line-height: inherit;
+  font-size: 0.78rem !important;
+  line-height: 1.45 !important;
 }
 
 .leas-ref-abstract::before {
@@ -576,8 +578,14 @@ footer {
   .leas-ref-abstract {
     margin-left: 2.35em;
     padding-left: 1rem;
+  }
+
+  .leas-ref-abstract,
+  .leas-ref-abstract *,
+  p.leas-ref-abstract,
+  p.leas-ref-abstract * {
     font-size: 0.72rem !important;
-    line-height: 1.4;
+    line-height: 1.4 !important;
   }
 
   .leas-ref-abstract::before {
