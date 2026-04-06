@@ -494,3 +494,80 @@ footer {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
 }
+/* 19) Références LEAS */
+.leas-ref-list {
+  margin: 1.2rem 0;
+  padding: 0;
+}
+
+.leas-ref {
+  margin: 0;
+  padding-left: 2.2em;
+  text-indent: -2.2em;
+  line-height: 1.55;
+  text-align: left !important;
+  text-justify: auto;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  font-family: 'Special Elite', cursive !important;
+}
+
+.leas-ref,
+.leas-ref * {
+  font-family: 'Special Elite', cursive !important;
+}
+
+.leas-ref-abstract {
+  position: relative;
+  margin: 0.5rem 0 1.4rem 2.85em;
+  padding: 0.1rem 0 0.1rem 1.2rem;
+  font-family: 'Special Elite', cursive !important;
+  font-size: 0.78rem !important;
+  line-height: 1.45;
+  text-align: left !important;
+  text-justify: auto;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.leas-ref-abstract,
+.leas-ref-abstract * {
+  font-family: 'Special Elite', cursive !important;
+  font-size: inherit !important;
+  line-height: inherit;
+}
+
+.leas-ref-abstract::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.08em;
+  bottom: 0.08em;
+  border-left: 3px dotted #c00000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .leas-ref {
+    padding-left: 1.95em;
+    text-indent: -1.95em;
+    line-height: 1.5;
+  }
+
+  .leas-ref-abstract {
+    margin-left: 2.35em;
+    padding-left: 1rem;
+    font-size: 0.72rem !important;
+    line-height: 1.4;
+  }
+
+  .leas-ref-abstract::before {
+    border-left-width: 2px;
+  }
+}
