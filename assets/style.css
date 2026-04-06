@@ -530,7 +530,7 @@ footer {
   margin: 0.5rem 0 1.4rem 2.85em;
   padding: 0.1rem 0 0.1rem 1.2rem;
   font-family: 'Special Elite', cursive !important;
-  font-size: inherit !important;
+  font-size: 0.78rem !important;
   line-height: 1.45;
   text-align: left !important;
   text-justify: auto;
@@ -557,6 +557,14 @@ footer {
   border-left: 3px dotted #ff453a;
 }
 
+.leas-ref a,
+.leas-ref a:visited,
+.leas-ref-abstract a,
+.leas-ref-abstract a:visited {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .leas-ref {
@@ -568,6 +576,7 @@ footer {
   .leas-ref-abstract {
     margin-left: 2.35em;
     padding-left: 1rem;
+    font-size: 0.72rem !important;
     line-height: 1.4;
   }
 
