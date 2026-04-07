@@ -592,16 +592,6 @@ p.leas-ref-abstract * {
     border-left-width: 2px;
   }
 }
-/* Ajustement optique des sigles mixtes dans le corps du texte */
-main p .mix-4 .f1,
-main p .mix-2 .f1 {
-  font-size: 0.84rem !important;
-}
-
-main p .mix-4 .f2,
-main p .mix-2 .f2 {
-  font-size: 0.88rem !important;
-}
 
 main p .mix-4 .f4 {
   font-size: 0.88rem !important;
