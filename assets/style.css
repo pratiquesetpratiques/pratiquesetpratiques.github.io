@@ -596,3 +596,91 @@ p.leas-ref-abstract * {
 main p .mix-4 .f4 {
   font-size: 0.88rem !important;
 }
+/* 20) Équilibrage optique global des polices */
+:root {
+  --scale-archivo-black: 0.90;
+  --scale-special-elite: 0.93;
+  --scale-noto-sans: 0.94;
+}
+
+/* Titres de section */
+.gbd-title,
+.gbd-title * {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: calc(1em * var(--scale-archivo-black));
+}
+
+.leas-title,
+.leas-title * {
+  font-family: 'Special Elite', cursive;
+  letter-spacing: 0.02em;
+  font-size: calc(1em * var(--scale-special-elite));
+}
+
+.baw-title,
+.baw-title * {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: calc(1em * var(--scale-noto-sans));
+}
+
+/* Texte courant des sections */
+.gbd-text,
+.gbd-text * {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.96em;
+}
+
+.leas-text,
+.leas-text * {
+  font-family: 'Special Elite', cursive;
+  font-size: calc(1em * var(--scale-special-elite));
+  text-align: left !important;
+  text-justify: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.baw-text,
+.baw-text * {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: calc(1em * var(--scale-noto-sans));
+}
+
+/* Texte mixte dans le corps */
+.mix-4 .f1,
+.mix-2 .f1 {
+  font-size: calc(1em * var(--scale-archivo-black));
+}
+
+.mix-4 .f2,
+.mix-2 .f2 {
+  font-size: calc(1em * var(--scale-special-elite));
+}
+
+.mix-4 .f3 {
+  font-size: 1em;
+}
+
+.mix-4 .f4 {
+  font-size: calc(1em * var(--scale-noto-sans));
+}
+
+/* Navigation mixte */
+.nav-mixed .f1 {
+  font-size: calc(1em * var(--scale-archivo-black));
+}
+
+.nav-mixed .f2 {
+  font-size: calc(1em * var(--scale-special-elite));
+}
+
+.nav-mixed .f3 {
+  font-size: 1em;
+}
+
+.nav-mixed .f4 {
+  font-size: calc(1em * var(--scale-noto-sans));
+}
