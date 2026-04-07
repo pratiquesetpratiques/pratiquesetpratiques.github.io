@@ -597,3 +597,60 @@ p.leas-ref-abstract * {
 main p .mix-4 .f4 {
   font-size: 0.88rem !important;
 }
+/* Réduction légère des polices non-Garamond */
+.gbd-title,
+.gbd-title *,
+.gbd-ref-number {
+  font-size: 0.94em;
+}
+
+.gbd-text,
+.gbd-text *,
+.gbd-ref,
+.gbd-ref *,
+.gbd-ref-abstract,
+.gbd-ref-abstract * {
+  font-size: 0.96em;
+}
+
+.leas-title,
+.leas-title *,
+.leas-ref,
+.leas-ref *,
+.leas-ref-number {
+  font-size: 0.94em;
+}
+
+.leas-text,
+.leas-text *,
+.leas-ref-abstract,
+.leas-ref-abstract * {
+  font-size: 0.96em !important;
+}
+
+.baw-title,
+.baw-title * {
+  font-size: 0.95em;
+}
+
+.baw-text,
+.baw-text * {
+  font-size: 0.97em;
+}
+
+.nav-mixed .f1,
+.mix-4 .f1,
+.mix-2 .f1 {
+  font-size: 0.94em;
+}
+
+.nav-mixed .f2,
+.mix-4 .f2,
+.mix-2 .f2 {
+  font-size: 0.95em;
+}
+
+.nav-mixed .f4,
+.mix-4 .f4 {
+  font-size: 0.96em;
+}
