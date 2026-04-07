@@ -597,60 +597,57 @@ p.leas-ref-abstract * {
 main p .mix-4 .f4 {
   font-size: 0.88rem !important;
 }
-/* Réduction légère des polices non-Garamond */
-.gbd-title,
-.gbd-title *,
-.gbd-ref-number {
-  font-size: 0.94em;
-}
-
+/* Réduction ciblée des polices non-Garamond */
 .gbd-text,
 .gbd-text *,
 .gbd-ref,
 .gbd-ref *,
 .gbd-ref-abstract,
 .gbd-ref-abstract * {
-  font-size: 0.96em;
+  font-size: 0.96em !important;
+}
+
+.gbd-title,
+.gbd-title *,
+.gbd-ref-number {
+  font-size: 0.94em !important;
 }
 
 .leas-title,
 .leas-title *,
-.leas-ref,
-.leas-ref *,
-.leas-ref-number {
-  font-size: 0.94em;
-}
-
 .leas-text,
 .leas-text *,
+.leas-ref,
+.leas-ref *,
+.leas-ref-number,
 .leas-ref-abstract,
 .leas-ref-abstract * {
-  font-size: 0.96em !important;
+  font-size: 0.95em !important;
 }
 
 .baw-title,
 .baw-title * {
-  font-size: 0.95em;
+  font-size: 0.95em !important;
 }
 
 .baw-text,
 .baw-text * {
-  font-size: 0.97em;
+  font-size: 0.96em !important;
 }
 
 .nav-mixed .f1,
 .mix-4 .f1,
 .mix-2 .f1 {
-  font-size: 0.94em;
+  font-size: 0.94em !important;
 }
 
 .nav-mixed .f2,
 .mix-4 .f2,
 .mix-2 .f2 {
-  font-size: 0.95em;
+  font-size: 0.95em !important;
 }
 
 .nav-mixed .f4,
 .mix-4 .f4 {
-  font-size: 0.96em;
+  font-size: 0.96em !important;
 }
