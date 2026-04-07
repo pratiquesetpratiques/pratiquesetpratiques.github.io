@@ -597,22 +597,25 @@ p.leas-ref-abstract * {
 main p .mix-4 .f4 {
   font-size: 0.88rem !important;
 }
-/* Réduction ciblée des polices non-Garamond */
+/* 20) Ajustement final des polices
+   - EB Garamond : inchangée
+   - Archivo Black : inchangée
+   - Archivo : réduite fortement
+   - Noto Sans : réduite
+   - Special Elite : réduite modérément
+*/
+
+/* Archivo */
 .gbd-text,
 .gbd-text *,
 .gbd-ref,
 .gbd-ref *,
 .gbd-ref-abstract,
 .gbd-ref-abstract * {
-  font-size: 0.96em !important;
+  font-size: 0.82em !important;
 }
 
-.gbd-title,
-.gbd-title *,
-.gbd-ref-number {
-  font-size: 0.94em !important;
-}
-
+/* Special Elite */
 .leas-title,
 .leas-title *,
 .leas-text,
@@ -622,32 +625,25 @@ main p .mix-4 .f4 {
 .leas-ref-number,
 .leas-ref-abstract,
 .leas-ref-abstract * {
-  font-size: 0.95em !important;
+  font-size: 0.89em !important;
 }
 
+/* Noto Sans */
 .baw-title,
-.baw-title * {
-  font-size: 0.95em !important;
-}
-
+.baw-title *,
 .baw-text,
 .baw-text * {
-  font-size: 0.96em !important;
+  font-size: 0.86em !important;
 }
 
-.nav-mixed .f1,
-.mix-4 .f1,
-.mix-2 .f1 {
-  font-size: 0.94em !important;
-}
-
+/* Texte mixte : on ne touche pas à Archivo Black (.f1) */
 .nav-mixed .f2,
 .mix-4 .f2,
 .mix-2 .f2 {
-  font-size: 0.95em !important;
+  font-size: 0.89em !important; /* Special Elite */
 }
 
 .nav-mixed .f4,
 .mix-4 .f4 {
-  font-size: 0.96em !important;
+  font-size: 0.86em !important; /* Noto Sans */
 }
