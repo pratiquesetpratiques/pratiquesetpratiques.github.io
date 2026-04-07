@@ -14,17 +14,12 @@ html, body { margin: 0; padding: 0; }
 img { max-width: 100%; height: auto; }
 
 /* 3) Typo globale */
-html, body {
+html, body, body * {
   font-family: var(--font-body);
-  font-size: var(--size-body);
   line-height: 1.6;
   letter-spacing: 0;
   color: #222;
-  margin: 0;
-  padding: 0;
-}
-
-body * {
+  font-size: var(--size-body);
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -573,6 +568,7 @@ p.leas-ref-abstract * {
   text-decoration: underline;
 }
 
+/* Responsive */
 @media (max-width: 600px) {
   .leas-ref {
     padding-left: 1.95em;
@@ -596,4 +592,8 @@ p.leas-ref-abstract * {
   .leas-ref-abstract::before {
     border-left-width: 2px;
   }
+}
+
+main p .mix-4 .f4 {
+  font-size: 0.88rem !important;
 }
