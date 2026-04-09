@@ -602,3 +602,42 @@ main p .mix-4 .f4 {
   font-size: 0.87rem !important;
   line-height: 1.5;
 }
+/* Bloc complémentaire sous abstract (GBD / LEAS) */
+.ref-extra {
+  margin: -0.6rem 0 1.4rem 4.1em;
+  font-size: 0.78rem !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+  text-justify: auto;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.ref-extra,
+.ref-extra * {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Variante GBD */
+.gbd-ref-extra,
+.gbd-ref-extra * {
+  font-family: 'Archivo', sans-serif !important;
+}
+
+/* Variante LEAS */
+.leas-ref-extra,
+.leas-ref-extra * {
+  font-family: 'Special Elite', cursive !important;
+}
+
+@media (max-width: 600px) {
+  .ref-extra {
+    margin-left: 3.2em;
+    font-size: 0.72rem !important;
+    line-height: 1.4 !important;
+  }
+}
