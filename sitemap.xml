@@ -7,42 +7,48 @@
     <loc>https://pratiquesetpratiques.github.io/fr/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/en/about.html"/>
   </url>
 
   <url>
     <loc>https://pratiquesetpratiques.github.io/fr/numeros.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/numeros.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/en/numeros.html"/>
   </url>
 
   <url>
     <loc>https://pratiquesetpratiques.github.io/fr/mentions-legales.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/en/legal-notice.html"/>
   </url>
 
   <url>
-    <loc>https://pratiquesetpratiques.github.io/en/</loc>
+    <loc>https://pratiquesetpratiques.github.io/en/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://pratiquesetpratiques.github.io/en/about-2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/about.html"/>
   </url>
 
   <url>
     <loc>https://pratiquesetpratiques.github.io/en/numeros.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/en/numeros.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/numeros.html"/>
   </url>
 
   <url>
     <loc>https://pratiquesetpratiques.github.io/en/legal-notice.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/en/legal-notice.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/mentions-legales.html"/>
   </url>
 
 </urlset>
