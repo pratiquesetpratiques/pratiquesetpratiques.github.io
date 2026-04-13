@@ -655,3 +655,11 @@ p.leas-ref-extra * {
     line-height: 1.4 !important;
   }
 }
+/* 20) Neutralisation des styles navigateur sur les titres sémantiques */
+h1, h2, h3 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}
