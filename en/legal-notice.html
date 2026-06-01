@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pratiques & Pratiques (P&P) | Legal Notice – Open-Access Journal – BOMA</title>
+  <title>Pratiques &amp; Pratiques (P&P) | Legal Notice – Open-Access Journal – BOMA</title>
   <meta name="description" content="Legal notice for the Pratiques & Pratiques website: publisher, GitHub Pages hosting, intellectual property, CC BY 4.0 license, contact.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pratiquesetpratiques.github.io/en/legal-notice.html">
   <link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/en/legal-notice.html">
   <link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/mentions-legales.html">
   <link rel="alternate" hreflang="x-default" href="https://pratiquesetpratiques.github.io/en/legal-notice.html">
-  <link rel="stylesheet" href="/assets/style.css">
   <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Special+Elite&family=Archivo&family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+  </style>
 </head>
 <body>
+  <canvas id="bg-canvas"></canvas>
   <header>
     <div class="container">
       <a class="brand" href="/en/about.html">
@@ -21,9 +26,7 @@
         <span class="title">Pratiques et pratiques</span>
       </a>
       <span class="lang-switch">
-        <a href="/fr/mentions-legales.html" class="mix-2">
-          <span class="f1">F</span><span class="f2">R</span>
-        </a>
+        <a href="/fr/mentions-legales.html" class="mix-2"><span class="f1">F</span><span class="f2">R</span></a>
       </span>
       <nav aria-label="Main navigation">
         <a href="/en/about.html" class="nav-mixed">
@@ -35,7 +38,6 @@
       </nav>
     </div>
   </header>
-
   <main>
     <article>
       <section aria-labelledby="publisher">
@@ -46,7 +48,6 @@
         Email: <a href="mailto:editionsboma@gmail.com">editionsboma@gmail.com</a><br>
         President and (as such) Editor-in-Chief (directeur de la publication): Edson Poiati Filho</p>
       </section>
-
       <section aria-labelledby="hosting">
         <h2 id="hosting"><br><strong>Hosting, data &amp; cookies</strong></h2>
         <p>This site is hosted on GitHub Pages (GitHub, Inc.). When you visit a GitHub Pages site, GitHub logs and stores the visitor's IP address for security and abuse prevention
@@ -57,7 +58,6 @@
         GitHub, Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, USA<br>
         EU contact: GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, The Netherlands</p>
       </section>
-
       <section aria-labelledby="intellectual-property">
         <h2 id="intellectual-property"><br><strong>Intellectual Property</strong></h2>
         <p>Unless otherwise stated, all content published directly on this website is made available under the
@@ -68,13 +68,11 @@
         <p>Authors retain full copyright over their work and are solely responsible for its content.</p>
         <p>Any reuse, reproduction, or distribution must provide appropriate credit to the author(s) and to the journal as the source, in accordance with the terms of the license.</p>
       </section>
-
       <section aria-labelledby="liability">
         <h2 id="liability"><br><strong>Liability</strong></h2>
         <p>The editorial team makes every effort to ensure the accuracy and timeliness of the information provided on this site, but cannot guarantee the absence of errors or omissions.<br>
         External links are provided for informational purposes only. The journal accepts no responsibility for the content of external websites.</p>
       </section>
-
       <section aria-labelledby="contact">
         <h2 id="contact"><br><strong>Contact</strong></h2>
         <p>For any questions regarding the journal or this website, please contact:<br>
@@ -82,7 +80,6 @@
       </section>
     </article>
   </main>
-
   <footer>
     <div class="container small">
       © Bibliothèque Ouverte des Mondes Anciens, 2026 ·
@@ -90,5 +87,60 @@
       <a href="/en/legal-notice.html">Legal notice</a>
     </div>
   </footer>
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    const fonts = ["'Space Mono', monospace","'Special Elite', cursive","'Archivo', sans-serif","'Archivo Black', sans-serif"];
+    const word = "pratiques";
+    const fontSize = 13, colWidth = 18, charH = 16, scrollSpeed = 0;
+    let W, H, cx, cy, startTime = null;
+    function resize() { canvas.width = W = window.innerWidth; canvas.height = H = window.innerHeight; cx = W/2; cy = H/2; }
+    function draw(ts) {
+      if (!startTime) startTime = ts;
+      const t = (ts - startTime) / 1000;
+      ctx.clearRect(0, 0, W, H);
+      const radius = Math.max(W, H) * 0.75;
+      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      grad.addColorStop(0.00, 'rgba(255,255,255,1)');
+      grad.addColorStop(0.30, 'rgba(255,255,255,0.9)');
+      grad.addColorStop(0.50, 'rgba(255,245,180,0.55)');
+      grad.addColorStop(0.58, 'rgba(255,214,10,0.52)');
+      grad.addColorStop(0.63, 'rgba(48,209,88,0.58)');
+      grad.addColorStop(0.67, 'rgba(10,132,255,0.62)');
+      grad.addColorStop(0.71, 'rgba(140,40,255,0.90)');
+      grad.addColorStop(0.76, 'rgba(200,30,220,0.92)');
+      grad.addColorStop(0.81, 'rgba(240,60,180,0.92)');
+      grad.addColorStop(0.86, 'rgba(255,80,160,0.90)');
+      grad.addColorStop(0.91, 'rgba(255,69,58,0.72)');
+      grad.addColorStop(1.00, 'rgba(255,159,10,0.75)');
+      ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
+      const numCols = Math.ceil(W / colWidth) + 1;
+      const wordLen = word.length, wordH = wordLen * charH;
+      const scrollOffset = (t * scrollSpeed) % wordH;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      for (let col = 0; col < numCols; col++) {
+        const x = col * colWidth + colWidth / 2;
+        const stagger = (col % 2 === 0) ? 0 : wordH * 0.5;
+        const numChars = Math.ceil((H + wordH * 2) / charH);
+        for (let i = 0; i < numChars; i++) {
+          const rawY = i * charH + stagger + scrollOffset - wordH;
+          const y = ((rawY % (H + wordH)) + (H + wordH)) % (H + wordH) - wordH;
+          if (y < -charH || y > H + charH) continue;
+          const charIndex = ((i % wordLen) + wordLen) % wordLen;
+          const phase = col * 0.9 + charIndex * 0.5 + t * 1.6;
+          const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * fonts.length) % fonts.length;
+          const dx = (x - cx) / cx, dy = (y - cy) / cy;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          const opacity = Math.min(0.60, 0.03 + dist*dist*0.60);
+          ctx.font = `${fontSize}px ${fonts[fontIndex]}`;
+          ctx.fillStyle = `rgba(255,255,255,${opacity})`;
+          ctx.fillText(word[charIndex], x, y);
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    document.fonts.ready.then(() => { resize(); requestAnimationFrame(draw); });
+    window.addEventListener('resize', resize);
+  </script>
 </body>
 </html>
