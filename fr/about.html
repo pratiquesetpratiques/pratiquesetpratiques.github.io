@@ -43,16 +43,13 @@
   <meta name="twitter:image" content="https://pratiquesetpratiques.github.io/assets/logo.png">
 
   <!-- ============================================================
-       DUBLIN CORE — granulaire, répété par thème
-       (conforme aux pratiques HAL / OpenAIRE)
+       DUBLIN CORE
        ============================================================ -->
   <meta name="DC.title" content="Pratiques et Pratiques – À propos">
   <meta name="DC.creator" content="Bibliothèque Ouverte des Mondes Anciens (BOMA)">
   <meta name="DC.contributor" content="Edson Poiati Filho">
   <meta name="DC.contributor" content="Florine Bodier">
   <meta name="DC.contributor" content="Victor Braga Gurgel">
-
-  <!-- Sujets répétés en vocabulaire contrôlé -->
   <meta name="DC.subject" content="mondes anciens">
   <meta name="DC.subject" content="égyptologie">
   <meta name="DC.subject" content="égyptologie numérique">
@@ -70,14 +67,11 @@
   <meta name="DC.subject" content="transformation numérique">
   <meta name="DC.subject" content="archéologie">
   <meta name="DC.subject" content="histoire ancienne">
-
-  <!-- Couverture temporelle et géographique -->
   <meta name="DC.coverage" content="Antiquité">
   <meta name="DC.coverage" content="Égypte ancienne">
   <meta name="DC.coverage" content="Proche-Orient ancien">
   <meta name="DC.coverage" content="monde grec">
   <meta name="DC.coverage" content="Rome antique">
-
   <meta name="DC.description" content="Pratiques & Pratiques est une revue en libre accès éditée par la BOMA, publiant des guides bibliographiques évolutifs, des études sur la bibliothéconomie et l'édition scientifique, et des réflexions sur la médiation culturelle des mondes anciens.">
   <meta name="DC.publisher" content="Bibliothèque Ouverte des Mondes Anciens (BOMA)">
   <meta name="DC.language" content="fr">
@@ -91,8 +85,6 @@
 
   <!-- ============================================================
        HIGHWIRE PRESS / GOOGLE SCHOLAR
-       Balises citation_* — indispensables pour l'indexation
-       comme publication académique dans Google Scholar
        ============================================================ -->
   <meta name="citation_journal_title" content="Pratiques & Pratiques">
   <meta name="citation_journal_abbrev" content="P&P">
@@ -100,13 +92,9 @@
   <meta name="citation_language" content="fr">
   <meta name="citation_fulltext_world_readable" content="">
   <meta name="citation_abstract_html_url" content="https://pratiquesetpratiques.github.io/fr/about.html">
-  <!-- Sur les pages d'articles, ajouter également :
-       citation_title, citation_author, citation_date,
-       citation_doi, citation_pdf_url, citation_issn          -->
 
   <!-- ============================================================
-       JSON-LD — schéma enrichi avec sameAs Zenodo, audience,
-       hasPart détaillé, et mots-clés
+       JSON-LD
        ============================================================ -->
   <script type="application/ld+json">
   {
@@ -162,8 +150,30 @@
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- ============================================================
+       BACKGROUND ANIMÉ — polices
+       ============================================================ -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Special+Elite&family=Archivo&family=Archivo+Black&display=swap" rel="stylesheet">
+
+  <style>
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ============================================================
+       BACKGROUND CANVAS
+       ============================================================ -->
+  <canvas id="bg-canvas"></canvas>
+
   <header>
     <div class="container">
       <a class="brand" href="/fr/about.html">
@@ -238,5 +248,13 @@
       <a href="/fr/mentions-legales.html">Mentions légales</a>
     </div>
   </footer>
-</body>
-</html>
+
+  <!-- ============================================================
+       BACKGROUND ANIMÉ — script
+       ============================================================ -->
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const fonts = [
+      "'Space 
