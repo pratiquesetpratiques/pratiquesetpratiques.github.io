@@ -129,14 +129,6 @@ main blockquote {
 }
 
 /* 10) Fond */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('/assets/background.jpg') center center / cover no-repeat;
-  z-index: -1;
-}
-
 body {
   margin: 0;
   background: transparent;
