@@ -87,7 +87,7 @@
     const ctx = canvas.getContext('2d');
     const bgFonts = ["'Space Mono', monospace","'Special Elite', cursive","'Archivo', sans-serif","'Archivo Black', sans-serif","'Homemade Apple', cursive"];
     const word = "pratiques";
-    const fontSize = 13, colWidth = 18, charH = 16, scrollSpeed = 0;
+    const fontSize = 13, colWidth = 18, charH = 16, scrollSpeed = 1;
     let W, H, cx, cy, startTime = null;
     function resize() { canvas.width = W = window.innerWidth; canvas.height = H = window.innerHeight; cx = W/2; cy = H/2; }
     function drawBg(ts) {
