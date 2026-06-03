@@ -287,7 +287,7 @@
 
       spans.forEach((span, i) => {
         // 0.12 = rythme lent, décalage par lettre pour effet vague
-        const phase = now * 0.05 + i * 0.4;
+        const phase = now * 0.01 + i * 0.4;
         const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * uiFonts.length) % uiFonts.length;
         span.style.fontFamily = uiFonts[fontIndex];
       });
