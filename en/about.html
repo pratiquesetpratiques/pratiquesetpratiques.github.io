@@ -162,7 +162,7 @@
       spans.forEach((span, i) => {
         const phase = now * 0.1 + i * 0.4;
         const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * uiFonts.length) % uiFonts.length;
-        span.style.fontFamily = uiFonts[fontIndex];
+        span.style.fontFamily = uiFonts[fontIndex]; span.style.fontSize = uiFonts[fontIndex].includes('Homemade') ? '0.75em' : '';
       });
       requestAnimationFrame(animateSpans);
     }
