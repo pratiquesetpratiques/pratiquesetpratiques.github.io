@@ -91,9 +91,9 @@
       { "@type": "Person", "name": "Victor Braga Gurgel" }
     ],
     "hasPart": [
-      { "@type": "PublicationVolume", "name": "Guides bibliographiques & documentaires", "alternateName": "GBD", "description": "Sélections bibliographiques évolutives sur les mondes anciens." },
-      { "@type": "PublicationVolume", "name": "Librarians & Editors for Ancient Studies. Voices", "alternateName": "LEASv", "description": "Observatoire des défis de la bibliothéconomie et de l'édition spécialisées." },
-      { "@type": "PublicationVolume", "name": "Bridging Ancient Worlds", "alternateName": "BAW", "description": "Réflexions sur la médiation culturelle et scientifique des mondes anciens." }
+      { "@type": "PublicationVolume", "name": "Guides bibliographiques & documentaires", "alternateName": "GBD" },
+      { "@type": "PublicationVolume", "name": "Librarians & Editors for Ancient Studies. Voices", "alternateName": "LEASv" },
+      { "@type": "PublicationVolume", "name": "Bridging Ancient Worlds", "alternateName": "BAW" }
     ]
   }
   </script>
@@ -111,8 +111,21 @@
       z-index: -1;
       pointer-events: none;
     }
+
+    /* Spans animés hors .mix-4 : inline normal */
     .f1, .f2, .f3, .f4 {
       display: inline;
+      transition: font-family 0.8s ease;
+    }
+
+    /* Spans dans .mix-4 : largeur fixe pour éviter le décalage */
+    .mix-4 .f1,
+    .mix-4 .f2,
+    .mix-4 .f3,
+    .mix-4 .f4 {
+      display: inline-block;
+      text-align: center;
+      overflow: hidden;
       transition: font-family 0.8s ease;
     }
   </style>
@@ -225,7 +238,6 @@
       if (!startTime) startTime = ts;
       const t = (ts - startTime) / 1000;
       ctx.clearRect(0, 0, W, H);
-
       const radius = Math.max(W, H) * 0.75;
       const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
       grad.addColorStop(0.00, 'rgba(255,255,255,1)');
@@ -271,7 +283,8 @@
     }
 
     // ============================================================
-    // ANIMATION DES SPANS f1-f4 — rythme lent, 5 polices
+    // ANIMATION DES SPANS — largeur fixée au démarrage pour
+    // éviter les décalages quand Homemade Apple apparaît
     // ============================================================
     const uiFonts = [
       "'Archivo Black', sans-serif",
@@ -281,22 +294,33 @@
       "'Homemade Apple', cursive"
     ];
 
+    function lockSpanWidths() {
+      // On mesure et fixe la largeur de chaque span AVANT l'animation
+      document.querySelectorAll('.f1, .f2, .f3, .f4').forEach(span => {
+        const w = span.getBoundingClientRect().width;
+        if (w > 0) {
+          span.style.display = 'inline-block';
+          span.style.width = w + 'px';
+          span.style.textAlign = 'center';
+          span.style.overflow = 'hidden';
+        }
+      });
+    }
+
     function animateSpans() {
       const spans = document.querySelectorAll('.f1, .f2, .f3, .f4');
       const now = performance.now() / 1000;
-
       spans.forEach((span, i) => {
-        // 0.12 = rythme lent, décalage par lettre pour effet vague
         const phase = now * 0.01 + i * 0.4;
         const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * uiFonts.length) % uiFonts.length;
         span.style.fontFamily = uiFonts[fontIndex];
       });
-
       requestAnimationFrame(animateSpans);
     }
 
     document.fonts.ready.then(() => {
       resize();
+      lockSpanWidths();   // fixer les largeurs avant d'animer
       requestAnimationFrame(drawBg);
       requestAnimationFrame(animateSpans);
     });
