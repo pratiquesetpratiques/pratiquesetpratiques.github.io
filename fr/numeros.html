@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pratiques &amp; Pratiques (P&P) | Tous les numéros – Revue en libre accès – BOMA</title>
   <meta name="description" content="Tous les articles publiés dans Pratiques et Pratiques (P&P) : guides bibliographiques sur les mondes anciens, études sur l'édition scientifique et le marché des revues, textes funéraires égyptiens et égyptologie numérique. Accès libre sur Zenodo et HAL, licence CC BY 4.0.">
-  <meta name="keywords" content="Pratiques et Pratiques, P&P, guides bibliographiques, mondes anciens, édition scientifique, égyptologie, MORTEXVAR, Zenodo, HAL, BOMA, open access, histoire ancienne">
   <meta name="author" content="Bibliothèque Ouverte des Mondes Anciens (BOMA)">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pratiquesetpratiques.github.io/fr/numeros.html">
@@ -14,27 +13,12 @@
   <link rel="alternate" hreflang="x-default" href="https://pratiquesetpratiques.github.io/en/numeros.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pratiques et Pratiques (P&P) – Tous les numéros | Revue en libre accès">
-  <meta property="og:description" content="Articles en libre accès : guides bibliographiques sur les mondes anciens, édition scientifique, textes funéraires égyptiens et égyptologie numérique. BOMA, Zenodo, HAL, CC BY 4.0.">
   <meta property="og:url" content="https://pratiquesetpratiques.github.io/fr/numeros.html">
   <meta property="og:image" content="https://pratiquesetpratiques.github.io/assets/logo.png">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Pratiques & Pratiques">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Pratiques et Pratiques (P&P) – Tous les numéros | Revue en libre accès">
   <meta name="twitter:image" content="https://pratiquesetpratiques.github.io/assets/logo.png">
-  <meta name="DC.title" content="Pratiques et Pratiques – Tous les numéros">
-  <meta name="DC.creator" content="Bibliothèque Ouverte des Mondes Anciens (BOMA)">
-  <meta name="DC.contributor" content="Sébastien Marchand">
-  <meta name="DC.contributor" content="Sven Günther">
-  <meta name="DC.contributor" content="Luiza Osorio G. Silva">
-  <meta name="DC.contributor" content="Carlos Gracia Zamacona">
-  <meta name="DC.publisher" content="Bibliothèque Ouverte des Mondes Anciens (BOMA)">
-  <meta name="DC.language" content="fr">
-  <meta name="DC.rights" content="CC BY 4.0 https://creativecommons.org/licenses/by/4.0/">
-  <meta name="DC.type" content="CollectionPage">
-  <meta name="DC.identifier" scheme="DCTERMS.URI" content="https://pratiquesetpratiques.github.io/fr/numeros.html">
-  <meta name="DC.relation" content="https://zenodo.org/communities/pratiquesetpratiques/">
-  <meta name="DC.date" content="2026">
   <meta name="citation_journal_title" content="Pratiques & Pratiques">
   <meta name="citation_journal_abbrev" content="P&P">
   <meta name="citation_publisher" content="Bibliothèque Ouverte des Mondes Anciens (BOMA)">
@@ -74,6 +58,7 @@
     #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
     .f1, .f2, .f3, .f4 { display: inline; transition: font-family 0.8s ease; }
     .mix-4 .f1, .mix-4 .f2, .mix-4 .f3, .mix-4 .f4 { display: inline-block; text-align: center; overflow: hidden; transition: font-family 0.8s ease; }
+    .y1, .y2, .y3, .y4 { display: inline-block; text-align: center; transition: font-family 0.8s ease; }
   </style>
 </head>
 <body>
@@ -120,7 +105,7 @@
             <span class="leas-ref-number">2.</span> Sven Günther, «&nbsp;Journal of Ancient Civilizations (JAC), or How to place an Afro-Eurasian antiquity journal in the scholarly market&nbsp;», Librarians &amp; Editors for Ancient Studies. Voices, 19&nbsp;p. <a href="https://doi.org/10.5281/zenodo.19171355" target="_blank" rel="noopener noreferrer">10.5281/zenodo.19171355</a>.
           </p>
           <p class="leas-ref-abstract">
-            This paper delineates the development of the <em>Journal of Ancient Civilizations</em> (JAC) — published by the Institute for the History of Ancient Civilizations (IHAC), Northeast Normal University, Changchun, China — and its contributions to the scholarly world. JAC — representing the inner DNA of IHAC — has transformed from an institute's network-based platform into an internationally recognized scholarly publication which serves to bridge the gap between Chinese scholars studying the Ancient Afro-Eurasian world and the latest international research. This paper reviews the transformation process which has already taken place and addresses the challenges currently being faced by the integrated institution-journal-identity model in a rapidly changing journal market which trends towards digital publishing.
+            This paper delineates the development of the <em>Journal of Ancient Civilizations</em> (JAC) — published by the Institute for the History of Ancient Civilizations (IHAC), Northeast Normal University, Changchun, China — and its contributions to the scholarly world. JAC has transformed from an institute's network-based platform into an internationally recognized scholarly publication which serves to bridge the gap between Chinese scholars studying the Ancient Afro-Eurasian world and the latest international research. This paper reviews the transformation process and addresses the challenges currently being faced by the integrated institution-journal-identity model in a rapidly changing journal market which trends towards digital publishing.
           </p>
         </article>
         <article aria-labelledby="ref-3">
@@ -182,14 +167,13 @@
       ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
       const numCols = Math.ceil(W / colWidth) + 1;
       const wordLen = word.length, wordH = wordLen * charH;
-      const scrollOffset = (t * scrollSpeed) % wordH;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       for (let col = 0; col < numCols; col++) {
         const x = col * colWidth + colWidth / 2;
         const stagger = (col % 2 === 0) ? 0 : wordH * 0.5;
         const numChars = Math.ceil((H + wordH * 2) / charH);
         for (let i = 0; i < numChars; i++) {
-          const rawY = i * charH + stagger + scrollOffset - wordH;
+          const rawY = i * charH + stagger - wordH;
           const y = ((rawY % (H + wordH)) + (H + wordH)) % (H + wordH) - wordH;
           if (y < -charH || y > H + charH) continue;
           const charIndex = ((i % wordLen) + wordLen) % wordLen;
@@ -207,13 +191,13 @@
     }
     const uiFonts = ["'Archivo Black', sans-serif","'Special Elite', cursive","'Archivo', sans-serif","'Space Mono', monospace","'Homemade Apple', cursive"];
     function lockSpanWidths() {
-      document.querySelectorAll('.f1, .f2, .f3, .f4').forEach(span => {
+      document.querySelectorAll('.f1, .f2, .f3, .f4, .y1, .y2, .y3, .y4').forEach(span => {
         const w = span.getBoundingClientRect().width;
         if (w > 0) { span.style.display = 'inline-block'; span.style.width = (w * 1.4) + 'px'; span.style.textAlign = 'center'; span.style.overflow = 'hidden'; }
       });
     }
     function animateSpans() {
-      const spans = document.querySelectorAll('.f1, .f2, .f3, .f4');
+      const spans = document.querySelectorAll('.f1, .f2, .f3, .f4, .y1, .y2, .y3, .y4');
       const now = performance.now() / 1000;
       spans.forEach((span, i) => {
         const phase = now * 0.1 + i * 0.4;
