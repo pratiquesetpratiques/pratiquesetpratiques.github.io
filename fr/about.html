@@ -83,46 +83,28 @@
     "inLanguage": ["fr", "de", "en", "es", "it", "pt"],
     "isAccessibleForFree": true,
     "keywords": "égyptologie, égyptologie numérique, mondes anciens, bibliothéconomie, science ouverte, médiation culturelle, médiation scientifique, édition scientifique, libre accès, matériaux pédagogiques, bibliodiversité, thésaurus, marché du livre, histoire ancienne, archéologie",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Bibliothèque Ouverte des Mondes Anciens",
-      "alternateName": "BOMA"
-    },
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Chercheurs, bibliothécaires, éditeurs et médiateurs spécialisés dans les sciences des mondes anciens"
-    },
+    "publisher": { "@type": "Organization", "name": "Bibliothèque Ouverte des Mondes Anciens", "alternateName": "BOMA" },
+    "audience": { "@type": "Audience", "audienceType": "Chercheurs, bibliothécaires, éditeurs et médiateurs spécialisés dans les sciences des mondes anciens" },
     "editor": [
       { "@type": "Person", "name": "Edson Poiati Filho" },
       { "@type": "Person", "name": "Florine Bodier" },
       { "@type": "Person", "name": "Victor Braga Gurgel" }
     ],
     "hasPart": [
-      {
-        "@type": "PublicationVolume",
-        "name": "Guides bibliographiques & documentaires",
-        "alternateName": "GBD",
-        "description": "Sélections bibliographiques évolutives sur les mondes anciens."
-      },
-      {
-        "@type": "PublicationVolume",
-        "name": "Librarians & Editors for Ancient Studies. Voices",
-        "alternateName": "LEASv",
-        "description": "Observatoire des défis de la bibliothéconomie et de l'édition spécialisées."
-      },
-      {
-        "@type": "PublicationVolume",
-        "name": "Bridging Ancient Worlds",
-        "alternateName": "BAW",
-        "description": "Réflexions sur la médiation culturelle et scientifique des mondes anciens."
-      }
+      { "@type": "PublicationVolume", "name": "Guides bibliographiques & documentaires", "alternateName": "GBD", "description": "Sélections bibliographiques évolutives sur les mondes anciens." },
+      { "@type": "PublicationVolume", "name": "Librarians & Editors for Ancient Studies. Voices", "alternateName": "LEASv", "description": "Observatoire des défis de la bibliothéconomie et de l'édition spécialisées." },
+      { "@type": "PublicationVolume", "name": "Bridging Ancient Worlds", "alternateName": "BAW", "description": "Réflexions sur la médiation culturelle et scientifique des mondes anciens." }
     ]
   }
   </script>
 
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/assets/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Special+Elite&family=Archivo&family=Archivo+Black&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       POLICES : background + interface + manuscrite
+       ============================================================ -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Special+Elite&family=Archivo:wght@400;700&family=Archivo+Black&family=Homemade+Apple&display=swap" rel="stylesheet">
 
   <style>
     #bg-canvas {
@@ -132,6 +114,12 @@
       height: 100%;
       z-index: -1;
       pointer-events: none;
+    }
+
+    /* Les spans animés héritent la taille et couleur du parent */
+    .f1, .f2, .f3, .f4 {
+      display: inline;
+      transition: font-family 0.8s ease;
     }
   </style>
 </head>
@@ -215,10 +203,13 @@
   </footer>
 
   <script>
+    // ============================================================
+    // BACKGROUND CANVAS
+    // ============================================================
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
 
-    const fonts = [
+    const bgFonts = [
       "'Space Mono', monospace",
       "'Special Elite', cursive",
       "'Archivo', sans-serif",
@@ -226,89 +217,95 @@
     ];
 
     const word = "pratiques";
-    const fontSize = 13;
-    const colWidth = 18;
-    const charH = 16;
-    const scrollSpeed = 1;
-
-    let W, H, cx, cy;
-    let startTime = null;
+    const fontSize = 13, colWidth = 18, charH = 16, scrollSpeed = 0;
+    let W, H, cx, cy, startTime = null;
 
     function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      W = canvas.width;
-      H = canvas.height;
-      cx = W / 2;
-      cy = H / 2;
+      canvas.width = W = window.innerWidth;
+      canvas.height = H = window.innerHeight;
+      cx = W / 2; cy = H / 2;
     }
 
-    function draw(ts) {
+    function drawBg(ts) {
       if (!startTime) startTime = ts;
       const t = (ts - startTime) / 1000;
-
       ctx.clearRect(0, 0, W, H);
 
-      // Centre intact (0.00 à 0.50), rose/violet renforcés sur les bords
       const radius = Math.max(W, H) * 0.75;
       const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
       grad.addColorStop(0.00, 'rgba(255,255,255,1)');
       grad.addColorStop(0.30, 'rgba(255,255,255,0.9)');
       grad.addColorStop(0.50, 'rgba(255,245,180,0.55)');
-      grad.addColorStop(0.58, 'rgba(255,214,10,0.52)');       // jaune
-      grad.addColorStop(0.63, 'rgba(48,209,88,0.58)');        // vert
-      grad.addColorStop(0.67, 'rgba(10,132,255,0.62)');       // bleu
-      grad.addColorStop(0.71, 'rgba(140,40,255,0.90)');       // violet profond
-      grad.addColorStop(0.76, 'rgba(200,30,220,0.92)');       // violet-rose
-      grad.addColorStop(0.81, 'rgba(240,60,180,0.92)');       // rose vif
-      grad.addColorStop(0.86, 'rgba(255,80,160,0.90)');       // rose chaud
-      grad.addColorStop(0.91, 'rgba(255,69,58,0.72)');        // rouge
-      grad.addColorStop(1.00, 'rgba(255,159,10,0.75)');       // orange
+      grad.addColorStop(0.58, 'rgba(255,214,10,0.52)');
+      grad.addColorStop(0.63, 'rgba(48,209,88,0.58)');
+      grad.addColorStop(0.67, 'rgba(10,132,255,0.62)');
+      grad.addColorStop(0.71, 'rgba(140,40,255,0.90)');
+      grad.addColorStop(0.76, 'rgba(200,30,220,0.92)');
+      grad.addColorStop(0.81, 'rgba(240,60,180,0.92)');
+      grad.addColorStop(0.86, 'rgba(255,80,160,0.90)');
+      grad.addColorStop(0.91, 'rgba(255,69,58,0.72)');
+      grad.addColorStop(1.00, 'rgba(255,159,10,0.75)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
 
       const numCols = Math.ceil(W / colWidth) + 1;
-      const wordLen = word.length;
-      const wordH = wordLen * charH;
+      const wordLen = word.length, wordH = wordLen * charH;
       const scrollOffset = (t * scrollSpeed) % wordH;
-
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
 
       for (let col = 0; col < numCols; col++) {
         const x = col * colWidth + colWidth / 2;
         const stagger = (col % 2 === 0) ? 0 : wordH * 0.5;
         const numChars = Math.ceil((H + wordH * 2) / charH);
-
         for (let i = 0; i < numChars; i++) {
           const rawY = i * charH + stagger + scrollOffset - wordH;
           const y = ((rawY % (H + wordH)) + (H + wordH)) % (H + wordH) - wordH;
-
           if (y < -charH || y > H + charH) continue;
-
           const charIndex = ((i % wordLen) + wordLen) % wordLen;
-          const char = word[charIndex];
-
           const phase = col * 0.9 + charIndex * 0.5 + t * 1.6;
-          const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * fonts.length) % fonts.length;
-
-          const dx = (x - cx) / cx;
-          const dy = (y - cy) / cy;
+          const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * bgFonts.length) % bgFonts.length;
+          const dx = (x - cx) / cx, dy = (y - cy) / cy;
           const dist = Math.sqrt(dx * dx + dy * dy);
           const opacity = Math.min(0.60, 0.03 + dist * dist * 0.60);
-
-          ctx.font = `${fontSize}px ${fonts[fontIndex]}`;
+          ctx.font = `${fontSize}px ${bgFonts[fontIndex]}`;
           ctx.fillStyle = `rgba(255,255,255,${opacity})`;
-          ctx.fillText(char, x, y);
+          ctx.fillText(word[charIndex], x, y);
         }
       }
+      requestAnimationFrame(drawBg);
+    }
 
-      requestAnimationFrame(draw);
+    // ============================================================
+    // ANIMATION DES SPANS f1-f4 (titres, nav, corps)
+    // 5 polices dont Homemade Apple, rythme lent
+    // ============================================================
+    const uiFonts = [
+      "'Archivo Black', sans-serif",
+      "'Special Elite', cursive",
+      "'Archivo', sans-serif",
+      "'Space Mono', monospace",
+      "'Homemade Apple', cursive"
+    ];
+
+    function animateSpans() {
+      const spans = document.querySelectorAll('.f1, .f2, .f3, .f4');
+      const now = performance.now() / 1000;
+
+      spans.forEach((span, i) => {
+        // Phase lente : cycle complet toutes ~12 secondes par lettre
+        // Décalage par index pour effet vague
+        const phase = now * 0.25 + i * 0.4;
+        const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * uiFonts.length) % uiFonts.length;
+        span.style.fontFamily = uiFonts[fontIndex];
+      });
+
+      requestAnimationFrame(animateSpans);
     }
 
     document.fonts.ready.then(() => {
       resize();
-      requestAnimationFrame(draw);
+      requestAnimationFrame(drawBg);
+      requestAnimationFrame(animateSpans);
     });
 
     window.addEventListener('resize', resize);
