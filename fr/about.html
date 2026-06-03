@@ -311,7 +311,7 @@
       const spans = document.querySelectorAll('.f1, .f2, .f3, .f4');
       const now = performance.now() / 1000;
       spans.forEach((span, i) => {
-        const phase = now * 0.01 + i * 0.4;
+        const phase = now * 0.03 + i * 0.4;
         const fontIndex = Math.floor(((Math.sin(phase) + 1) / 2) * uiFonts.length) % uiFonts.length;
         span.style.fontFamily = uiFonts[fontIndex];
       });
