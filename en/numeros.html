@@ -163,13 +163,14 @@
       ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
       const numCols = Math.ceil(W / colWidth) + 1;
       const wordLen = word.length, wordH = wordLen * charH;
+      const scrollOffset = (t * scrollSpeed) % wordH;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       for (let col = 0; col < numCols; col++) {
         const x = col * colWidth + colWidth / 2;
         const stagger = (col % 2 === 0) ? 0 : wordH * 0.5;
         const numChars = Math.ceil((H + wordH * 2) / charH);
         for (let i = 0; i < numChars; i++) {
-          const rawY = i * charH + stagger - wordH;
+          const rawY = i * charH + stagger + scrollOffset - wordH;
           const y = ((rawY % (H + wordH)) + (H + wordH)) % (H + wordH) - wordH;
           if (y < -charH || y > H + charH) continue;
           const charIndex = ((i % wordLen) + wordLen) % wordLen;
