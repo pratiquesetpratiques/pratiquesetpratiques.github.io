@@ -17,6 +17,7 @@
     #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
     .f1, .f2, .f3, .f4 { display: inline; transition: font-family 0.8s ease; }
     .mix-4 .f1, .mix-4 .f2, .mix-4 .f3, .mix-4 .f4 { display: inline-block; text-align: center; overflow: hidden; transition: font-family 0.8s ease; }
+    .y1, .y2, .y3, .y4 { display: inline-block; text-align: center; transition: font-family 0.8s ease; }
   </style>
 </head>
 <body>
@@ -129,13 +130,13 @@
     }
     const uiFonts = ["'Archivo Black', sans-serif","'Special Elite', cursive","'Archivo', sans-serif","'Space Mono', monospace","'Homemade Apple', cursive"];
     function lockSpanWidths() {
-      document.querySelectorAll('.f1, .f2, .f3, .f4').forEach(span => {
+      document.querySelectorAll('.f1, .f2, .f3, .f4, .y1, .y2, .y3, .y4').forEach(span => {
         const w = span.getBoundingClientRect().width;
         if (w > 0) { span.style.display = 'inline-block'; span.style.width = (w * 1.4) + 'px'; span.style.textAlign = 'center'; span.style.overflow = 'hidden'; }
       });
     }
     function animateSpans() {
-      const spans = document.querySelectorAll('.f1, .f2, .f3, .f4');
+      const spans = document.querySelectorAll('.f1, .f2, .f3, .f4, .y1, .y2, .y3, .y4');
       const now = performance.now() / 1000;
       spans.forEach((span, i) => {
         const phase = now * 0.1 + i * 0.4;
