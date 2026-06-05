@@ -318,7 +318,18 @@
       requestAnimationFrame(animateSpans);
     }
 
-    document.fonts.ready.then(() => {
+  const rcColors = ['#ffd60a','#30d158','#0a84ff','#8c28ff','#c81edc','#f050b4','#ff453a'];
+function animateRainbow() {
+  const now = performance.now() / 1000;
+  document.querySelectorAll('.rc').forEach((letter, i) => {
+    const phase = now * 0.15 + i * 0.5;
+    const idx = Math.floor(((Math.sin(phase) + 1) / 2) * rcColors.length) % rcColors.length;
+    letter.style.color = rcColors[idx];
+  });
+  requestAnimationFrame(animateRainbow);
+}
+  
+document.fonts.ready.then(() => {
       resize();
       lockSpanWidths();   // fixer les largeurs avant d'animer
       requestAnimationFrame(drawBg);
