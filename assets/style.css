@@ -96,7 +96,7 @@ nav a {
 nav a:hover { text-decoration: underline; }
 @media (max-width: 800px) {
   nav a {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 }
 
