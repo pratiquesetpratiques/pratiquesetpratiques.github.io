@@ -666,6 +666,6 @@ h1, h2, h3 {
 .rc { display: inline; transition: color 0.8s ease; }
 @media (min-width: 801px) {
   nav a {
-    margin-right: 15px;
+    margin-right: 24px;
   }
 }
