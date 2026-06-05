@@ -96,6 +96,10 @@ nav a {
 nav a:hover { text-decoration: underline; }
 
 @media (max-width: 800px) {
+  nav {
+    gap: 12px 10px;
+  }
+ {
   .brand .title { display: none; }
 
   nav {
