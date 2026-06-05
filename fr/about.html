@@ -181,7 +181,7 @@
     const greek = { p:"π", a:"α", t:"τ", i:"ι", e:"ε" };
 
     const altScripts = {};
-    "pratiques".split("").forEach(c => {
+    "pratiquesm".split("").forEach(c => {
       altScripts[c] = [];
       if (hieroglyphs[c]) { const sz = c === 'p' ? '0.85em' : '0.75em'; altScripts[c].push({ char: hieroglyphs[c], font: HIERO_FONT, size: sz }); }
       if (greek[c])       altScripts[c].push({ char: greek[c],       font: GREEK_FONT, size: "0.75em" });
