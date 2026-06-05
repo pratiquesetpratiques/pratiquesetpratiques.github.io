@@ -97,7 +97,7 @@ nav a:hover { text-decoration: underline; }
 
 @media (max-width: 800px) {
   nav a {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .brand .title { display: none; }
