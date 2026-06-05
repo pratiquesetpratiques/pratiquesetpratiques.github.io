@@ -97,7 +97,13 @@ nav a:hover { text-decoration: underline; }
 
 @media (max-width: 800px) {
   nav a {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
   }
 
   .brand .title { display: none; }
@@ -109,16 +115,16 @@ nav a:hover { text-decoration: underline; }
     font-size: .95rem;
   }
 
-  nav a {
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
+  main {
+    padding-top: 8px;
   }
 }
 
+@media (min-width: 801px) {
+  nav a {
+    margin-right: 24px;
+  }
+}
 /* 9) Contenu */
 main p,
 main li,
