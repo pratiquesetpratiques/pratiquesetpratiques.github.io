@@ -662,3 +662,5 @@ h1, h2, h3 {
   height: 100%;
   z-index: -1;
 }
+.rainbow-word { display: inline; }
+.rc { display: inline; transition: color 0.8s ease; }
