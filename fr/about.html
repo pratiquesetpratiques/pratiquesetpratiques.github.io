@@ -77,7 +77,7 @@
     #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
     .f1, .f2, .f3, .f4 { display: inline; transition: font-family 0.8s ease; }
     .mix-4 .f1, .mix-4 .f2, .mix-4 .f3, .mix-4 .f4 { display: inline-block; text-align: center; overflow: hidden; transition: font-family 0.8s ease; }
-    .rainbow-word { display: inline; }
+    .rainbow-word { display: inline; font-weight: bold; }
     .rc { display: inline; transition: color 0.3s ease; }
     .font-preload { position: absolute; opacity: 0; font-size: 1px; pointer-events: none; }
   </style>
@@ -86,8 +86,8 @@
 
   <canvas id="bg-canvas"></canvas>
 
-  <!-- Préchargement des hiéroglyphes -->
-  <span class="font-preload" aria-hidden="true" style="font-family:'Noto Sans Egyptian Hieroglyphs';">𓄿𓿏𓇋𓈎</span>
+  <!-- Préchargement hiéroglyphes : tous les signes utilisés -->
+  <span class="font-preload" aria-hidden="true" style="font-family:'Noto Sans Egyptian Hieroglyphs';">𓄿𓿏𓇋𓈎𓪪</span>
 
   <header>
     <div class="container">
@@ -166,18 +166,22 @@
 
   <script>
     // ============================================================
-    // SCRIPTS ANCIENS — hiéroglyphes A, q, i, t + grec, 0.75em
+    // SCRIPTS ANCIENS
+    // Hiéroglyphes : p, a, q, i, t
+    // Grec : p, a, t, i, q, e (sans s)
+    // Tous à 0.75em
     // ============================================================
     const HIERO_FONT = "'Noto Sans Egyptian Hieroglyphs', sans-serif";
     const GREEK_FONT = "'Noto Sans', sans-serif";
 
     const hieroglyphs = {
+      p: "𓪪",
       a: "𓄿",
-      t: "𓿏",
+      q: "𓈎",
       i: "𓇋",
-      q: "𓈎"
+      t: "𓿏"
     };
-    const greek = { p:"π", a:"α", t:"τ", i:"ι", q:"κ", e:"ε", s:"σ" };
+    const greek = { p:"π", a:"α", t:"τ", i:"ι", q:"κ", e:"ε" };
 
     const altScripts = {};
     "pratiques".split("").forEach(c => {
@@ -188,11 +192,12 @@
 
     // ============================================================
     // BACKGROUND — 5 polices latines, lettre par lettre
+    // + colonnes hiéroglyphiques (~20%)
     // ============================================================
     const canvas = document.getElementById("bg-canvas");
     const ctx    = canvas.getContext("2d");
 
-    const bgFonts = [
+    const bgLatinFonts = [
       "'Space Mono', monospace",
       "'Special Elite', cursive",
       "'Archivo', sans-serif",
@@ -200,14 +205,27 @@
       "'Homemade Apple', cursive"
     ];
 
-    const word = "pratiques";
+    const word      = "pratiques";
+    // Version hiéroglyphique du mot (r, u, e, s gardés en latin car pas de signe)
+    const wordHiero = ["𓪪","r","𓄿","𓿏","𓇋","𓈎","u","e","s"];
+
     const fontSize = 13, colWidth = 18, charH = 16, scrollSpeed = 1;
     let W, H, cx, cy, startTime = null;
+    let colIsHiero = [];
+
+    function buildCols() {
+      colIsHiero = [];
+      const n = Math.ceil(W / colWidth) + 2;
+      for (let col = 0; col < n; col++) {
+        colIsHiero.push(Math.random() < 0.20);
+      }
+    }
 
     function resize() {
       canvas.width  = W = window.innerWidth;
       canvas.height = H = window.innerHeight;
       cx = W / 2; cy = H / 2;
+      buildCols();
     }
 
     function drawBg(ts) {
@@ -241,21 +259,30 @@
         const x       = col * colWidth + colWidth / 2;
         const stagger = (col % 2 === 0) ? 0 : wordH * 0.5;
         const numChars = Math.ceil((H + wordH * 2) / charH);
+        const isHiero  = colIsHiero[col] || false;
 
         for (let i = 0; i < numChars; i++) {
           const rawY = i * charH + stagger + scrollOffset - wordH;
           const y    = ((rawY % (H + wordH)) + (H + wordH)) % (H + wordH) - wordH;
           if (y < -charH || y > H + charH) continue;
           const charIndex = ((i % wordLen) + wordLen) % wordLen;
-          // Police par lettre (pas par colonne)
-          const phase   = col * 0.9 + charIndex * 0.5 + t * 1.6;
-          const colFont = bgFonts[Math.floor(((Math.sin(phase) + 1) / 2) * bgFonts.length) % bgFonts.length];
           const dx = (x - cx) / cx, dy = (y - cy) / cy;
           const dist    = Math.sqrt(dx*dx + dy*dy);
           const opacity = Math.min(0.60, 0.03 + dist*dist*0.60);
-          ctx.font      = fontSize + "px " + colFont;
-          ctx.fillStyle = "rgba(255,255,255," + opacity + ")";
-          ctx.fillText(word[charIndex], x, y);
+
+          if (isHiero) {
+            // Colonne hiéroglyphique : taille réduite
+            ctx.font      = Math.round(fontSize * 0.75) + "px " + HIERO_FONT;
+            ctx.fillStyle = "rgba(255,255,255," + opacity + ")";
+            ctx.fillText(wordHiero[charIndex], x, y);
+          } else {
+            // Colonne latine : police par lettre
+            const phase   = col * 0.9 + charIndex * 0.5 + t * 1.6;
+            const colFont = bgLatinFonts[Math.floor(((Math.sin(phase) + 1) / 2) * bgLatinFonts.length) % bgLatinFonts.length];
+            ctx.font      = fontSize + "px " + colFont;
+            ctx.fillStyle = "rgba(255,255,255," + opacity + ")";
+            ctx.fillText(word[charIndex], x, y);
+          }
         }
       }
       requestAnimationFrame(drawBg);
@@ -317,7 +344,7 @@
     }
 
     // ============================================================
-    // RAINBOW — même vitesse que le fond (1.6)
+    // RAINBOW — gras + vitesse 1.6
     // ============================================================
     const rcColors = ["#ffd60a","#30d158","#0a84ff","#8c28ff","#c81edc","#f050b4","#ff453a"];
 
