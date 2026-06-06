@@ -679,3 +679,6 @@ h1, h2, h3 {
     margin-right: 24px;
   }
 }
+.sections-list {
+    text-align: left;
+}
