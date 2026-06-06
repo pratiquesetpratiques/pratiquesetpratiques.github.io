@@ -215,37 +215,22 @@
       const t = (ts - startTime) / 1000;
       ctx.clearRect(0, 0, W, H);
 
-      // Fond blanc
-ctx.fillStyle = "rgba(255,255,255,1)";
-ctx.fillRect(0, 0, W, H);
-
-// Bord gauche
-const gL = ctx.createLinearGradient(0, 0, W * 0.5, 0);
-gL.addColorStop(0.00, "rgba(255,255,255,1)");
-gL.addColorStop(0.30, "rgba(255,255,255,0.9)");
-gL.addColorStop(0.50, "rgba(255,245,180,0.55)");
-gL.addColorStop(0.62, "rgba(255,214,10,0.52)");
-gL.addColorStop(0.71, "rgba(48,209,88,0.58)");
-gL.addColorStop(0.78, "rgba(10,132,255,0.62)");
-gL.addColorStop(0.84, "rgba(140,40,255,0.90)");
-gL.addColorStop(0.90, "rgba(200,30,220,0.92)");
-gL.addColorStop(0.95, "rgba(240,60,180,0.92)");
-gL.addColorStop(1.00, "rgba(255,80,160,0.90)");
-ctx.fillStyle = gL; ctx.fillRect(0, 0, W, H);
-
-// Bord droit (miroir)
-const gR = ctx.createLinearGradient(W, 0, W * 0.5, 0);
-gR.addColorStop(0.00, "rgba(255,255,255,1)");
-gR.addColorStop(0.30, "rgba(255,255,255,0.9)");
-gR.addColorStop(0.50, "rgba(255,245,180,0.55)");
-gR.addColorStop(0.62, "rgba(255,214,10,0.52)");
-gR.addColorStop(0.71, "rgba(48,209,88,0.58)");
-gR.addColorStop(0.78, "rgba(10,132,255,0.62)");
-gR.addColorStop(0.84, "rgba(140,40,255,0.90)");
-gR.addColorStop(0.90, "rgba(200,30,220,0.92)");
-gR.addColorStop(0.95, "rgba(240,60,180,0.92)");
-gR.addColorStop(1.00, "rgba(255,80,160,0.90)");
-ctx.fillStyle = gR; ctx.fillRect(0, 0, W, H);
+const radius = Math.max(W, H) * 0.75;
+      const grad   = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      grad.addColorStop(0.00, "rgba(255,255,255,1)");
+      grad.addColorStop(0.30, "rgba(255,255,255,0.9)");
+      grad.addColorStop(0.50, "rgba(255,245,180,0.55)");
+      grad.addColorStop(0.58, "rgba(255,214,10,0.52)");
+      grad.addColorStop(0.63, "rgba(48,209,88,0.58)");
+      grad.addColorStop(0.67, "rgba(10,132,255,0.62)");
+      grad.addColorStop(0.71, "rgba(140,40,255,0.90)");
+      grad.addColorStop(0.76, "rgba(200,30,220,0.92)");
+      grad.addColorStop(0.81, "rgba(240,60,180,0.92)");
+      grad.addColorStop(0.86, "rgba(255,80,160,0.90)");
+      grad.addColorStop(0.91, "rgba(255,69,58,0.72)");
+      grad.addColorStop(1.00, "rgba(255,159,10,0.75)");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
 
       const numCols = Math.ceil(W / colWidth) + 1;
       const wordLen = word.length, wordH = wordLen * charH;
