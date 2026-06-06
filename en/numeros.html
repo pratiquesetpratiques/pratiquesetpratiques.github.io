@@ -152,15 +152,24 @@
       if (!startTime) startTime = ts;
       const t = (ts - startTime) / 1000;
       ctx.clearRect(0, 0, W, H);
-      const radius = Math.max(W, H) * 0.75;
-      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-      grad.addColorStop(0.00, 'rgba(255,255,255,1)'); grad.addColorStop(0.30, 'rgba(255,255,255,0.9)');
-      grad.addColorStop(0.50, 'rgba(255,245,180,0.55)'); grad.addColorStop(0.58, 'rgba(255,214,10,0.52)');
-      grad.addColorStop(0.63, 'rgba(48,209,88,0.58)'); grad.addColorStop(0.67, 'rgba(10,132,255,0.62)');
-      grad.addColorStop(0.71, 'rgba(140,40,255,0.90)'); grad.addColorStop(0.76, 'rgba(200,30,220,0.92)');
-      grad.addColorStop(0.81, 'rgba(240,60,180,0.92)'); grad.addColorStop(0.86, 'rgba(255,80,160,0.90)');
-      grad.addColorStop(0.91, 'rgba(255,69,58,0.72)'); grad.addColorStop(1.00, 'rgba(255,159,10,0.75)');
-      ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
+      const grad = ctx.createLinearGradient(0, 0, W, 0);
+
+grad.addColorStop(0.00, "#d2bcff"); // violet
+grad.addColorStop(0.08, "#f2cbe0"); // rose
+
+grad.addColorStop(0.22, "#ffefe8"); // rouge très pâle
+grad.addColorStop(0.38, "#fff7eb"); // orange très pâle
+
+grad.addColorStop(0.50, "#fdfbf4"); // ivoire clair
+
+grad.addColorStop(0.62, "#f5faeb"); // vert très pâle
+grad.addColorStop(0.78, "#eefaf7"); // turquoise très pâle
+
+grad.addColorStop(0.92, "#e3efff"); // bleu pâle
+grad.addColorStop(1.00, "#d2bcff"); // violet
+
+ctx.fillStyle = grad;
+ctx.fillRect(0, 0, W, H);
       const numCols = Math.ceil(W / colWidth) + 1;
       const wordLen = word.length, wordH = wordLen * charH;
       const scrollOffset = (t * scrollSpeed) % wordH;
