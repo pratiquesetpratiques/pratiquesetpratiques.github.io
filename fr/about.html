@@ -217,16 +217,20 @@
 
 const grad = ctx.createLinearGradient(0, 0, W, 0);
 
-grad.addColorStop(0.00, "#6a00ff");
-grad.addColorStop(0.05, "#b15cff");
-grad.addColorStop(0.10, "#ffe066");
+grad.addColorStop(0.00, "#efe4ff");  // violet pâle
+grad.addColorStop(0.08, "#f8dfe8");  // rose pâle
+grad.addColorStop(0.16, "#ffe8e0");  // rouge très pâle
+grad.addColorStop(0.24, "#fff0d6");  // orange pâle
+grad.addColorStop(0.32, "#fff7c8");  // jaune pâle
 
-grad.addColorStop(0.18, "#fff7c2");
-grad.addColorStop(0.82, "#fff7c2");
+grad.addColorStop(0.42, "#fffbe8");  // centre
+grad.addColorStop(0.58, "#fffbe8");
 
-grad.addColorStop(0.90, "#ffe066");
-grad.addColorStop(0.95, "#b15cff");
-grad.addColorStop(1.00, "#6a00ff");
+grad.addColorStop(0.68, "#e7f7d8");  // vert pâle
+grad.addColorStop(0.76, "#dff5ef");  // turquoise pâle
+grad.addColorStop(0.84, "#e1f0ff");  // bleu pâle
+grad.addColorStop(0.92, "#ece7ff");  // violet pâle
+grad.addColorStop(1.00, "#efe4ff");
 
 ctx.fillStyle = grad;
 ctx.fillRect(0, 0, W, H);
