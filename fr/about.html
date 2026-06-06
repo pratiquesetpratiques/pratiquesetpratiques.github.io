@@ -217,20 +217,20 @@
 
 const grad = ctx.createLinearGradient(0, 0, W, 0);
 
-grad.addColorStop(0.00, "#cdb2ff");
-grad.addColorStop(0.10, "#f7b6d2");
-grad.addColorStop(0.20, "#ffb4a2");
-grad.addColorStop(0.30, "#ffd6a5");
-grad.addColorStop(0.40, "#fdffb6");
+grad.addColorStop(0.00, "#d9c2ff");  // violet
+grad.addColorStop(0.10, "#f4c6d8");  // rose
+grad.addColorStop(0.20, "#ffd0c2");  // rouge pâle
+grad.addColorStop(0.30, "#ffe0b3");  // orange
+grad.addColorStop(0.40, "#fff0a8");  // jaune
 
-grad.addColorStop(0.45, "#f4edc0");
-grad.addColorStop(0.55, "#f4edc0");
+grad.addColorStop(0.47, "#f7f0c8");  // centre crème
+grad.addColorStop(0.53, "#f7f0c8");
 
-grad.addColorStop(0.60, "#d9f2b4");
-grad.addColorStop(0.70, "#b8f2e6");
-grad.addColorStop(0.80, "#bde0fe");
-grad.addColorStop(0.90, "#cdb4ff");
-grad.addColorStop(1.00, "#cdb2ff");
+grad.addColorStop(0.60, "#dff0b0");  // vert
+grad.addColorStop(0.70, "#cfeee0");  // turquoise
+grad.addColorStop(0.80, "#cfe0ff");  // bleu
+grad.addColorStop(0.90, "#d8d0ff");  // violet
+grad.addColorStop(1.00, "#d9c2ff");
 
 ctx.fillStyle = grad;
 ctx.fillRect(0, 0, W, H);
