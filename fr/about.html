@@ -217,16 +217,18 @@
 
 const grad = ctx.createLinearGradient(0, 0, W, 0);
 
-grad.addColorStop(0.00, "#e4d4ff"); // violet plus visible
-grad.addColorStop(0.12, "#f9e3ee");
-grad.addColorStop(0.25, "#ffe7df");
-grad.addColorStop(0.38, "#ffeedc");
-grad.addColorStop(0.50, "#fff4d8");
+grad.addColorStop(0.00, "#d3bbff");
+grad.addColorStop(0.12, "#f2cadc");
+grad.addColorStop(0.24, "#ffd5c5");
+grad.addColorStop(0.36, "#ffe4bf");
+grad.addColorStop(0.48, "#fff7e5");
 
-grad.addColorStop(0.62, "#eaf6dc");
-grad.addColorStop(0.75, "#e4f8f2");
-grad.addColorStop(0.88, "#e4f1ff");
-grad.addColorStop(1.00, "#e4d4ff");
+grad.addColorStop(0.52, "#fffcf6");
+
+grad.addColorStop(0.64, "#f0f8df");
+grad.addColorStop(0.76, "#e5f8f2");
+grad.addColorStop(0.88, "#dcecff");
+grad.addColorStop(1.00, "#d3bbff");
 
 ctx.fillStyle = grad;
 ctx.fillRect(0, 0, W, H);
