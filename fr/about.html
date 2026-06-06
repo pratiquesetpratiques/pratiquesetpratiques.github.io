@@ -218,18 +218,19 @@
 const grad = ctx.createLinearGradient(0, 0, W, 0);
 
 grad.addColorStop(0.00, "#ff6b6b");
-grad.addColorStop(0.15, "#ffd93d");
-grad.addColorStop(0.30, "#6bcf7f");
-grad.addColorStop(0.45, "#74c0fc");
-grad.addColorStop(0.50, "#ffffff");
-grad.addColorStop(0.55, "#74c0fc");
-grad.addColorStop(0.70, "#6bcf7f");
-grad.addColorStop(0.85, "#ffd93d");
+grad.addColorStop(0.05, "#ffd93d");
+grad.addColorStop(0.10, "#6bcf7f");
+
+grad.addColorStop(0.15, "#ffffff");
+grad.addColorStop(0.85, "#ffffff");
+
+grad.addColorStop(0.90, "#6bcf7f");
+grad.addColorStop(0.95, "#ffd93d");
 grad.addColorStop(1.00, "#ff6b6b");
 
 ctx.fillStyle = grad;
 ctx.fillRect(0, 0, W, H);
-
+      
       const numCols = Math.ceil(W / colWidth) + 1;
       const wordLen = word.length, wordH = wordLen * charH;
       const scrollOffset = (t * scrollSpeed) % wordH;
