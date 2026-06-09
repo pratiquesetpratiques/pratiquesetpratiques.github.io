@@ -191,20 +191,15 @@ footer {
 
 .baw-title,
 .baw-title * {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
-  font-size: 0.90em;
 }
 
 .baw-text,
 .baw-text * {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.90em;
-.baw-text.home-body-text,
-.baw-text.home-body-text * {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.90em !important;
+  font-family: 'Noto Sans', sans-serif;
 }
+
 .leas-title.section-start {
   margin-top: 4rem;
 }
