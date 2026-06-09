@@ -683,9 +683,9 @@ h1, h2, h3 {
     text-align: center;
 }
 @media (max-width: 600px) {
-  .gbd-text,
-  .leas-text,
-  .baw-text {
+  main p,
+  main li,
+  main blockquote {
     text-align: left;
   }
 }
