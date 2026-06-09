@@ -193,13 +193,13 @@ footer {
 .baw-title * {
   font-family: 'Space Mono', monospace;
   font-weight: 700;
-  font-size: 0.90em;
+  font-size: 0.75em;
 }
 
 .baw-text,
 .baw-text * {
   font-family: 'Space Mono', monospace;
-  font-size: 0.90em;
+  font-size: 0.75em;
 }
 
 .leas-title.section-start {
