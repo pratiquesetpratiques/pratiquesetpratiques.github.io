@@ -682,3 +682,10 @@ h1, h2, h3 {
 .sections-list {
     text-align: center;
 }
+@media (max-width: 600px) {
+  .gbd-text,
+  .leas-text,
+  .baw-text {
+    text-align: left;
+  }
+}
