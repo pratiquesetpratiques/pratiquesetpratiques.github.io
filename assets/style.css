@@ -200,11 +200,10 @@ footer {
 .baw-text * {
   font-family: 'Space Mono', monospace;
   font-size: 0.90em;
-}
 .baw-text.home-body-text,
 .baw-text.home-body-text * {
   font-family: 'Space Mono', monospace;
-  font-size: 0.85em;
+  font-size: 0.90em !important;
 }
 .leas-title.section-start {
   margin-top: 4rem;
