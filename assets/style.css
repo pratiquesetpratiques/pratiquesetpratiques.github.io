@@ -1,33 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;1,400;1,700&family=Archivo+Black&family=EB+Garamond:wght@400;700&family=Noto+Sans:wght@400;700&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;1,400;1,700&family=Archivo+Black&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:wght@400;700&family=Homemade+Apple&family=Manrope:wght@400;500;600;700&family=Noto+Sans:wght@400;700&family=Noto+Sans+Egyptian+Hieroglyphs&family=Space+Mono:wght@400;700&family=Special+Elite&display=swap');
 
-/* 1) Variables */
+
+/* ============================================================
+   1) VARIABLES
+   ============================================================ */
+
 :root {
   --max: 900px;
   --font-body: 'EB Garamond', serif;
-  --size-body: 1.0rem;
+  --size-body: 1rem;
   --size-title: 1.15rem;
 }
 
-/* 2) Reset / base */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-img { max-width: 100%; height: auto; }
 
-/* 3) Typo globale */
-html, body, body * {
+/* ============================================================
+   2) RESET / BASE
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ============================================================
+   3) TYPOGRAPHIE GLOBALE
+   ============================================================ */
+
+html,
+body,
+body * {
   font-family: var(--font-body);
   line-height: 1.6;
   letter-spacing: 0;
   color: #222;
   font-size: var(--size-body);
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
+
   word-break: normal;
   overflow-wrap: normal;
 }
 
-/* 4) Layout */
+
+/* ============================================================
+   4) LAYOUT
+   ============================================================ */
+
 main {
   max-width: var(--max);
   padding: 24px;
@@ -39,9 +70,15 @@ main {
   margin: 0 auto;
 }
 
-.small { font-size: .95rem; }
+.small {
+  font-size: 0.95rem;
+}
 
-/* 5) En-tête & pied de page */
+
+/* ============================================================
+   5) EN-TÊTE & PIED DE PAGE
+   ============================================================ */
+
 header {
   padding: 24px 16px;
   border-bottom: none;
@@ -51,12 +88,16 @@ footer {
   padding: 24px 16px;
   border-top: none;
   color: #666;
-  font-size: .95rem;
+  font-size: 0.95rem;
   position: relative;
   z-index: 1;
 }
 
-/* 6) Marque */
+
+/* ============================================================
+   6) MARQUE
+   ============================================================ */
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -77,15 +118,33 @@ header .title {
   font-size: var(--size-title);
 }
 
-@media (max-width: 520px) {
-  .brand .title { display: none; }
+.brand .title {
+  display: none;
 }
 
-/* 7) Sélecteur de langue */
-.lang-switch { float: right; }
+@media (max-width: 520px) {
+  .brand .title {
+    display: none;
+  }
+}
 
-/* 8) Navigation */
-nav { font-size: inherit; }
+
+/* ============================================================
+   7) SÉLECTEUR DE LANGUE
+   ============================================================ */
+
+.lang-switch {
+  float: right;
+}
+
+
+/* ============================================================
+   8) NAVIGATION
+   ============================================================ */
+
+nav {
+  font-size: inherit;
+}
 
 nav a {
   margin-right: 10px;
@@ -93,9 +152,13 @@ nav a {
   white-space: nowrap;
 }
 
-nav a:hover { text-decoration: underline; }
+nav a:hover {
+  text-decoration: underline;
+}
+
 
 @media (max-width: 800px) {
+
   nav a {
     margin-bottom: 18px;
     white-space: normal;
@@ -106,13 +169,15 @@ nav a:hover { text-decoration: underline; }
     -ms-hyphens: none;
   }
 
-  .brand .title { display: none; }
+  .brand .title {
+    display: none;
+  }
 
   nav {
     display: flex;
     flex-wrap: wrap;
     gap: 6px 10px;
-    font-size: .95rem;
+    font-size: 0.95rem;
   }
 
   main {
@@ -120,25 +185,38 @@ nav a:hover { text-decoration: underline; }
   }
 }
 
+
 @media (min-width: 801px) {
+
   nav a {
     margin-right: 24px;
   }
 }
-/* 9) Contenu */
+
+
+/* ============================================================
+   9) CONTENU
+   ============================================================ */
+
 main p,
 main li,
 main blockquote {
   text-align: justify;
   text-justify: inter-word;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
+
   word-break: normal;
   overflow-wrap: normal;
 }
 
-/* 10) Fond */
+
+/* ============================================================
+   10) FOND
+   ============================================================ */
+
 body {
   margin: 0;
   background: transparent;
@@ -150,13 +228,24 @@ footer {
   background: transparent;
 }
 
-/* 11) Espacement des sections */
+
+/* ============================================================
+   11) ESPACEMENT DES SECTIONS
+   ============================================================ */
+
 .section-start {
   margin-top: 2.8rem;
   margin-bottom: 0.8rem;
 }
 
-/* 12) Polices spéciales */
+
+/* ============================================================
+   12) POLICES SPÉCIALES
+   ============================================================ */
+
+
+/* ---------- GBD ---------- */
+
 .gbd-title,
 .gbd-title * {
   font-family: 'Archivo Black', sans-serif;
@@ -173,6 +262,9 @@ footer {
   font-family: 'Archivo', sans-serif;
 }
 
+
+/* ---------- LEASv ---------- */
+
 .leas-title,
 .leas-title * {
   font-family: 'Special Elite', cursive;
@@ -182,27 +274,64 @@ footer {
 .leas-text,
 .leas-text * {
   font-family: 'Special Elite', cursive;
+
   text-align: left !important;
   text-justify: auto;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
 }
 
-.baw-title,
-.baw-title * {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-}
-
-.baw-text,
-.baw-text * {
-  font-family: 'Space Mono', monospace;
-}
-
 .leas-title.section-start {
   margin-top: 4rem;
 }
+
+
+/* ---------- BAW ---------- */
+
+/*
+   TITRE :
+   Cinzel + capitales
+*/
+
+.baw-title,
+.baw-title * {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+}
+
+
+/*
+   CORPS :
+   Manrope
+*/
+
+.baw-text,
+.baw-text * {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+}
+
+
+/*
+   BAW dans la liste des trois sections
+*/
+
+.baw-list-title {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 600;
+  font-size: 0.80em !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+
+/* ============================================================
+   LOGO BOMA
+   ============================================================ */
 
 .boma-logo-wrap {
   display: block;
@@ -225,6 +354,11 @@ footer {
   z-index: 2;
 }
 
+
+/* ============================================================
+   LOGO DE SECTION
+   ============================================================ */
+
 .section-logo {
   height: 2em;
   width: auto;
@@ -234,11 +368,13 @@ footer {
   display: inline-block;
 }
 
-.brand .title {
-  display: none;
-}
+
+/* ============================================================
+   MODE PAYSAGE MOBILE
+   ============================================================ */
 
 @media (orientation: landscape) and (max-height: 500px) {
+
   header,
   main,
   footer {
@@ -260,7 +396,11 @@ footer {
   }
 }
 
-/* 13) Références GBD */
+
+/* ============================================================
+   13) RÉFÉRENCES GBD
+   ============================================================ */
+
 .gbd-ref-list {
   margin: 1.2rem 0;
   padding: 0;
@@ -271,10 +411,13 @@ footer {
   padding-left: 2.2em;
   text-indent: -2.2em;
   line-height: 1.55;
+
   text-align: left !important;
   text-justify: auto;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -283,8 +426,10 @@ footer {
 .gbd-ref,
 .gbd-ref * {
   font-family: 'Archivo', sans-serif;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -301,18 +446,28 @@ footer {
   font-style: italic;
 }
 
-/* 14) Abstract sous référence */
+
+/* ============================================================
+   14) ABSTRACT SOUS RÉFÉRENCE GBD
+   ============================================================ */
+
 .gbd-ref-abstract {
   position: relative;
+
   margin: 0.5rem 0 1.4rem 2.85em;
   padding: 0.1rem 0 0.1rem 1.5rem;
+
   font-family: 'Archivo', sans-serif !important;
+
   font-size: 0.78rem !important;
   line-height: 1.45;
+
   text-align: justify !important;
   text-justify: inter-word;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -322,8 +477,10 @@ footer {
   font-family: 'Archivo', sans-serif !important;
   font-size: inherit !important;
   line-height: inherit;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -331,13 +488,18 @@ footer {
 
 .gbd-ref-abstract::before {
   content: "";
+
   position: absolute;
+
   left: 0;
   top: 0.08em;
   bottom: 0.08em;
+
   width: 26px;
+
   background:
-    linear-gradient(to right,
+    linear-gradient(
+      to right,
       #ff453a 0 3px,
       transparent 3px 6px,
       #ffd60a 6px 9px,
@@ -345,11 +507,17 @@ footer {
       #30d158 12px 15px,
       transparent 15px 18px,
       #0a84ff 18px 21px,
-      transparent 21px 26px);
+      transparent 21px 26px
+    );
+
   border-radius: 2px;
 }
 
-/* 15) Comité éditorial avec retrait négatif */
+
+/* ============================================================
+   15) COMITÉ ÉDITORIAL
+   ============================================================ */
+
 .editorial-list {
   margin: 1.2rem 0;
   padding: 0;
@@ -357,20 +525,30 @@ footer {
 
 .editorial-item {
   margin: 0 0 0.45rem 0;
+
   padding-left: 2.2em;
   text-indent: -2.2em;
+
   line-height: 1.55;
+
   text-align: left !important;
   text-justify: auto;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
 }
 
-/* Responsive */
+
+/* ============================================================
+   RESPONSIVE GBD / COMITÉ
+   ============================================================ */
+
 @media (max-width: 600px) {
+
   .gbd-ref {
     padding-left: 1.95em;
     text-indent: -1.95em;
@@ -380,14 +558,18 @@ footer {
   .gbd-ref-abstract {
     margin-left: 2.35em;
     padding-left: 1.25rem;
+
     font-size: 0.72rem !important;
     line-height: 1.4;
   }
 
   .gbd-ref-abstract::before {
+
     width: 22px;
+
     background:
-      linear-gradient(to right,
+      linear-gradient(
+        to right,
         #ff453a 0 2px,
         transparent 2px 5px,
         #ffd60a 5px 7px,
@@ -395,7 +577,8 @@ footer {
         #30d158 10px 12px,
         transparent 12px 15px,
         #0a84ff 15px 17px,
-        transparent 17px 22px);
+        transparent 17px 22px
+      );
   }
 
   .editorial-item {
@@ -405,11 +588,16 @@ footer {
   }
 }
 
-/* 16) Année stylisée avant la référence */
+
+/* ============================================================
+   16) ANNÉE STYLISÉE
+   ============================================================ */
+
 .issue-year {
   display: inline-flex;
   align-items: baseline;
   gap: 0.08em;
+
   margin: 0 0 0.5rem 0;
   line-height: 1;
 }
@@ -438,13 +626,19 @@ footer {
   font-weight: 700;
 }
 
+
 @media (max-width: 600px) {
+
   .issue-year span {
     font-size: 1.18rem;
   }
 }
 
-/* 17) Liens du header en polices alternées */
+
+/* ============================================================
+   17) LIENS HEADER EN POLICES ALTERNÉES
+   ============================================================ */
+
 .nav-mixed {
   display: inline-block;
   text-decoration: none;
@@ -469,7 +663,11 @@ footer {
   font-weight: 700;
 }
 
-/* 18) Texte mixte */
+
+/* ============================================================
+   18) TEXTE MIXTE
+   ============================================================ */
+
 .mix-4,
 .mix-2 {
   display: inline-block;
@@ -497,7 +695,11 @@ footer {
   font-weight: 700;
 }
 
-/* 19) Références LEAS */
+
+/* ============================================================
+   19) RÉFÉRENCES LEAS
+   ============================================================ */
+
 .leas-ref-list {
   margin: 1.2rem 0;
   padding: 0;
@@ -505,16 +707,22 @@ footer {
 
 .leas-ref {
   margin: 0;
+
   padding-left: 2.2em;
   text-indent: -2.2em;
+
   line-height: 1.55;
+
   text-align: left !important;
   text-justify: auto;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
+
   font-family: 'Special Elite', cursive !important;
 }
 
@@ -530,15 +738,21 @@ footer {
 
 .leas-ref-abstract {
   position: relative;
+
   margin: 0.5rem 0 1.4rem 2.85em;
   padding: 0.1rem 0 0.1rem 1.2rem;
+
   font-family: 'Special Elite', cursive !important;
+
   font-size: 0.78rem !important;
   line-height: 1.45 !important;
+
   text-align: left !important;
   text-justify: auto;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -555,10 +769,13 @@ p.leas-ref-abstract * {
 
 .leas-ref-abstract::before {
   content: "";
+
   position: absolute;
+
   left: 0;
   top: 0.08em;
   bottom: 0.08em;
+
   border-left: 3px dotted #ff453a;
 }
 
@@ -570,8 +787,13 @@ p.leas-ref-abstract * {
   text-decoration: underline;
 }
 
-/* Responsive */
+
+/* ============================================================
+   RESPONSIVE LEAS
+   ============================================================ */
+
 @media (max-width: 600px) {
+
   .leas-ref {
     padding-left: 1.95em;
     text-indent: -1.95em;
@@ -596,27 +818,47 @@ p.leas-ref-abstract * {
   }
 }
 
+
+/* ============================================================
+   TITRE PRINCIPAL
+   ============================================================ */
+
 main p .mix-4 .f4 {
   font-size: 0.88rem !important;
 }
-/* Texte de la description des sections, pages d'accueil */
+
+
+/* ============================================================
+   TEXTE DESCRIPTIF DES SECTIONS
+   ============================================================ */
+
 .home-body-text {
   font-size: 0.87rem !important;
   line-height: 1.5;
 }
-/* Bloc complémentaire sous abstract (GBD / LEAS) */
+
+
+/* ============================================================
+   BLOC COMPLÉMENTAIRE SOUS ABSTRACT
+   ============================================================ */
+
 .ref-extra {
   margin: -0.9rem 0 1.4rem 4.1em;
+
   text-align: left !important;
   text-justify: auto;
+
   word-break: normal;
   overflow-wrap: normal;
+
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
 }
 
-/* Variante GBD */
+
+/* ---------- Variante GBD ---------- */
+
 .gbd-ref-extra,
 .gbd-ref-extra *,
 p.gbd-ref-extra,
@@ -626,7 +868,9 @@ p.gbd-ref-extra * {
   line-height: 1.45 !important;
 }
 
-/* Variante LEAS */
+
+/* ---------- Variante LEAS ---------- */
+
 .leas-ref-extra,
 .leas-ref-extra *,
 p.leas-ref-extra,
@@ -636,7 +880,9 @@ p.leas-ref-extra * {
   line-height: 1.45 !important;
 }
 
+
 @media (max-width: 600px) {
+
   .ref-extra {
     margin-left: 3.2em;
   }
@@ -657,35 +903,81 @@ p.leas-ref-extra * {
     line-height: 1.4 !important;
   }
 }
-/* 20) Neutralisation des styles navigateur sur les titres sémantiques */
-h1, h2, h3 {
+
+
+/* ============================================================
+   20) NEUTRALISATION DES STYLES NAVIGATEUR
+   ============================================================ */
+
+h1,
+h2,
+h3 {
   font-size: inherit;
   font-weight: inherit;
+
   margin: 0;
   padding: 0;
+
   line-height: inherit;
 }
+
+
+/* ============================================================
+   CANVAS
+   ============================================================ */
+
 #bg-canvas {
   position: fixed;
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   z-index: -1;
 }
-.rainbow-word { display: inline; }
-.rc { display: inline; transition: color 0.8s ease; }
-@media (min-width: 801px) {
-  nav a {
-    margin-right: 24px;
-  }
+
+
+/* ============================================================
+   RAINBOW
+   ============================================================ */
+
+.rainbow-word {
+  display: inline;
 }
+
+.rc {
+  display: inline;
+  transition: color 0.8s ease;
+}
+
+
+/* ============================================================
+   LISTE DES SECTIONS
+   ============================================================ */
+
 .sections-list {
-    text-align: center;
+  text-align: center !important;
+  text-justify: auto;
 }
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
 @media (max-width: 600px) {
+
   main p,
   main li,
   main blockquote {
     text-align: left;
+  }
+
+  /*
+     On maintient malgré tout la liste des trois sections centrée.
+  */
+
+  .sections-list {
+    text-align: center !important;
   }
 }
