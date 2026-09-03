@@ -1,415 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;1,400;1,700&family=Archivo+Black&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:wght@400;700&family=Homemade+Apple&family=Manrope:wght@400;500;600;700&family=Noto+Sans:wght@400;700&family=Noto+Sans+Egyptian+Hieroglyphs&family=Space+Mono:wght@400;700&family=Special+Elite&display=swap');
-
-
 /* ============================================================
-   1) VARIABLES
+   21) RÉFÉRENCES BAW
+   Bridging Ancient Worlds
    ============================================================ */
 
-:root {
-  --max: 900px;
-  --font-body: 'EB Garamond', serif;
-  --size-body: 1rem;
-  --size-title: 1.15rem;
-}
-
-
-/* ============================================================
-   2) RESET / BASE
-   ============================================================ */
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-/* ============================================================
-   3) TYPOGRAPHIE GLOBALE
-   ============================================================ */
-
-html,
-body,
-body * {
-  font-family: var(--font-body);
-  line-height: 1.6;
-  letter-spacing: 0;
-  color: #222;
-  font-size: var(--size-body);
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-
-  word-break: normal;
-  overflow-wrap: normal;
-}
-
-
-/* ============================================================
-   4) LAYOUT
-   ============================================================ */
-
-main {
-  max-width: var(--max);
-  padding: 24px;
-  margin: 0 auto;
-}
-
-.container {
-  max-width: var(--max);
-  margin: 0 auto;
-}
-
-.small {
-  font-size: 0.95rem;
-}
-
-
-/* ============================================================
-   5) EN-TÊTE & PIED DE PAGE
-   ============================================================ */
-
-header {
-  padding: 24px 16px;
-  border-bottom: none;
-}
-
-footer {
-  padding: 24px 16px;
-  border-top: none;
-  color: #666;
-  font-size: 0.95rem;
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ============================================================
-   6) MARQUE
-   ============================================================ */
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  text-decoration: none;
-  color: inherit;
-  padding: 20px 0;
-}
-
-.brand img {
-  height: 72px;
-  width: auto;
-  vertical-align: middle;
-}
-
-header .title {
-  font-weight: 700;
-  font-size: var(--size-title);
-}
-
-.brand .title {
-  display: none;
-}
-
-@media (max-width: 520px) {
-  .brand .title {
-    display: none;
-  }
-}
-
-
-/* ============================================================
-   7) SÉLECTEUR DE LANGUE
-   ============================================================ */
-
-.lang-switch {
-  float: right;
-}
-
-
-/* ============================================================
-   8) NAVIGATION
-   ============================================================ */
-
-nav {
-  font-size: inherit;
-}
-
-nav a {
-  margin-right: 10px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-
-@media (max-width: 800px) {
-
-  nav a {
-    margin-bottom: 18px;
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
-  }
-
-  .brand .title {
-    display: none;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 10px;
-    font-size: 0.95rem;
-  }
-
-  main {
-    padding-top: 3px;
-  }
-}
-
-
-@media (min-width: 801px) {
-
-  nav a {
-    margin-right: 24px;
-  }
-}
-
-
-/* ============================================================
-   9) CONTENU
-   ============================================================ */
-
-main p,
-main li,
-main blockquote {
-  text-align: justify;
-  text-justify: inter-word;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-
-  word-break: normal;
-  overflow-wrap: normal;
-}
-
-
-/* ============================================================
-   10) FOND
-   ============================================================ */
-
-body {
-  margin: 0;
-  background: transparent;
-}
-
-header,
-main,
-footer {
-  background: transparent;
-}
-
-
-/* ============================================================
-   11) ESPACEMENT DES SECTIONS
-   ============================================================ */
-
-.section-start {
-  margin-top: 2.8rem;
-  margin-bottom: 0.8rem;
-}
-
-
-/* ============================================================
-   12) POLICES SPÉCIALES
-   ============================================================ */
-
-
-/* ---------- GBD ---------- */
-
-.gbd-title,
-.gbd-title * {
-  font-family: 'Archivo Black', sans-serif;
-  font-weight: 400;
-}
-
-.gbd-title {
-  text-align: left !important;
-  text-justify: auto;
-}
-
-.gbd-text,
-.gbd-text * {
-  font-family: 'Archivo', sans-serif;
-}
-
-
-/* ---------- LEASv ---------- */
-
-.leas-title,
-.leas-title * {
-  font-family: 'Special Elite', cursive;
-  letter-spacing: 0.02em;
-}
-
-.leas-text,
-.leas-text * {
-  font-family: 'Special Elite', cursive;
-
-  text-align: left !important;
-  text-justify: auto;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-.leas-title.section-start {
-  margin-top: 4rem;
-}
-
-
-/* ---------- BAW ---------- */
-
-/*
-   TITRE :
-   Cinzel + capitales
-*/
-
-.baw-title,
-.baw-title * {
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.045em;
-}
-
-
-/*
-   CORPS :
-   Manrope
-*/
-
-.baw-text,
-.baw-text * {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-}
-
-
-/*
-   BAW dans la liste des trois sections
-*/
-
-.baw-list-title {
-  font-family: 'Cinzel', serif !important;
-  font-weight: 600;
-  font-size: 0.80em !important;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-
-/* ============================================================
-   LOGO BOMA
-   ============================================================ */
-
-.boma-logo-wrap {
-  display: block;
-  text-align: center;
-  margin: 0 auto 0.8rem auto;
-  line-height: 0;
-  position: relative;
-  z-index: 2;
-}
-
-.boma-logo {
-  display: block !important;
-  width: 240px;
-  max-width: min(240px, 80vw);
-  height: auto;
-  margin: 0 auto;
-  opacity: 0.3;
-  visibility: visible !important;
-  position: relative;
-  z-index: 2;
-}
-
-
-/* ============================================================
-   LOGO DE SECTION
-   ============================================================ */
-
-.section-logo {
-  height: 2em;
-  width: auto;
-  max-width: none;
-  margin-left: 0.35em;
-  vertical-align: middle;
-  display: inline-block;
-}
-
-
-/* ============================================================
-   MODE PAYSAGE MOBILE
-   ============================================================ */
-
-@media (orientation: landscape) and (max-height: 500px) {
-
-  header,
-  main,
-  footer {
-    width: 72vw !important;
-    max-width: 72vw !important;
-    margin: 0 auto !important;
-  }
-
-  header {
-    padding: 12px 18px !important;
-  }
-
-  main {
-    padding: 16px 18px !important;
-  }
-
-  footer {
-    padding: 12px 18px !important;
-  }
-}
-
-
-/* ============================================================
-   13) RÉFÉRENCES GBD
-   ============================================================ */
-
-.gbd-ref-list {
+.baw-ref-list {
   margin: 1.2rem 0;
   padding: 0;
 }
 
-.gbd-ref {
+
+/* ============================================================
+   RÉFÉRENCE PRINCIPALE BAW
+   ============================================================ */
+
+.baw-ref {
   margin: 0;
+
   padding-left: 2.2em;
   text-indent: -2.2em;
+
   line-height: 1.55;
 
   text-align: left !important;
@@ -421,11 +30,14 @@ footer {
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
+
+  font-family: 'Manrope', sans-serif !important;
 }
 
-.gbd-ref,
-.gbd-ref * {
-  font-family: 'Archivo', sans-serif;
+
+.baw-ref,
+.baw-ref * {
+  font-family: 'Manrope', sans-serif;
 
   word-break: normal;
   overflow-wrap: normal;
@@ -435,549 +47,205 @@ footer {
   -ms-hyphens: none;
 }
 
-.gbd-ref-number {
-  font-family: 'Archivo Black', sans-serif !important;
-  font-weight: 400;
+
+/* Numéro de publication */
+
+.baw-ref-number {
+  font-family: 'Cinzel', serif !important;
+
+  font-weight: 600;
+
+  color: #8d3221;
 }
 
-.gbd-ref em,
-.gbd-ref i {
-  font-family: 'Archivo', sans-serif;
-  font-style: italic;
+
+/* Nom Bridging Ancient Worlds dans la référence */
+
+.baw-section-name {
+  font-family: 'Cinzel', serif !important;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.025em;
+
+  color: #20415d;
+}
+
+
+/* DOI */
+
+.baw-ref a,
+.baw-ref a:visited {
+  font-family: 'Manrope', sans-serif !important;
+
+  color: #20415d;
+
+  text-decoration-line: underline;
+
+  text-decoration-color: #ed7d29;
+
+  text-decoration-thickness: 1px;
+
+  text-underline-offset: 0.12em;
 }
 
 
 /* ============================================================
-   14) ABSTRACT SOUS RÉFÉRENCE GBD
+   ABSTRACT BAW
    ============================================================ */
 
-.gbd-ref-abstract {
+.baw-ref-abstract {
   position: relative;
 
   margin: 0.5rem 0 1.4rem 2.85em;
-  padding: 0.1rem 0 0.1rem 1.5rem;
 
-  font-family: 'Archivo', sans-serif !important;
+  padding:
+    0.1rem
+    0
+    0.1rem
+    1.45rem;
 
-  font-size: 0.78rem !important;
-  line-height: 1.45;
+  font-family:
+    'Manrope',
+    sans-serif !important;
 
-  text-align: justify !important;
-  text-justify: inter-word;
+  font-size:
+    0.78rem !important;
 
-  word-break: normal;
-  overflow-wrap: normal;
+  line-height:
+    1.45 !important;
 
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
+  text-align:
+    justify !important;
+
+  text-justify:
+    inter-word;
+
+  word-break:
+    normal;
+
+  overflow-wrap:
+    normal;
+
+  hyphens:
+    none;
+
+  -webkit-hyphens:
+    none;
+
+  -ms-hyphens:
+    none;
 }
 
-.gbd-ref-abstract * {
-  font-family: 'Archivo', sans-serif !important;
-  font-size: inherit !important;
-  line-height: inherit;
 
-  word-break: normal;
-  overflow-wrap: normal;
+.baw-ref-abstract,
+.baw-ref-abstract *,
+p.baw-ref-abstract,
+p.baw-ref-abstract * {
 
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
+  font-family:
+    'Manrope',
+    sans-serif !important;
+
+  font-size:
+    0.78rem !important;
+
+  line-height:
+    1.45 !important;
 }
 
-.gbd-ref-abstract::before {
+
+/* ============================================================
+   MARQUEUR BAW
+   Les trois couleurs de Bridging / Ancient / Worlds
+   ============================================================ */
+
+.baw-ref-abstract::before {
   content: "";
 
   position: absolute;
 
   left: 0;
+
   top: 0.08em;
+
   bottom: 0.08em;
 
-  width: 26px;
+  width: 8px;
 
   background:
     linear-gradient(
-      to right,
-      #ff453a 0 3px,
-      transparent 3px 6px,
-      #ffd60a 6px 9px,
-      transparent 9px 12px,
-      #30d158 12px 15px,
-      transparent 15px 18px,
-      #0a84ff 18px 21px,
-      transparent 21px 26px
+      to bottom,
+
+      #8d3221 0%,
+      #8d3221 30%,
+
+      transparent 30%,
+      transparent 35%,
+
+      #ed7d29 35%,
+      #ed7d29 65%,
+
+      transparent 65%,
+      transparent 70%,
+
+      #20415d 70%,
+      #20415d 100%
     );
-
-  border-radius: 2px;
 }
 
 
 /* ============================================================
-   15) COMITÉ ÉDITORIAL
-   ============================================================ */
-
-.editorial-list {
-  margin: 1.2rem 0;
-  padding: 0;
-}
-
-.editorial-item {
-  margin: 0 0 0.45rem 0;
-
-  padding-left: 2.2em;
-  text-indent: -2.2em;
-
-  line-height: 1.55;
-
-  text-align: left !important;
-  text-justify: auto;
-
-  word-break: normal;
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-
-/* ============================================================
-   RESPONSIVE GBD / COMITÉ
+   RESPONSIVE BAW
    ============================================================ */
 
 @media (max-width: 600px) {
 
-  .gbd-ref {
+  .baw-ref {
     padding-left: 1.95em;
+
     text-indent: -1.95em;
+
     line-height: 1.5;
   }
 
-  .gbd-ref-abstract {
+
+  .baw-ref-abstract {
     margin-left: 2.35em;
-    padding-left: 1.25rem;
 
-    font-size: 0.72rem !important;
-    line-height: 1.4;
+    padding-left: 1.15rem;
+
+    font-size:
+      0.72rem !important;
+
+    line-height:
+      1.4 !important;
+
+    text-align:
+      left !important;
+
+    text-justify:
+      auto;
   }
 
-  .gbd-ref-abstract::before {
 
-    width: 22px;
+  .baw-ref-abstract,
+  .baw-ref-abstract *,
+  p.baw-ref-abstract,
+  p.baw-ref-abstract * {
 
-    background:
-      linear-gradient(
-        to right,
-        #ff453a 0 2px,
-        transparent 2px 5px,
-        #ffd60a 5px 7px,
-        transparent 7px 10px,
-        #30d158 10px 12px,
-        transparent 12px 15px,
-        #0a84ff 15px 17px,
-        transparent 17px 22px
-      );
+    font-size:
+      0.72rem !important;
+
+    line-height:
+      1.4 !important;
   }
 
-  .editorial-item {
-    padding-left: 1.95em;
-    text-indent: -1.95em;
-    line-height: 1.5;
-  }
-}
 
-
-/* ============================================================
-   16) ANNÉE STYLISÉE
-   ============================================================ */
-
-.issue-year {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.08em;
-
-  margin: 0 0 0.5rem 0;
-  line-height: 1;
-}
-
-.issue-year span {
-  font-size: 1.35rem;
-  color: #222;
-}
-
-.issue-year .y1 {
-  font-family: 'Archivo Black', sans-serif;
-  font-weight: 400;
-}
-
-.issue-year .y2 {
-  font-family: 'Special Elite', cursive;
-}
-
-.issue-year .y3 {
-  font-family: 'EB Garamond', serif;
-  font-weight: 700;
-}
-
-.issue-year .y4 {
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 700;
-}
-
-
-@media (max-width: 600px) {
-
-  .issue-year span {
-    font-size: 1.18rem;
-  }
-}
-
-
-/* ============================================================
-   17) LIENS HEADER EN POLICES ALTERNÉES
-   ============================================================ */
-
-.nav-mixed {
-  display: inline-block;
-  text-decoration: none;
-}
-
-.nav-mixed .f1 {
-  font-family: 'Archivo Black', sans-serif;
-  font-weight: 400;
-}
-
-.nav-mixed .f2 {
-  font-family: 'Special Elite', cursive;
-}
-
-.nav-mixed .f3 {
-  font-family: 'EB Garamond', serif;
-  font-weight: 700;
-}
-
-.nav-mixed .f4 {
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 700;
-}
-
-
-/* ============================================================
-   18) TEXTE MIXTE
-   ============================================================ */
-
-.mix-4,
-.mix-2 {
-  display: inline-block;
-  text-decoration: none;
-}
-
-.mix-4 .f1,
-.mix-2 .f1 {
-  font-family: 'Archivo Black', sans-serif;
-  font-weight: 400;
-}
-
-.mix-4 .f2,
-.mix-2 .f2 {
-  font-family: 'Special Elite', cursive;
-}
-
-.mix-4 .f3 {
-  font-family: 'EB Garamond', serif;
-  font-weight: 700;
-}
-
-.mix-4 .f4 {
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 700;
-}
-
-
-/* ============================================================
-   19) RÉFÉRENCES LEAS
-   ============================================================ */
-
-.leas-ref-list {
-  margin: 1.2rem 0;
-  padding: 0;
-}
-
-.leas-ref {
-  margin: 0;
-
-  padding-left: 2.2em;
-  text-indent: -2.2em;
-
-  line-height: 1.55;
-
-  text-align: left !important;
-  text-justify: auto;
-
-  word-break: normal;
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-
-  font-family: 'Special Elite', cursive !important;
-}
-
-.leas-ref,
-.leas-ref * {
-  font-family: 'Special Elite', cursive !important;
-}
-
-.leas-ref-number {
-  color: #ff453a;
-  font-family: 'Special Elite', cursive !important;
-}
-
-.leas-ref-abstract {
-  position: relative;
-
-  margin: 0.5rem 0 1.4rem 2.85em;
-  padding: 0.1rem 0 0.1rem 1.2rem;
-
-  font-family: 'Special Elite', cursive !important;
-
-  font-size: 0.78rem !important;
-  line-height: 1.45 !important;
-
-  text-align: left !important;
-  text-justify: auto;
-
-  word-break: normal;
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-.leas-ref-abstract,
-.leas-ref-abstract *,
-p.leas-ref-abstract,
-p.leas-ref-abstract * {
-  font-family: 'Special Elite', cursive !important;
-  font-size: 0.78rem !important;
-  line-height: 1.45 !important;
-}
-
-.leas-ref-abstract::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  top: 0.08em;
-  bottom: 0.08em;
-
-  border-left: 3px dotted #ff453a;
-}
-
-.leas-ref a,
-.leas-ref a:visited,
-.leas-ref-abstract a,
-.leas-ref-abstract a:visited {
-  color: inherit;
-  text-decoration: underline;
-}
-
-
-/* ============================================================
-   RESPONSIVE LEAS
-   ============================================================ */
-
-@media (max-width: 600px) {
-
-  .leas-ref {
-    padding-left: 1.95em;
-    text-indent: -1.95em;
-    line-height: 1.5;
+  .baw-ref-abstract::before {
+    width: 7px;
   }
 
-  .leas-ref-abstract {
-    margin-left: 2.35em;
-    padding-left: 1rem;
-  }
-
-  .leas-ref-abstract,
-  .leas-ref-abstract *,
-  p.leas-ref-abstract,
-  p.leas-ref-abstract * {
-    font-size: 0.72rem !important;
-    line-height: 1.4 !important;
-  }
-
-  .leas-ref-abstract::before {
-    border-left-width: 2px;
-  }
-}
-
-
-/* ============================================================
-   TITRE PRINCIPAL
-   ============================================================ */
-
-main p .mix-4 .f4 {
-  font-size: 0.88rem !important;
-}
-
-
-/* ============================================================
-   TEXTE DESCRIPTIF DES SECTIONS
-   ============================================================ */
-
-.home-body-text {
-  font-size: 0.87rem !important;
-  line-height: 1.5;
-}
-
-
-/* ============================================================
-   BLOC COMPLÉMENTAIRE SOUS ABSTRACT
-   ============================================================ */
-
-.ref-extra {
-  margin: -0.9rem 0 1.4rem 4.1em;
-
-  text-align: left !important;
-  text-justify: auto;
-
-  word-break: normal;
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-
-/* ---------- Variante GBD ---------- */
-
-.gbd-ref-extra,
-.gbd-ref-extra *,
-p.gbd-ref-extra,
-p.gbd-ref-extra * {
-  font-family: 'Archivo', sans-serif !important;
-  font-size: 0.78rem !important;
-  line-height: 1.45 !important;
-}
-
-
-/* ---------- Variante LEAS ---------- */
-
-.leas-ref-extra,
-.leas-ref-extra *,
-p.leas-ref-extra,
-p.leas-ref-extra * {
-  font-family: 'Special Elite', cursive !important;
-  font-size: 0.78rem !important;
-  line-height: 1.45 !important;
-}
-
-
-@media (max-width: 600px) {
-
-  .ref-extra {
-    margin-left: 3.2em;
-  }
-
-  .gbd-ref-extra,
-  .gbd-ref-extra *,
-  p.gbd-ref-extra,
-  p.gbd-ref-extra * {
-    font-size: 0.72rem !important;
-    line-height: 1.4 !important;
-  }
-
-  .leas-ref-extra,
-  .leas-ref-extra *,
-  p.leas-ref-extra,
-  p.leas-ref-extra * {
-    font-size: 0.72rem !important;
-    line-height: 1.4 !important;
-  }
-}
-
-
-/* ============================================================
-   20) NEUTRALISATION DES STYLES NAVIGATEUR
-   ============================================================ */
-
-h1,
-h2,
-h3 {
-  font-size: inherit;
-  font-weight: inherit;
-
-  margin: 0;
-  padding: 0;
-
-  line-height: inherit;
-}
-
-
-/* ============================================================
-   CANVAS
-   ============================================================ */
-
-#bg-canvas {
-  position: fixed;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: -1;
-}
-
-
-/* ============================================================
-   RAINBOW
-   ============================================================ */
-
-.rainbow-word {
-  display: inline;
-}
-
-.rc {
-  display: inline;
-  transition: color 0.8s ease;
-}
-
-
-/* ============================================================
-   LISTE DES SECTIONS
-   ============================================================ */
-
-.sections-list {
-  text-align: center !important;
-  text-justify: auto;
-}
-
-
-/* ============================================================
-   MOBILE
-   ============================================================ */
-
-@media (max-width: 600px) {
-
-  main p,
-  main li,
-  main blockquote {
-    text-align: left;
-  }
-
-  /*
-     On maintient malgré tout la liste des trois sections centrée.
-  */
-
-  .sections-list {
-    text-align: center !important;
-  }
 }
