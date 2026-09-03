@@ -379,7 +379,7 @@ footer {
 
 
 /* ============================================================
-   LOGO BOMA
+   13) LOGO BOMA
    ============================================================ */
 
 .boma-logo-wrap {
@@ -418,7 +418,7 @@ footer {
 
 
 /* ============================================================
-   LOGOS DE SECTION
+   14) LOGOS DE SECTION
    ============================================================ */
 
 .section-logo {
@@ -437,7 +437,7 @@ footer {
 
 
 /* ============================================================
-   PAYSAGE MOBILE
+   15) PAYSAGE MOBILE
    ============================================================ */
 
 @media (orientation: landscape) and (max-height: 500px) {
@@ -468,11 +468,13 @@ footer {
 
 
 /* ============================================================
-   13) LISTE DES PUBLICATIONS
+   16) LISTE DES PUBLICATIONS
    ============================================================ */
 
 .publications-list,
-.gbd-ref-list {
+.gbd-ref-list,
+.leas-ref-list,
+.baw-ref-list {
   margin: 1.2rem 0;
 
   padding: 0;
@@ -480,7 +482,7 @@ footer {
 
 
 /* ============================================================
-   14) RÉFÉRENCES GBD
+   17) RÉFÉRENCES GBD
    ============================================================ */
 
 .gbd-ref {
@@ -533,229 +535,7 @@ footer {
 
 
 /* ============================================================
-   15) RÉSUMÉ GBD
-   ============================================================ */
-
-.gbd-ref-abstract {
-  position: relative;
-
-  margin: 0.5rem 0 0 0;
-
-  padding: 0.1rem 0 0.1rem 1.5rem;
-
-  font-family: 'Archivo', sans-serif !important;
-
-  font-size: 0.78rem !important;
-
-  line-height: 1.45;
-
-  text-align: justify !important;
-
-  text-justify: inter-word;
-
-  word-break: normal;
-
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-.gbd-ref-abstract * {
-  font-family: 'Archivo', sans-serif !important;
-
-  font-size: inherit !important;
-
-  line-height: inherit;
-}
-
-
-/* Marqueur GBD lorsque le résumé est OUVERT */
-
-.gbd-ref-abstract::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-
-  top: 0.08em;
-
-  bottom: 0.08em;
-
-  width: 26px;
-
-  background:
-    linear-gradient(
-      to right,
-
-      #ff453a 0 3px,
-      transparent 3px 6px,
-
-      #ffd60a 6px 9px,
-      transparent 9px 12px,
-
-      #30d158 12px 15px,
-      transparent 15px 18px,
-
-      #0a84ff 18px 21px,
-      transparent 21px 26px
-    );
-
-  border-radius: 2px;
-}
-
-
-/* ============================================================
-   16) COMITÉ ÉDITORIAL
-   ============================================================ */
-
-.editorial-list {
-  margin: 1.2rem 0;
-
-  padding: 0;
-}
-
-.editorial-item {
-  margin: 0 0 0.45rem 0;
-
-  padding-left: 2.2em;
-
-  text-indent: -2.2em;
-
-  line-height: 1.55;
-
-  text-align: left !important;
-
-  text-justify: auto;
-
-  word-break: normal;
-
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-
-/* ============================================================
-   17) ANNÉE
-   ============================================================ */
-
-.issue-year {
-  display: inline-flex;
-
-  align-items: baseline;
-
-  gap: 0.08em;
-
-  margin: 0 0 0.5rem 0;
-
-  line-height: 1;
-}
-
-.issue-year span {
-  font-size: 1.35rem;
-
-  color: #222;
-}
-
-.issue-year .y1 {
-  font-family: 'Archivo Black', sans-serif;
-
-  font-weight: 400;
-}
-
-.issue-year .y2 {
-  font-family: 'Special Elite', cursive;
-}
-
-.issue-year .y3 {
-  font-family: 'EB Garamond', serif;
-
-  font-weight: 700;
-}
-
-.issue-year .y4 {
-  font-family: 'Noto Sans', sans-serif;
-
-  font-weight: 700;
-}
-
-
-/* ============================================================
-   18) HEADER — POLICES ALTERNÉES
-   ============================================================ */
-
-.nav-mixed {
-  display: inline-block;
-
-  text-decoration: none;
-}
-
-.nav-mixed .f1 {
-  font-family: 'Archivo Black', sans-serif;
-
-  font-weight: 400;
-}
-
-.nav-mixed .f2 {
-  font-family: 'Special Elite', cursive;
-}
-
-.nav-mixed .f3 {
-  font-family: 'EB Garamond', serif;
-
-  font-weight: 700;
-}
-
-.nav-mixed .f4 {
-  font-family: 'Noto Sans', sans-serif;
-
-  font-weight: 700;
-}
-
-
-/* ============================================================
-   19) TEXTE MIXTE
-   ============================================================ */
-
-.mix-4,
-.mix-2 {
-  display: inline-block;
-
-  text-decoration: none;
-}
-
-.mix-4 .f1,
-.mix-2 .f1 {
-  font-family: 'Archivo Black', sans-serif;
-
-  font-weight: 400;
-}
-
-.mix-4 .f2,
-.mix-2 .f2 {
-  font-family: 'Special Elite', cursive;
-}
-
-.mix-4 .f3 {
-  font-family: 'EB Garamond', serif;
-
-  font-weight: 700;
-}
-
-.mix-4 .f4 {
-  font-family: 'Noto Sans', sans-serif;
-
-  font-weight: 700;
-}
-
-
-/* ============================================================
-   20) RÉFÉRENCES LEASv
+   18) RÉFÉRENCES LEASv
    ============================================================ */
 
 .leas-ref {
@@ -793,70 +573,8 @@ footer {
   font-family: 'Special Elite', cursive !important;
 }
 
-
-/* ============================================================
-   21) RÉSUMÉ LEASv
-   ============================================================ */
-
-.leas-ref-abstract {
-  position: relative;
-
-  margin: 0.5rem 0 0 0;
-
-  padding: 0.1rem 0 0.1rem 1.2rem;
-
-  font-family: 'Special Elite', cursive !important;
-
-  font-size: 0.78rem !important;
-
-  line-height: 1.45 !important;
-
-  text-align: left !important;
-
-  text-justify: auto;
-
-  word-break: normal;
-
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-.leas-ref-abstract,
-.leas-ref-abstract *,
-p.leas-ref-abstract,
-p.leas-ref-abstract * {
-  font-family: 'Special Elite', cursive !important;
-
-  font-size: 0.78rem !important;
-
-  line-height: 1.45 !important;
-}
-
-
-/* Marqueur LEASv lorsque le résumé est OUVERT */
-
-.leas-ref-abstract::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-
-  top: 0.08em;
-
-  bottom: 0.08em;
-
-  border-left: 3px dotted #ff453a;
-}
-
-
 .leas-ref a,
-.leas-ref a:visited,
-.leas-ref-abstract a,
-.leas-ref-abstract a:visited {
+.leas-ref a:visited {
   color: inherit;
 
   text-decoration: underline;
@@ -864,134 +582,7 @@ p.leas-ref-abstract * {
 
 
 /* ============================================================
-   22) TEXTE DESCRIPTIF DES SECTIONS
-   ============================================================ */
-
-.home-body-text {
-  font-size: 0.87rem !important;
-
-  line-height: 1.5;
-}
-
-
-/* ============================================================
-   23) BLOC COMPLÉMENTAIRE
-   ============================================================ */
-
-.ref-extra {
-  margin: -0.9rem 0 1.4rem 4.1em;
-
-  text-align: left !important;
-
-  text-justify: auto;
-
-  word-break: normal;
-
-  overflow-wrap: normal;
-
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
-}
-
-.gbd-ref-extra,
-.gbd-ref-extra *,
-p.gbd-ref-extra,
-p.gbd-ref-extra * {
-  font-family: 'Archivo', sans-serif !important;
-
-  font-size: 0.78rem !important;
-
-  line-height: 1.45 !important;
-}
-
-.leas-ref-extra,
-.leas-ref-extra *,
-p.leas-ref-extra,
-p.leas-ref-extra * {
-  font-family: 'Special Elite', cursive !important;
-
-  font-size: 0.78rem !important;
-
-  line-height: 1.45 !important;
-}
-
-.baw-ref-extra,
-.baw-ref-extra *,
-p.baw-ref-extra,
-p.baw-ref-extra * {
-  font-family: 'Manrope', sans-serif !important;
-
-  font-size: 0.78rem !important;
-
-  line-height: 1.45 !important;
-}
-
-
-/* ============================================================
-   24) TITRES SÉMANTIQUES
-   ============================================================ */
-
-h1,
-h2,
-h3 {
-  font-size: inherit;
-
-  font-weight: inherit;
-
-  margin: 0;
-
-  padding: 0;
-
-  line-height: inherit;
-}
-
-
-/* ============================================================
-   25) CANVAS
-   ============================================================ */
-
-#bg-canvas {
-  position: fixed;
-
-  inset: 0;
-
-  width: 100%;
-
-  height: 100%;
-
-  z-index: -1;
-}
-
-
-/* ============================================================
-   26) RAINBOW
-   ============================================================ */
-
-.rainbow-word {
-  display: inline;
-}
-
-.rc {
-  display: inline;
-
-  transition: color 0.8s ease;
-}
-
-
-/* ============================================================
-   27) LISTE DES SECTIONS
-   ============================================================ */
-
-.sections-list {
-  text-align: center !important;
-
-  text-justify: auto;
-}
-
-
-/* ============================================================
-   28) RÉFÉRENCES BAW
+   19) RÉFÉRENCES BAW
    ============================================================ */
 
 .baw-ref {
@@ -1045,13 +636,13 @@ h3 {
 }
 
 
-/* Bridging Ancient Worlds :
-   Cinzel normal, sans gras */
+/* Bridging Ancient Worlds dans la citation :
+   volontairement SANS gras */
 
 .baw-section-name {
   font-family: 'Cinzel', serif !important;
 
-  font-weight: 400;
+  font-weight: 400 !important;
 
   text-transform: uppercase;
 
@@ -1080,15 +671,539 @@ h3 {
 
 
 /* ============================================================
-   29) RÉSUMÉ BAW
+   20) ANNÉE
+   ============================================================ */
+
+.issue-year {
+  display: inline-flex;
+
+  align-items: baseline;
+
+  gap: 0.08em;
+
+  margin: 0 0 0.5rem 0;
+
+  line-height: 1;
+}
+
+.issue-year span {
+  font-size: 1.35rem;
+
+  color: #222;
+}
+
+.issue-year .y1 {
+  font-family: 'Archivo Black', sans-serif;
+
+  font-weight: 400;
+}
+
+.issue-year .y2 {
+  font-family: 'Special Elite', cursive;
+}
+
+.issue-year .y3 {
+  font-family: 'EB Garamond', serif;
+
+  font-weight: 700;
+}
+
+.issue-year .y4 {
+  font-family: 'Noto Sans', sans-serif;
+
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   21) HEADER — POLICES ALTERNÉES
+   ============================================================ */
+
+.nav-mixed {
+  display: inline-block;
+
+  text-decoration: none;
+}
+
+.nav-mixed .f1 {
+  font-family: 'Archivo Black', sans-serif;
+
+  font-weight: 400;
+}
+
+.nav-mixed .f2 {
+  font-family: 'Special Elite', cursive;
+}
+
+.nav-mixed .f3 {
+  font-family: 'EB Garamond', serif;
+
+  font-weight: 700;
+}
+
+.nav-mixed .f4 {
+  font-family: 'Noto Sans', sans-serif;
+
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   22) TEXTE MIXTE
+   ============================================================ */
+
+.mix-4,
+.mix-2 {
+  display: inline-block;
+
+  text-decoration: none;
+}
+
+.mix-4 .f1,
+.mix-2 .f1 {
+  font-family: 'Archivo Black', sans-serif;
+
+  font-weight: 400;
+}
+
+.mix-4 .f2,
+.mix-2 .f2 {
+  font-family: 'Special Elite', cursive;
+}
+
+.mix-4 .f3 {
+  font-family: 'EB Garamond', serif;
+
+  font-weight: 700;
+}
+
+.mix-4 .f4 {
+  font-family: 'Noto Sans', sans-serif;
+
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   23) RÉSUMÉS / ABSTRACTS DÉPLIABLES
+   ============================================================ */
+
+.ref-details {
+  margin: 0.55rem 0 1.45rem 2.85em;
+
+  padding: 0;
+}
+
+
+/* Suppression du triangle natif */
+
+.ref-details > summary {
+  list-style: none;
+}
+
+.ref-details > summary::marker {
+  content: "";
+}
+
+.ref-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+
+/* ============================================================
+   24) BOUTON GÉNÉRAL
+   ============================================================ */
+
+.ref-summary {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 28px;
+
+  padding: 0.28rem 0.72rem;
+
+  cursor: pointer;
+
+  line-height: 1 !important;
+
+  text-align: center !important;
+
+  user-select: none;
+
+  border-radius: 0;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+/* Flèche */
+
+.ref-summary::after {
+  content: "›";
+
+  display: inline-block;
+
+  margin-left: 0.5rem;
+
+  font-family: Arial, sans-serif !important;
+
+  font-size: 0.9em !important;
+
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+}
+
+
+.ref-details[open] > .ref-summary::after {
+  transform: rotate(90deg);
+}
+
+
+.ref-details[open] > .ref-summary {
+  margin-bottom: 0.45rem;
+}
+
+
+.ref-summary:hover {
+  transform: translateY(-1px);
+}
+
+
+.ref-summary:focus-visible {
+  outline: 1px solid currentColor;
+
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   25) BOUTON GBD
+   ============================================================ */
+
+.gbd-summary {
+  border: 2px solid transparent;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.82),
+      rgba(255,255,255,0.82)
+    ) padding-box,
+
+    linear-gradient(
+      90deg,
+
+      #ff453a 0%,
+      #ff453a 25%,
+
+      #ffd60a 25%,
+      #ffd60a 50%,
+
+      #30d158 50%,
+      #30d158 75%,
+
+      #0a84ff 75%,
+      #0a84ff 100%
+    ) border-box;
+
+  color: #111;
+
+  font-family: 'Archivo Black', sans-serif !important;
+
+  font-size: 0.72rem !important;
+
+  font-weight: 400;
+
+  letter-spacing: 0.02em;
+}
+
+
+.gbd-summary * {
+  font-family: 'Archivo Black', sans-serif !important;
+}
+
+
+.gbd-summary::after {
+  color: #0a84ff;
+}
+
+
+/* ============================================================
+   26) BOUTON LEASv
+   ============================================================ */
+
+.leas-summary {
+  border: 2px solid #ff453a;
+
+  background: rgba(255, 255, 255, 0.50);
+
+  color: #ff453a;
+
+  font-family: 'Special Elite', cursive !important;
+
+  font-size: 0.74rem !important;
+
+  font-weight: 400;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+.leas-summary * {
+  font-family: 'Special Elite', cursive !important;
+
+  color: #ff453a;
+}
+
+
+.leas-summary::after {
+  color: #ff453a;
+}
+
+
+/* ============================================================
+   27) BOUTON BAW
+   ============================================================ */
+
+.baw-summary {
+  position: relative;
+
+  border: 1px solid var(--baw-blue);
+
+  background: rgba(255, 255, 255, 0.50);
+
+  color: var(--baw-blue);
+
+  font-family: 'Cinzel', serif !important;
+
+  font-size: 0.70rem !important;
+
+  font-weight: 700;
+
+  letter-spacing: 0.055em;
+
+  text-transform: uppercase;
+
+  overflow: hidden;
+}
+
+
+.baw-summary * {
+  font-family: 'Cinzel', serif !important;
+
+  font-weight: 700;
+}
+
+
+/* Bande tricolore BAW */
+
+.baw-summary::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 3px;
+
+  background:
+    linear-gradient(
+      to right,
+
+      var(--baw-red) 0%,
+      var(--baw-red) 33.333%,
+
+      var(--baw-orange) 33.333%,
+      var(--baw-orange) 66.666%,
+
+      var(--baw-blue) 66.666%,
+      var(--baw-blue) 100%
+    );
+}
+
+
+.baw-summary::after {
+  color: var(--baw-blue);
+}
+
+
+/* ============================================================
+   28) TEXTE DÉPLIÉ — GBD
+   ============================================================ */
+
+.gbd-ref-abstract {
+  position: relative;
+
+  margin: 0.15rem 0 0 0;
+
+  padding:
+    0.15rem
+    0
+    0.15rem
+    1.5rem;
+
+  font-family: 'Archivo', sans-serif !important;
+
+  font-size: 0.78rem !important;
+
+  line-height: 1.45 !important;
+
+  text-align: justify !important;
+
+  text-justify: inter-word;
+
+  word-break: normal;
+
+  overflow-wrap: normal;
+
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+
+.gbd-ref-abstract,
+.gbd-ref-abstract * {
+  font-family: 'Archivo', sans-serif !important;
+
+  font-size: 0.78rem !important;
+
+  line-height: 1.45 !important;
+}
+
+
+/* Marqueur GBD déplié */
+
+.gbd-ref-abstract::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0.08em;
+
+  bottom: 0.08em;
+
+  width: 26px;
+
+  background:
+    linear-gradient(
+      to right,
+
+      #ff453a 0 3px,
+      transparent 3px 6px,
+
+      #ffd60a 6px 9px,
+      transparent 9px 12px,
+
+      #30d158 12px 15px,
+      transparent 15px 18px,
+
+      #0a84ff 18px 21px,
+      transparent 21px 26px
+    );
+}
+
+
+/* ============================================================
+   29) TEXTE DÉPLIÉ — LEASv
+   ============================================================ */
+
+.leas-ref-abstract {
+  position: relative;
+
+  margin: 0.15rem 0 0 0;
+
+  padding:
+    0.15rem
+    0
+    0.15rem
+    1.2rem;
+
+  font-family: 'Special Elite', cursive !important;
+
+  font-size: 0.78rem !important;
+
+  line-height: 1.45 !important;
+
+  text-align: left !important;
+
+  text-justify: auto;
+
+  word-break: normal;
+
+  overflow-wrap: normal;
+
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+
+.leas-ref-abstract,
+.leas-ref-abstract *,
+p.leas-ref-abstract,
+p.leas-ref-abstract * {
+  font-family: 'Special Elite', cursive !important;
+
+  font-size: 0.78rem !important;
+
+  line-height: 1.45 !important;
+}
+
+
+/* Pointillés rouges dépliés */
+
+.leas-ref-abstract::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0.08em;
+
+  bottom: 0.08em;
+
+  border-left: 3px dotted #ff453a;
+}
+
+
+.leas-ref-abstract a,
+.leas-ref-abstract a:visited {
+  color: inherit;
+
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   30) TEXTE DÉPLIÉ — BAW
    ============================================================ */
 
 .baw-ref-abstract {
   position: relative;
 
-  margin: 0.5rem 0 0 0;
+  margin: 0.15rem 0 0 0;
 
-  padding: 0.1rem 0 0.1rem 1.45rem;
+  padding:
+    0.15rem
+    0
+    0.15rem
+    1.45rem;
 
   font-family: 'Manrope', sans-serif !important;
 
@@ -1109,6 +1224,7 @@ h3 {
   -ms-hyphens: none;
 }
 
+
 .baw-ref-abstract,
 .baw-ref-abstract *,
 p.baw-ref-abstract,
@@ -1121,7 +1237,7 @@ p.baw-ref-abstract * {
 }
 
 
-/* Marqueur BAW lorsque le résumé est OUVERT */
+/* Trois couleurs verticales dépliées */
 
 .baw-ref-abstract::before {
   content: "";
@@ -1155,244 +1271,184 @@ p.baw-ref-abstract * {
       var(--baw-blue) 70%,
       var(--baw-blue) 100%
     );
-
-  border-radius: 1px;
 }
 
 
 /* ============================================================
-   30) RÉSUMÉS / ABSTRACTS REPLIABLES
+   31) BLOC COMPLÉMENTAIRE
    ============================================================ */
 
-.ref-details {
-  margin: 0.45rem 0 1.4rem 2.85em;
-
-  padding: 0;
-}
-
-
-/* Enlève le triangle natif */
-
-.ref-details > summary {
-  list-style: none;
-}
-
-.ref-details > summary::marker {
-  content: "";
-}
-
-.ref-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-
-/* Ligne cliquable */
-
-.ref-summary {
-  position: relative;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  padding-left: 1.65rem;
-
-  cursor: pointer;
-
-  font-size: 0.78rem !important;
-
-  line-height: 1.4 !important;
+.ref-extra {
+  margin: -0.8rem 0 1.4rem 4.1em;
 
   text-align: left !important;
 
   text-justify: auto;
 
-  user-select: none;
+  word-break: normal;
+
+  overflow-wrap: normal;
+
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
 }
 
 
-/* Flèche */
-
-.ref-summary::after {
-  content: "›";
-
-  display: inline-block;
-
-  margin-left: 0.5rem;
-
-  font-size: 1.15em;
-
-  line-height: 1;
-
-  transition: transform 0.2s ease;
-}
-
-
-/* Rotation à l'ouverture */
-
-.ref-details[open] > .ref-summary::after {
-  transform: rotate(90deg);
-}
-
-
-/* Espace entre bouton et résumé */
-
-.ref-details[open] > .ref-summary {
-  margin-bottom: 0.35rem;
-}
-
-
-/* ============================================================
-   31) BOUTON GBD REPLIÉ
-   ============================================================ */
-
-.gbd-summary,
-.gbd-summary * {
+.gbd-ref-extra,
+.gbd-ref-extra *,
+p.gbd-ref-extra,
+p.gbd-ref-extra * {
   font-family: 'Archivo', sans-serif !important;
-}
 
-.gbd-summary::after {
-  color: #0a84ff;
-}
+  font-size: 0.78rem !important;
 
-
-/* Identité colorée déjà visible quand fermé */
-
-.gbd-summary::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-
-  width: 18px;
-
-  height: 0.9em;
-
-  background:
-    linear-gradient(
-      to right,
-
-      #ff453a 0 2px,
-      transparent 2px 5px,
-
-      #ffd60a 5px 7px,
-      transparent 7px 10px,
-
-      #30d158 10px 12px,
-      transparent 12px 15px,
-
-      #0a84ff 15px 17px,
-      transparent 17px 18px
-    );
-
-  border-radius: 1px;
+  line-height: 1.45 !important;
 }
 
 
-/* ============================================================
-   32) BOUTON LEASv REPLIÉ
-   ============================================================ */
-
-.leas-summary,
-.leas-summary * {
+.leas-ref-extra,
+.leas-ref-extra *,
+p.leas-ref-extra,
+p.leas-ref-extra * {
   font-family: 'Special Elite', cursive !important;
-}
 
-.leas-summary::after {
-  color: #ff453a;
-}
+  font-size: 0.78rem !important;
 
-
-/* Points rouges déjà visibles quand fermé */
-
-.leas-summary::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0.45rem;
-
-  top: 0.05em;
-
-  bottom: 0.05em;
-
-  border-left: 3px dotted #ff453a;
+  line-height: 1.45 !important;
 }
 
 
-/* ============================================================
-   33) BOUTON BAW REPLIÉ
-   ============================================================ */
-
-.baw-summary,
-.baw-summary * {
+.baw-ref-extra,
+.baw-ref-extra *,
+p.baw-ref-extra,
+p.baw-ref-extra * {
   font-family: 'Manrope', sans-serif !important;
 
-  font-weight: 400;
-}
+  font-size: 0.78rem !important;
 
-.baw-summary::after {
-  color: var(--baw-blue);
-}
-
-
-/* Trois couleurs BAW déjà visibles quand fermé */
-
-.baw-summary::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0.25rem;
-
-  width: 7px;
-
-  height: 1.15em;
-
-  background:
-    linear-gradient(
-      to bottom,
-
-      var(--baw-red) 0%,
-      var(--baw-red) 30%,
-
-      transparent 30%,
-      transparent 35%,
-
-      var(--baw-orange) 35%,
-      var(--baw-orange) 65%,
-
-      transparent 65%,
-      transparent 70%,
-
-      var(--baw-blue) 70%,
-      var(--baw-blue) 100%
-    );
-
-  border-radius: 1px;
+  line-height: 1.45 !important;
 }
 
 
 /* ============================================================
-   34) SURVOL / CLAVIER
+   32) COMITÉ ÉDITORIAL
    ============================================================ */
 
-.ref-summary:hover {
-  opacity: 0.72;
+.editorial-list {
+  margin: 1.2rem 0;
+
+  padding: 0;
 }
 
-.ref-summary:focus-visible {
-  outline: 1px solid currentColor;
 
-  outline-offset: 4px;
+.editorial-item {
+  margin: 0 0 0.45rem 0;
 
-  border-radius: 2px;
+  padding-left: 2.2em;
+
+  text-indent: -2.2em;
+
+  line-height: 1.55;
+
+  text-align: left !important;
+
+  text-justify: auto;
+
+  word-break: normal;
+
+  overflow-wrap: normal;
+
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
 }
 
 
 /* ============================================================
-   35) MOBILE
+   33) TEXTE DESCRIPTIF
+   ============================================================ */
+
+.home-body-text {
+  font-size: 0.87rem !important;
+
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   34) TITRES SÉMANTIQUES
+   ============================================================ */
+
+h1,
+h2,
+h3 {
+  font-size: inherit;
+
+  font-weight: inherit;
+
+  margin: 0;
+
+  padding: 0;
+
+  line-height: inherit;
+}
+
+
+/* ============================================================
+   35) CANVAS
+   ============================================================ */
+
+#bg-canvas {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  z-index: -1;
+}
+
+
+/* ============================================================
+   36) RAINBOW
+   ============================================================ */
+
+.rainbow-word {
+  display: inline;
+}
+
+.rc {
+  display: inline;
+
+  transition: color 0.8s ease;
+}
+
+
+/* ============================================================
+   37) LISTE DES SECTIONS
+   ============================================================ */
+
+.sections-list {
+  text-align: center !important;
+
+  text-justify: auto;
+}
+
+
+/* ============================================================
+   38) TITRE PRINCIPAL
+   ============================================================ */
+
+main p .mix-4 .f4 {
+  font-size: 0.88rem !important;
+}
+
+
+/* ============================================================
+   39) MOBILE
    ============================================================ */
 
 @media (max-width: 600px) {
@@ -1425,13 +1481,50 @@ p.baw-ref-abstract * {
   }
 
 
+  .editorial-item {
+    padding-left: 1.95em;
+
+    text-indent: -1.95em;
+
+    line-height: 1.5;
+  }
+
+
+  /* Boutons */
+
   .ref-details {
     margin-left: 2.35em;
   }
 
 
   .ref-summary {
-    padding-left: 1.45rem;
+    min-height: 25px;
+
+    padding:
+      0.23rem
+      0.58rem;
+  }
+
+
+  .gbd-summary {
+    font-size: 0.66rem !important;
+  }
+
+
+  .leas-summary {
+    font-size: 0.68rem !important;
+  }
+
+
+  .baw-summary {
+    font-size: 0.65rem !important;
+  }
+
+
+  /* Résumé GBD */
+
+  .gbd-ref-abstract {
+    padding-left: 1.25rem;
 
     font-size: 0.72rem !important;
 
@@ -1439,14 +1532,11 @@ p.baw-ref-abstract * {
   }
 
 
-  /* GBD ouvert */
-
-  .gbd-ref-abstract {
-    padding-left: 1.25rem;
-
+  .gbd-ref-abstract,
+  .gbd-ref-abstract * {
     font-size: 0.72rem !important;
 
-    line-height: 1.4;
+    line-height: 1.4 !important;
   }
 
 
@@ -1472,35 +1562,12 @@ p.baw-ref-abstract * {
   }
 
 
-  /* GBD fermé */
-
-  .gbd-summary::before {
-    width: 16px;
-
-    background:
-      linear-gradient(
-        to right,
-
-        #ff453a 0 2px,
-        transparent 2px 4px,
-
-        #ffd60a 4px 6px,
-        transparent 6px 8px,
-
-        #30d158 8px 10px,
-        transparent 10px 12px,
-
-        #0a84ff 12px 14px,
-        transparent 14px 16px
-      );
-  }
-
-
-  /* LEAS ouvert */
+  /* Résumé LEASv */
 
   .leas-ref-abstract {
     padding-left: 1rem;
   }
+
 
   .leas-ref-abstract,
   .leas-ref-abstract *,
@@ -1511,21 +1578,13 @@ p.baw-ref-abstract * {
     line-height: 1.4 !important;
   }
 
+
   .leas-ref-abstract::before {
     border-left-width: 2px;
   }
 
 
-  /* LEAS fermé */
-
-  .leas-summary::before {
-    left: 0.35rem;
-
-    border-left-width: 2px;
-  }
-
-
-  /* BAW ouvert */
+  /* Résumé BAW */
 
   .baw-ref-abstract {
     padding-left: 1.15rem;
@@ -1539,6 +1598,7 @@ p.baw-ref-abstract * {
     text-justify: auto;
   }
 
+
   .baw-ref-abstract,
   .baw-ref-abstract *,
   p.baw-ref-abstract,
@@ -1548,25 +1608,18 @@ p.baw-ref-abstract * {
     line-height: 1.4 !important;
   }
 
+
   .baw-ref-abstract::before {
     width: 7px;
   }
 
 
-  /* BAW fermé */
-
-  .baw-summary::before {
-    left: 0.2rem;
-
-    width: 6px;
-  }
-
-
-  /* Blocs supplémentaires */
+  /* Bloc complémentaire */
 
   .ref-extra {
     margin-left: 3.2em;
   }
+
 
   .gbd-ref-extra,
   .gbd-ref-extra *,
