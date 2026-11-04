@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Building an OPAC for a Specialized Ancient… | Pratiques et pratiques</title>
+
+  
+
+  <meta
+    name="keywords"
+    content="Pratiques et Pratiques, Pratiques & Pratiques, P&P, BOMA, open access journal, Ancient World Studies, Egyptology, ancient Egypt, Guides bibliographiques et documentaires, GBD, Librarians and Editors for Ancient Studies, LEASv, Bridging Ancient Worlds, BAW, scholarly publishing, librarianship, open science, scientific outreach, scientific mediation, social media, YouTube, digital Egyptology, serious games, Science Factory, artificial intelligence, cultural mediation, ancient Egyptian poetry, music education, Zenodo, CC BY 4.0"
+  >
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <meta
+    property="og:image:alt"
+    content="Pratiques & Pratiques journal logo"
+  >
+
+  <meta property="og:locale" content="en_US">
+
+  <meta
+    property="og:locale:alternate"
+    content="fr_FR"
+  >
+
+  
+
+
+  <meta name="twitter:card" content="summary">
+
+  
+
+  
+
+  
+
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/style.css">
+
+
+  <style>
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .f1,
+    .f2,
+    .f3,
+    .f4 {
+      display: inline;
+      transition: font-family 0.8s ease;
+    }
+
+    .mix-4 .f1,
+    .mix-4 .f2,
+    .mix-4 .f3,
+    .mix-4 .f4 {
+      display: inline-block;
+      text-align: center;
+      overflow: hidden;
+      transition: font-family 0.8s ease;
+    }
+
+    .y1,
+    .y2,
+    .y3,
+    .y4 {
+      display: inline-block;
+      text-align: center;
+      transition: font-family 0.8s ease;
+    }
+  </style>
+
+  <link rel="canonical" href="https://pratiquesetpratiques.github.io/articles/2026-7/">
+  <meta name="description" content="This paper describes the design, implementation, and deployment of a quadrilingual (Japanese, English, Arabic, German) open-source Online Public Access…">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="msvalidate.01" content="A5039E01EBE026D994954C6D1E3C8A89">
+  <meta name="application-name" content="Pratiques et pratiques">
+  <meta property="og:title" content="Building an OPAC for a Specialized Ancient… | Pratiques et pratiques">
+  <meta property="og:description" content="This paper describes the design, implementation, and deployment of a quadrilingual (Japanese, English, Arabic, German) open-source Online Public Access…">
+  <meta property="og:url" content="https://pratiquesetpratiques.github.io/articles/2026-7/">
+  <meta property="og:site_name" content="Pratiques et pratiques">
+  <meta property="og:image" content="https://pratiquesetpratiques.github.io/assets/logo.png">
+  <meta name="twitter:title" content="Building an OPAC for a Specialized Ancient… | Pratiques et pratiques">
+  <meta name="twitter:description" content="This paper describes the design, implementation, and deployment of a quadrilingual (Japanese, English, Arabic, German) open-source Online Public Access…">
+  <meta name="twitter:image" content="https://pratiquesetpratiques.github.io/assets/logo.png">
+  
+  
+  <meta name="DC.identifier" content="https://pratiquesetpratiques.github.io/articles/2026-7/">
+  <meta name="DC.language" content="en">
+  
+  <link rel="alternate" type="application/atom+xml" href="https://pratiquesetpratiques.github.io/feed.xml" title="Pratiques et pratiques">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pratiquesetpratiques.github.io/#boma",
+      "name": "Bibliothèque Ouverte des Mondes Anciens",
+      "alternateName": "BOMA",
+      "logo": "https://pratiquesetpratiques.github.io/assets/logo-boma.png"
+    },
+    {
+      "@type": "Periodical",
+      "@id": "https://pratiquesetpratiques.github.io/#journal",
+      "name": "Pratiques et pratiques",
+      "alternateName": [
+        "Pratiques & Pratiques",
+        "P&P"
+      ],
+      "url": "https://pratiquesetpratiques.github.io/fr/about.html",
+      "issn": "3130-3757",
+      "inLanguage": [
+        "fr",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://pratiquesetpratiques.github.io/#boma"
+      },
+      "logo": "https://pratiquesetpratiques.github.io/assets/logo.png",
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "sameAs": [
+        "https://portal.issn.org/resource/ISSN/3130-3757",
+        "https://catalogue.bnf.fr/ark:/12148/cb50007018b",
+        "https://zenodo.org/communities/pratiquesetpratiques/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pratiquesetpratiques.github.io/#website",
+      "url": "https://pratiquesetpratiques.github.io/",
+      "name": "Pratiques et pratiques",
+      "alternateName": [
+        "Pratiques & Pratiques",
+        "P&P"
+      ],
+      "inLanguage": [
+        "fr",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://pratiquesetpratiques.github.io/#boma"
+      },
+      "about": {
+        "@id": "https://pratiquesetpratiques.github.io/#journal"
+      }
+    },
+    {
+      "@type": "PublicationVolume",
+      "@id": "https://pratiquesetpratiques.github.io/#volume-2026",
+      "volumeNumber": "2026",
+      "isPartOf": {
+        "@id": "https://pratiquesetpratiques.github.io/#journal"
+      }
+    },
+    {
+      "@type": "PublicationIssue",
+      "@id": "https://pratiquesetpratiques.github.io/#issue-2026-7",
+      "issueNumber": "7",
+      "datePublished": "2026-06",
+      "isPartOf": {
+        "@id": "https://pratiquesetpratiques.github.io/#volume-2026"
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://pratiquesetpratiques.github.io/articles/2026-7/#article",
+      "url": "https://pratiquesetpratiques.github.io/articles/2026-7/",
+      "name": "Building an OPAC for a Specialized Ancient Near Eastern and Egyptological Library in Japan: The UTsukuba RCWAC OPAC",
+      "headline": "Building an OPAC for a Specialized Ancient Near Eastern and Egyptological Library in Japan: The UTsukuba RCWAC OPAC",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "So Miyagawa",
+          "sameAs": "https://orcid.org/0000-0002-2950-7193"
+        }
+      ],
+      "inLanguage": "en",
+      "datePublished": "2026-06",
+      "isPartOf": {
+        "@id": "https://pratiquesetpratiques.github.io/#issue-2026-7"
+      },
+      "publisher": {
+        "@id": "https://pratiquesetpratiques.github.io/#boma"
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.5281/zenodo.20020475"
+      },
+      "sameAs": [
+        "https://doi.org/10.5281/zenodo.20020475",
+        "https://zenodo.org/records/20020475"
+      ],
+      "abstract": "This paper describes the design, implementation, and deployment of a quadrilingual (Japanese, English, Arabic, German) open-source Online Public Access Catalogue (OPAC) for the Research Center for West Asian Civilization (RCWAC) at the University of Tsukuba. The RCWAC library holds over 9,000 volumes spanning cuneiform studies, West Asian archaeology, and Egyptology, including donated collections of considerable scope. Faced with the challenge of making this multilingual, multiscript collection discoverable without dedicated server infrastructure or institutional IT support, we developed a fully client-side single-page application built with Vite, powered by Zotero RDF data, and deployed at zero cost on GitHub Pages and a university Apache server. The system features token-based fuzzy search with optional semantic similarity via ONNX Runtime Web, a four-section transliteration keyboard for Egyptological and Assyriological special characters, right-to-left layout support for Arabic, and prominent call number display to bridge digital discovery with physical shelf access. By situating this project within the broader landscape of digital library platforms for ancient studies—from large-scale initiatives such as the Cuneiform Digital Library Initiative (CDLI) and the Thesaurus Linguae Aegyptiae (TLA) to the Lib-Static methodology for sustainable digital collections—we discuss the practical choices, technical trade-offs, and lessons learned that may inform similar efforts at other specialized research libraries.",
+      "pageStart": "1",
+      "pageEnd": "34",
+      "pagination": "1–34",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "mainEntityOfPage": {
+        "@id": "https://pratiquesetpratiques.github.io/articles/2026-7/#webpage"
+      },
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://zenodo.org/records/20020475/files/LEASv_2026_Miyagawa.pdf",
+        "encodingFormat": "application/pdf",
+        "contentSize": "17172477",
+        "isAccessibleForFree": true
+      },
+      "keywords": [
+        "OPAC",
+        "digital library",
+        "Egyptology",
+        "Ancient Near Eastern studies",
+        "open-source software",
+        "multilingual cataloguing"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://pratiquesetpratiques.github.io/articles/2026-7/#webpage",
+      "url": "https://pratiquesetpratiques.github.io/articles/2026-7/",
+      "name": "Building an OPAC for a Specialized Ancient Near Eastern and Egyptological Library in Japan: The UTsukuba RCWAC OPAC",
+      "description": "This paper describes the design, implementation, and deployment of a quadrilingual (Japanese, English, Arabic, German) open-source Online Public Access…",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://pratiquesetpratiques.github.io/#website"
+      },
+      "mainEntity": {
+        "@id": "https://pratiquesetpratiques.github.io/articles/2026-7/#article"
+      }
+    }
+  ]
+}
+  </script>
+  <meta property="og:type" content="article">
+  <meta name="author" content="So Miyagawa">
+  <meta name="citation_title" content="Building an OPAC for a Specialized Ancient Near Eastern and Egyptological Library in Japan: The UTsukuba RCWAC OPAC">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_journal_title" content="Pratiques et pratiques">
+  <meta name="citation_journal_abbrev" content="P&amp;P">
+  <meta name="citation_issn" content="3130-3757">
+  <meta name="citation_volume" content="2026">
+  <meta name="citation_issue" content="7">
+  <meta name="citation_firstpage" content="1">
+  <meta name="citation_lastpage" content="34">
+  <meta name="citation_doi" content="10.5281/zenodo.20020475">
+  <meta name="citation_language" content="en">
+  <meta name="citation_publisher" content="Bibliothèque Ouverte des Mondes Anciens">
+  <meta name="citation_abstract_html_url" content="https://pratiquesetpratiques.github.io/articles/2026-7/">
+  <meta name="citation_fulltext_world_readable" content="">
+  <meta name="DC.title" content="Building an OPAC for a Specialized Ancient Near Eastern and Egyptological Library in Japan: The UTsukuba RCWAC OPAC">
+  <meta name="DC.description" content="This paper describes the design, implementation, and deployment of a quadrilingual (Japanese, English, Arabic, German) open-source Online Public Access Catalogue (OPAC) for the Research Center for West Asian Civilization (RCWAC) at the University of Tsukuba. The RCWAC library holds over 9,000 volumes spanning cuneiform studies, West Asian archaeology, and Egyptology, including donated collections of considerable scope. Faced with the challenge of making this multilingual, multiscript collection discoverable without dedicated server infrastructure or institutional IT support, we developed a fully client-side single-page application built with Vite, powered by Zotero RDF data, and deployed at zero cost on GitHub Pages and a university Apache server. The system features token-based fuzzy search with optional semantic similarity via ONNX Runtime Web, a four-section transliteration keyboard for Egyptological and Assyriological special characters, right-to-left layout support for Arabic, and prominent call number display to bridge digital discovery with physical shelf access. By situating this project within the broader landscape of digital library platforms for ancient studies—from large-scale initiatives such as the Cuneiform Digital Library Initiative (CDLI) and the Thesaurus Linguae Aegyptiae (TLA) to the Lib-Static methodology for sustainable digital collections—we discuss the practical choices, technical trade-offs, and lessons learned that may inform similar efforts at other specialized research libraries.">
+  <meta name="DC.publisher" content="Bibliothèque Ouverte des Mondes Anciens">
+  <meta name="DC.date" content="2026-06">
+  <meta name="DC.type" content="Text">
+  <meta name="DC.rights" content="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="DC.relation" content="https://doi.org/10.5281/zenodo.20020475">
+  <meta name="citation_author" content="So Miyagawa">
+  <meta name="DC.creator" content="So Miyagawa">
+  <link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/articles/2026-7/">
+  <link rel="alternate" hreflang="x-default" href="https://pratiquesetpratiques.github.io/articles/2026-7/">
+</head>
+
+
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+
+
+  <header>
+
+    <div class="container">
+
+      <a class="brand" href="/en/about.html">
+
+        <img
+          src="/assets/logo.png"
+          alt="Pratiques et pratiques logo"
+        >
+
+        <span class="title">
+          Pratiques et pratiques
+        </span>
+
+      </a>
+
+
+      <span class="lang-switch">
+
+        <a
+          href="/fr/numeros.html"
+          class="mix-2"
+          aria-label="Version française"
+        >
+          <span class="f1">F</span><span class="f2">R</span>
+        </a>
+
+      </span>
+
+
+      <nav aria-label="Main navigation">
+
+        <a
+          href="/en/about.html"
+          class="nav-mixed"
+        >
+          <span class="f1">A</span><span class="f2">b</span><span class="f3">o</span><span class="f4">u</span><span class="f1">t</span>
+        </a>
+
+        <a
+          href="/en/numeros.html"
+          class="nav-mixed"
+          aria-current="page"
+        >
+          <span class="f1">B</span><span class="f2">r</span><span class="f3">o</span><span class="f4">w</span><span class="f1">s</span><span class="f2">e</span><span class="f3">&nbsp;</span><span class="f4">a</span><span class="f1">l</span><span class="f2">l</span><span class="f3">&nbsp;</span><span class="f4">i</span><span class="f1">s</span><span class="f2">s</span><span class="f3">u</span><span class="f4">e</span><span class="f1">s</span>
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <section class="publications-list" aria-label="Publications 2026">
+
+      <h1 class="issue-year" aria-label="2026">
+        <span class="y1">2</span><span class="y2">0</span><span class="y3">2</span><span class="y4">6</span>
+      </h1>
+
+      <article aria-labelledby="ref-7">
+
+        <p class="leas-ref" id="ref-7">
+
+          <span class="leas-ref-number">7.</span>
+
+          So Miyagawa,
+          "Building an OPAC for a Specialized Ancient Near Eastern and Egyptological Library in Japan: The UTsukuba RCWAC OPAC,"
+          Librarians &amp; Editors for Ancient Studies. Voices,
+          34&nbsp;p.
+
+          <a
+            href="https://doi.org/10.5281/zenodo.20020475"
+            target="_blank"
+            rel="noopener noreferrer"
+          >10.5281/zenodo.20020475</a>.
+
+        </p>
+
+
+        <details open class="ref-details leas-details">
+
+          <summary class="ref-summary leas-summary">
+            Abstract
+          </summary>
+
+          <div class="leas-ref-abstract">
+
+            This paper describes the design, implementation, and deployment of a quadrilingual (Japanese, English, Arabic, German) open-source Online Public Access Catalogue (OPAC) for the Research Center for West Asian Civilization (RCWAC) at the University of Tsukuba. The RCWAC library holds over 9,000 volumes spanning cuneiform studies, West Asian archaeology, and Egyptology, including donated collections of considerable scope. Faced with the challenge of making this multilingual, multiscript collection discoverable without dedicated server infrastructure or institutional IT support, we developed a fully client-side single-page application built with Vite, powered by Zotero RDF data, and deployed at zero cost on GitHub Pages and a university Apache server. The system features token-based fuzzy search with optional semantic similarity via ONNX Runtime Web, a four-section transliteration keyboard for Egyptological and Assyriological special characters, right-to-left layout support for Arabic, and prominent call number display to bridge digital discovery with physical shelf access. By situating this project within the broader landscape of digital library platforms for ancient studies—from large-scale initiatives such as the Cuneiform Digital Library Initiative (CDLI) and the Thesaurus Linguae Aegyptiae (TLA) to the Lib-Static methodology for sustainable digital collections—we discuss the practical choices, technical trade-offs, and lessons learned that may inform similar efforts at other specialized research libraries.
+
+          </div>
+
+        </details>
+
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container small">
+
+      © Bibliothèque Ouverte des Mondes Anciens, 2026 ·
+
+      <a
+        href="https://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >CC&nbsp;BY&nbsp;4.0</a>
+
+      ·
+
+      <a href="/en/legal-notice.html">
+        Legal notice
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    const canvas =
+      document.getElementById("bg-canvas");
+
+    const ctx =
+      canvas.getContext("2d");
+
+
+    const bgFonts = [
+      "'Space Mono', monospace",
+      "'Special Elite', cursive",
+      "'Archivo', sans-serif",
+      "'Archivo Black', sans-serif",
+      "'Homemade Apple', cursive"
+    ];
+
+
+    const word = "pratiques";
+
+    const fontSize = 13;
+    const colWidth = 18;
+    const charH = 16;
+    const scrollSpeed = 1;
+
+
+    let W;
+    let H;
+    let cx;
+    let cy;
+
+    let startTime = null;
+
+
+    function resize() {
+
+      canvas.width =
+        W =
+        window.innerWidth;
+
+      canvas.height =
+        H =
+        window.innerHeight;
+
+      cx = W / 2;
+      cy = H / 2;
+
+    }
+
+
+    function drawBg(ts) {
+
+      if (!startTime) {
+        startTime = ts;
+      }
+
+
+      const t =
+        (ts - startTime) / 1000;
+
+
+      ctx.clearRect(0, 0, W, H);
+
+
+      const grad =
+        ctx.createLinearGradient(0, 0, W, 0);
+
+
+      grad.addColorStop(0.00, "#d2bcff");
+      grad.addColorStop(0.08, "#f2cbe0");
+      grad.addColorStop(0.22, "#ffefe8");
+      grad.addColorStop(0.38, "#fff7eb");
+      grad.addColorStop(0.50, "#fdfbf4");
+      grad.addColorStop(0.62, "#f5faeb");
+      grad.addColorStop(0.78, "#eefaf7");
+      grad.addColorStop(0.92, "#e3efff");
+      grad.addColorStop(1.00, "#d2bcff");
+
+
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+
+
+      const numCols =
+        Math.ceil(W / colWidth) + 1;
+
+
+      const wordLen =
+        word.length;
+
+
+      const wordH =
+        wordLen * charH;
+
+
+      const scrollOffset =
+        (t * scrollSpeed) % wordH;
+
+
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+
+      for (let col = 0; col < numCols; col++) {
+
+        const x =
+          col * colWidth + colWidth / 2;
+
+
+        const stagger =
+          (col % 2 === 0)
+            ? 0
+            : wordH * 0.5;
+
+
+        const numChars =
+          Math.ceil((H + wordH * 2) / charH);
+
+
+        for (let i = 0; i < numChars; i++) {
+
+          const rawY =
+            i * charH
+            + stagger
+            + scrollOffset
+            - wordH;
+
+
+          const y =
+            ((rawY % (H + wordH)) + (H + wordH))
+            % (H + wordH)
+            - wordH;
+
+
+          if (
+            y < -charH
+            ||
+            y > H + charH
+          ) {
+            continue;
+          }
+
+
+          const charIndex =
+            ((i % wordLen) + wordLen) % wordLen;
+
+
+          const phase =
+            col * 0.9
+            + charIndex * 0.5
+            + t * 1.6;
+
+
+          const fontIndex =
+            Math.floor(
+              ((Math.sin(phase) + 1) / 2)
+              * bgFonts.length
+            )
+            % bgFonts.length;
+
+
+          const dx =
+            (x - cx) / cx;
+
+          const dy =
+            (y - cy) / cy;
+
+
+          const dist =
+            Math.sqrt(dx * dx + dy * dy);
+
+
+          const opacity =
+            Math.min(
+              0.60,
+              0.03 + dist * dist * 0.60
+            );
+
+
+          ctx.font =
+            fontSize + "px " + bgFonts[fontIndex];
+
+
+          ctx.fillStyle =
+            "rgba(255,255,255," + opacity + ")";
+
+
+          ctx.fillText(
+            word[charIndex],
+            x,
+            y
+          );
+
+        }
+
+      }
+
+
+      requestAnimationFrame(drawBg);
+
+    }
+
+
+    const uiFonts = [
+      "'Archivo Black', sans-serif",
+      "'Special Elite', cursive",
+      "'Archivo', sans-serif",
+      "'Space Mono', monospace",
+      "'Homemade Apple', cursive"
+    ];
+
+
+    function lockSpanWidths() {
+
+      document
+        .querySelectorAll(
+          ".f1, .f2, .f3, .f4, .y1, .y2, .y3, .y4"
+        )
+        .forEach(span => {
+
+          const w =
+            span.getBoundingClientRect().width;
+
+
+          if (w > 0) {
+
+            span.style.display =
+              "inline-block";
+
+            span.style.width =
+              (w * 1.4) + "px";
+
+            span.style.textAlign =
+              "center";
+
+            span.style.overflow =
+              "hidden";
+
+          }
+
+        });
+
+    }
+
+
+    function animateSpans() {
+
+      const spans =
+        document.querySelectorAll(
+          ".f1, .f2, .f3, .f4, .y1, .y2, .y3, .y4"
+        );
+
+
+      const now =
+        performance.now() / 1000;
+
+
+      spans.forEach((span, i) => {
+
+        const phase =
+          now * 0.1 + i * 0.4;
+
+
+        const fontIndex =
+          Math.floor(
+            ((Math.sin(phase) + 1) / 2)
+            * uiFonts.length
+          )
+          % uiFonts.length;
+
+
+        span.style.fontFamily =
+          uiFonts[fontIndex];
+
+
+        span.style.fontSize =
+          uiFonts[fontIndex]
+            .includes("Homemade")
+              ? "0.75em"
+              : "";
+
+      });
+
+
+      requestAnimationFrame(animateSpans);
+
+    }
+
+
+    document.fonts.ready.then(() => {
+
+      resize();
+
+      lockSpanWidths();
+
+      requestAnimationFrame(drawBg);
+
+      requestAnimationFrame(animateSpans);
+
+    });
+
+
+    window.addEventListener(
+      "resize",
+      resize
+    );
+
+  </script>
+
+</body>
+</html>
