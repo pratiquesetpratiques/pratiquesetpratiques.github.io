@@ -1639,3 +1639,19 @@ main p .mix-4 .f4 {
   }
 
 }
+
+/* Titles linking to the individual publication notices. */
+.publications-list a.publication-notice,
+.publications-list a.publication-notice:visited {
+  font: inherit !important;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-decoration: none;
+}
+
+.publications-list a.publication-notice:hover,
+.publications-list a.publication-notice:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
