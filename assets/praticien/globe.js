@@ -11,6 +11,8 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     [-14, 10], [14, -10], [0, -16], [0, 16]];
   const detourOffsets = [...offsets, [0, -32], [0, 32], [0, -54], [0, 54], [-35, 0], [35, 0]];
   const detourDuration = 820;
+  const magnification = 1.16;
+  const edgePadding = 8;
   const segmenter = typeof Intl.Segmenter === "function" ? new Intl.Segmenter(locale, {granularity: "grapheme"}) : null;
   const gesturePositions = [
     ["Pister une référence", -.49, -.66, .58],
@@ -137,20 +139,25 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     }
   }
 
-  function wordBox(item, offsetX, offsetY, scale) {
+  function keepWordInside(x, y, halfWidth, halfHeight) {
     const radius = sphereRadius();
+    const wide = halfWidth * magnification;
+    const tall = halfHeight * magnification;
+    const verticalRoom = Math.max(0, Math.sqrt(Math.max(0, radius ** 2 - wide ** 2)) - tall);
+    const safeY = Math.min(verticalRoom, Math.max(-verticalRoom, y));
+    const edgeY = Math.abs(safeY) + tall;
+    const horizontalRoom = Math.max(0, Math.sqrt(Math.max(0, radius ** 2 - edgeY ** 2)) - wide);
+    return {x: Math.min(horizontalRoom, Math.max(-horizontalRoom, x)), y: safeY};
+  }
+
+  function wordBox(item, offsetX, offsetY, scale) {
     const halfWidth = scale * item.width / 2;
     const halfHeight = scale * item.height / 2;
-    const verticalRoom = Math.max(0, Math.sqrt(Math.max(0, radius ** 2 - halfWidth ** 2)) - halfHeight);
-    const y = Math.min(verticalRoom, Math.max(-verticalRoom, item.y + offsetY));
-    const edgeY = Math.abs(y) + halfHeight;
-    const horizontalRoom = Math.max(0, Math.sqrt(Math.max(0, radius ** 2 - edgeY ** 2)) - halfWidth);
-    const x = Math.min(horizontalRoom, Math.max(-horizontalRoom, item.x + offsetX));
-    return {x, y, halfWidth, halfHeight};
+    return {...keepWordInside(item.x + offsetX, item.y + offsetY, halfWidth, halfHeight), halfWidth, halfHeight};
   }
 
   function depthScale(item) {
-    return Math.min(.76 + .31 * Math.max(0, item.depth), sphereRadius() * 1.87 / Math.max(item.width, 1));
+    return Math.min(.76 + .31 * Math.max(0, item.depth), sphereRadius() * 1.87 / (magnification * Math.max(item.width, 1)));
   }
 
   function packingBox(item, offsetX, offsetY, scale) {
@@ -224,7 +231,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
         + (item.key === "gestures" ? 3 : 0) + (item.available ? 1.3 : 0)
         + (item.visible ? .16 : 0) - roomForShortWords;
     }
-    const candidates = points.filter(item => item.control === focused || item.depth > (item.visible ? .025 : .09));
+    const candidates = points.filter(item => item.related || item.control === focused || item.depth > (item.visible ? .025 : .09));
     candidates.sort((a, b) => priority(b) - priority(a));
     const visible = new Set();
     for (const item of candidates) {
@@ -284,19 +291,22 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     const dx = b.screenX - a.screenX;
     const dy = b.screenY - a.screenY;
     const horizontal = Math.abs(dx) > Math.abs(dy);
-    const roomAbove = Math.min(a.screenY, b.screenY);
-    const side = horizontal ? (roomAbove > 65 ? -1 : 1) : (a.screenX + b.screenX > width ? -1 : 1);
-    const anchor = item => {
-      const scale = depthScale(item) * 1.16;
-      return horizontal
-        ? {x: item.screenX, y: item.screenY + side * (item.height * scale / 2 + 7)}
-        : {x: item.screenX + side * (item.width * scale / 2 + 7), y: item.screenY};
-    };
-    const start = anchor(a);
-    const end = anchor(b);
+    const dimensions = [a, b].map(item => {
+      const scale = depthScale(item) * magnification;
+      return {item, halfWidth: item.width * scale / 2, halfHeight: item.height * scale / 2};
+    });
+    const space = side => Math.min(...dimensions.map(({item, halfWidth, halfHeight}) => horizontal
+      ? (side < 0 ? item.screenY : height - item.screenY) - halfHeight
+      : (side < 0 ? item.screenX : width - item.screenX) - halfWidth));
+    const side = space(-1) > space(1) ? -1 : 1;
+    const inside = (value, limit) => Math.min(limit - edgePadding, Math.max(edgePadding, value));
+    const [start, end] = dimensions.map(({item, halfWidth, halfHeight}) => ({
+      x: inside(item.screenX + (horizontal ? 0 : side * (halfWidth + 7)), width),
+      y: inside(item.screenY + (horizontal ? side * (halfHeight + 7) : 0), height),
+    }));
     const bend = Math.min(64, Math.max(27, Math.hypot(dx, dy) * .42));
-    const midX = Math.min(width - 7, Math.max(7, (start.x + end.x) / 2 + (horizontal ? 0 : side * bend)));
-    const midY = Math.min(height - 7, Math.max(7, (start.y + end.y) / 2 + (horizontal ? side * bend : 0)));
+    const midX = inside((start.x + end.x) / 2 + (horizontal ? 0 : side * bend), width);
+    const midY = inside((start.y + end.y) / 2 + (horizontal ? side * bend : 0), height);
     const leadX = start.x + (midX - start.x) * t;
     const leadY = start.y + (midY - start.y) * t;
     const tipX = (1 - t) * leadX + t * (midX + (end.x - midX) * t);
@@ -353,8 +363,8 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
         pullY = dy * strength;
 
         // Leave room for the enlarged word where the surrounding words are already close.
-        const gapX = box.halfWidth + center.halfWidth * 1.16 + 2 - Math.abs(dx);
-        const gapY = box.halfHeight + center.halfHeight * 1.16 + 2 - Math.abs(dy);
+        const gapX = box.halfWidth + center.halfWidth * magnification + 2 - Math.abs(dx);
+        const gapY = box.halfHeight + center.halfHeight * magnification + 2 - Math.abs(dy);
         if (gapX < gapY && gapY > 0) pullX = Math.sign(dx || 1) * Math.min(Math.abs(pullX), -gapX);
         else if (gapX > 0) pullY = Math.sign(dy || 1) * Math.min(Math.abs(pullY), -gapY);
       }
@@ -401,9 +411,11 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       boxes.push({item, scale, ...wordBox(item, item.offsetX, item.offsetY, scale)});
     }
     pullWords(boxes, attractor, elapsed);
-    for (const {item, scale, x, y} of boxes) {
-      item.screenX = width / 2 + x + item.pullX;
-      item.screenY = height * .48 + y + item.pullY;
+    for (const {item, scale, x, y, halfWidth, halfHeight} of boxes) {
+      const position = item.pullX || item.pullY
+        ? keepWordInside(x + item.pullX, y + item.pullY, halfWidth, halfHeight) : {x, y};
+      item.screenX = width / 2 + position.x;
+      item.screenY = height * .48 + position.y;
       item.control.style.transform = `translate3d(${item.screenX.toFixed(2)}px, ${item.screenY.toFixed(2)}px, 0) translate(-50%, -50%) scale(${scale.toFixed(3)})`;
       item.control.style.setProperty("--globe-depth", String(1 + Math.round(Math.max(item.depth, 0) * 8)));
       if (item.key !== "gestures") item.run.style.opacity = (.70 + .30 * Math.max(0, item.depth)).toFixed(2);
@@ -491,7 +503,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   });
   controls.addEventListener("focusin", () => { packingDirty = true; schedule(); });
   stage.addEventListener("pointerdown", event => {
-    if (drag || event.button !== 0) return;
+    if (drag || !event.isPrimary || event.button !== 0) return;
     drag = {id: event.pointerId, x: event.clientX, y: event.clientY, active: false, changed: false};
   });
   stage.addEventListener("pointermove", event => {
@@ -499,7 +511,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
     if (!drag.active) {
-      if (Math.hypot(dx, dy) < 6 || (event.pointerType === "touch" && Math.abs(dy) > Math.abs(dx))) return;
+      if (Math.hypot(dx, dy) < (event.pointerType === "touch" ? 9 : 6)) return;
       drag.active = true;
       stage.setPointerCapture(event.pointerId);
       stage.classList.add("dragging");

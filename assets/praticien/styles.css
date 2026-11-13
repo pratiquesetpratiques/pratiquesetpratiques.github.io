@@ -96,7 +96,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .globe-hint-touch { display: none; }
 .globe-stage {
   position: relative; isolation: isolate; height: clamp(350px, 38vw, 510px); overflow: hidden;
-  cursor: grab; user-select: none; touch-action: pan-y pinch-zoom;
+  cursor: grab; user-select: none; touch-action: pinch-zoom;
 }
 .globe-stage.dragging, .globe-stage.dragging .globe-node { cursor: grabbing; }
 #globe-lines, .globe-nodes { position: absolute; width: 100%; height: 100%; inset: 0; }
@@ -234,12 +234,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .filter-toggle { font-size: .77rem; }
   .site-footer { margin-top: 1.2rem; }
 }
-@media (pointer: coarse) {
+@media (pointer: coarse), (hover: none) {
   .globe-hint-mouse { display: none; }
   .globe-hint-touch { display: inline; }
 }
+@media (orientation: landscape) and (max-height: 500px) {
+  .globe-stage { height: clamp(220px, 76svh, 345px); }
+}
 @media (max-width: 380px) {
-  .globe-stage { margin-inline: -8px; }
   .cloud-gesture { font-size: .86rem; }
   .cloud-topic, .cloud-topic.cloud-tone-2, .cloud-topic.cloud-tone-4 { font-size: .73rem; }
 }

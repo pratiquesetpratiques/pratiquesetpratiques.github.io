@@ -614,7 +614,9 @@ byId("detour-button").addEventListener("click", () => {
   state.nextDetour++;
   state.article = null;
   render();
-  if (matchMedia("(max-width: 670px)").matches) byId("globe-stage").closest(".globe-area").scrollIntoView({block: "nearest"});
+  if (matchMedia("(max-width: 670px), (orientation: landscape) and (max-height: 500px)").matches) {
+    byId("globe-stage").scrollIntoView({block: "center"});
+  }
 });
 byId("detour-return").addEventListener("click", leaveDetour);
 render();
