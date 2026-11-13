@@ -84,7 +84,9 @@
       const character = document.createElement("span");
       character.className = "pp-type-character";
       character.textContent = original;
-      const width = widthForGlyph(original, weight);
+      const width = slot.closest(".site-header")
+        ? `${slot.getBoundingClientRect().width * 1.8}px`
+        : widthForGlyph(original, weight);
       if (width) slot.style.setProperty("--pp-glyph-width", width);
       slot.classList.add("pp-type-glyph");
       slot.replaceChildren(character);

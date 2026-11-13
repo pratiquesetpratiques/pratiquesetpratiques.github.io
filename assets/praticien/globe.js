@@ -4,8 +4,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   const canvas = document.getElementById("globe-lines");
   const controls = document.getElementById("globe-nodes");
   const context = canvas.getContext("2d");
-  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-  const previewMotion = new URLSearchParams(location.search).get("animation") === "1";
+  const paused = new URLSearchParams(location.search).get("animation") === "0";
   const typefaces = ["Archivo Black", "Special Elite", "Archivo", "Space Mono", "Homemade Apple"];
   const colors = ["#241e2a", "#8d3221", "#20415d", "#49306b", "#764061", "#475626"];
   const offsets = [[0, 0], [-9, 0], [9, 0], [0, -9], [0, 9], [-14, -10], [14, 10],
@@ -105,7 +104,6 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   let restUntil = 0;
   let suppressClickUntil = 0;
   let orientation = null;
-  let paused = !previewMotion && reducedMotion.matches;
   let inView = true;
   let frame = 0;
   let lastTick = null;
@@ -481,19 +479,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     schedule();
   }
 
-  function updateMotion() {
-    stage.dataset.motion = paused ? "paused" : "running";
-    packingDirty = true;
-    document.dispatchEvent(new CustomEvent("praticien:motion", {detail: {paused}}));
-    schedule();
-  }
-  reducedMotion.addEventListener("change", event => {
-    if (previewMotion) return;
-    paused = event.matches;
-    orientation = null;
-    updateMotion();
-  });
-  updateMotion();
+  stage.dataset.motion = paused ? "paused" : "running";
   document.getElementById("rotate-left").addEventListener("click", () => turnTo((orientation?.yaw ?? yaw) - .55, pitch));
   document.getElementById("rotate-right").addEventListener("click", () => turnTo((orientation?.yaw ?? yaw) + .55, pitch));
   stage.addEventListener("pointerenter", event => { pointerInside = event.pointerType === "mouse"; });
