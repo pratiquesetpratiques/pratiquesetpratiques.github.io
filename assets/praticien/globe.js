@@ -446,7 +446,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
         pitch = approach(pitch, orientation.pitch, follow, .001);
         if (yaw === orientation.yaw && pitch === orientation.pitch) orientation = null;
       } else if (!attractor && !drag && !focused && !connections.length && time > restUntil) {
-        yaw = (yaw + elapsed * .105) % (Math.PI * 2);
+        yaw = (yaw + elapsed * .094) % (Math.PI * 2);
       }
     }
     const moved = previousYaw !== yaw || previousPitch !== pitch;
