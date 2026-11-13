@@ -13,6 +13,9 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   const detourDuration = 820;
   const magnification = 1.16;
   const edgePadding = 8;
+  const tilt = Math.PI / 12;
+  const tiltCos = Math.cos(tilt);
+  const tiltSin = Math.sin(tilt);
   const segmenter = typeof Intl.Segmenter === "function" ? new Intl.Segmenter(locale, {granularity: "grapheme"}) : null;
   const gesturePositions = [
     ["Pister une référence", -.49, -.66, .58],
@@ -92,7 +95,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     return {...word, point: word.point.map(coordinate => coordinate / length), control, run, glyphs,
       width: 0, height: 0, x: 0, y: 0, depth: 0, screenX: 0, screenY: 0,
       offsetIndex: 0, offsetX: 0, offsetY: 0, visible: false, hiddenAt: -Infinity,
-      pullX: 0, pullY: 0,
+      pullX: 0, pullY: 0, nextFontChange: Infinity, fontCursor: 0,
       selected: false, available: true, related: false};
   });
 
@@ -133,8 +136,10 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     for (const item of points) {
       const [x, y, z] = item.point;
       const turnZ = z * cosYaw - x * sinYaw;
-      item.x = (x * cosYaw + z * sinYaw) * radius;
-      item.y = (y * cosPitch - turnZ * sinPitch) * radius;
+      const turnX = x * cosYaw + z * sinYaw;
+      const turnY = y * cosPitch - turnZ * sinPitch;
+      item.x = (turnX * tiltCos - turnY * tiltSin) * radius;
+      item.y = (turnX * tiltSin + turnY * tiltCos) * radius;
       item.depth = y * sinPitch + turnZ * cosPitch;
     }
   }
@@ -204,9 +209,10 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     const age = time - startedAt;
     for (const item of points) {
       if (!item.visible || item.control.matches(":hover, :focus-visible")) continue;
-      for (const glyph of item.glyphs) {
-        const index = Math.floor(age / 5500 + glyph.phase) % typefaces.length;
-        if (index !== glyph.fontIndex) {
+      const changingFont = time >= item.nextFontChange;
+      for (const [position, glyph] of item.glyphs.entries()) {
+        if (glyph.fontIndex < 0 || (changingFont && position === item.fontCursor)) {
+          const index = glyph.fontIndex < 0 ? Math.floor(glyph.phase) % typefaces.length : (glyph.fontIndex + 1) % typefaces.length;
           glyph.fontIndex = index;
           glyph.span.style.fontFamily = '"' + typefaces[index] + '"';
           glyph.span.style.fontWeight = typefaces[index] === "Archivo" ? "600" : "400";
@@ -218,18 +224,23 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
           glyph.span.style.setProperty("--cloud-letter-color", colors[colorIndex]);
         }
       }
+      if (changingFont) {
+        item.fontCursor = (item.fontCursor + 1) % item.glyphs.length;
+        item.nextFontChange = time + (item.fontCursor === 0 ? 10000 : 180);
+      }
     }
   }
 
   function packWords(time, focused) {
     const placed = [];
+    const visiblePreference = drag?.active || orientation ? .16 : .58;
     const overlaps = box => placed.some(other => Math.abs(box.x - other.x) < box.halfWidth + other.halfWidth + 3
       && Math.abs(box.y - other.y) < box.halfHeight + other.halfHeight + 2);
     function priority(item) {
       const roomForShortWords = width < 360 && item.key !== "gestures" ? item.width / 160 : 0;
       return item.depth + (item.related ? 30 : 0) + (item.control === focused ? 20 : 0) + (item.selected ? 6 : 0)
         + (item.key === "gestures" ? 3 : 0) + (item.available ? 1.3 : 0)
-        + (item.visible ? .16 : 0) - roomForShortWords;
+        + (item.visible ? visiblePreference : 0) - roomForShortWords;
     }
     const candidates = points.filter(item => item.related || item.control === focused || item.depth > (item.visible ? .025 : .09));
     candidates.sort((a, b) => priority(b) - priority(a));
@@ -265,6 +276,10 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       const visibleNow = visible.has(item);
       if (visibleNow === item.visible) continue;
       item.visible = visibleNow;
+      if (visibleNow) {
+        item.fontCursor = 0;
+        item.nextFontChange = time + 9000 + (item.glyphs[0]?.phase % 4 || 0) * 500;
+      }
       const leavingEdge = !visibleNow && item.depth <= .025;
       if (leavingEdge) item.hiddenAt = time;
       item.control.classList.toggle("is-leaving", leavingEdge);
@@ -446,7 +461,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
         pitch = approach(pitch, orientation.pitch, follow, .001);
         if (yaw === orientation.yaw && pitch === orientation.pitch) orientation = null;
       } else if (!attractor && !drag && !focused && !connections.length && time > restUntil) {
-        yaw = (yaw + elapsed * .094) % (Math.PI * 2);
+        yaw = (yaw + elapsed * .105) % (Math.PI * 2);
       }
     }
     const moved = previousYaw !== yaw || previousPitch !== pitch;
@@ -518,8 +533,8 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       orientation = null;
     }
     const radiansPerPixel = 1.15 / Math.max(95, sphereRadius());
-    yaw += dx * radiansPerPixel;
-    pitch = Math.min(1.12, Math.max(-1.12, pitch - dy * radiansPerPixel));
+    yaw += (dx * tiltCos + dy * tiltSin) * radiansPerPixel;
+    pitch = Math.min(1.12, Math.max(-1.12, pitch - (dy * tiltCos - dx * tiltSin) * radiansPerPixel));
     drag.x = event.clientX;
     drag.y = event.clientY;
     drag.changed = true;
