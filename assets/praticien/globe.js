@@ -14,6 +14,8 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   const magnification = 1.16;
   const edgePadding = 8;
   const edgeFadeMs = 450;
+  const cameraDistance = 4;
+  const projectionScale = Math.sqrt(cameraDistance ** 2 - 1);
   const tilt = Math.PI / 12;
   const tiltCos = Math.cos(tilt);
   const tiltSin = Math.sin(tilt);
@@ -139,9 +141,10 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       const turnZ = z * cosYaw - x * sinYaw;
       const turnX = x * cosYaw + z * sinYaw;
       const turnY = y * cosPitch - turnZ * sinPitch;
-      item.x = (turnX * tiltCos - turnY * tiltSin) * radius;
-      item.y = (turnX * tiltSin + turnY * tiltCos) * radius;
       item.depth = y * sinPitch + turnZ * cosPitch;
+      const perspective = radius * projectionScale / (cameraDistance - item.depth);
+      item.x = (turnX * tiltCos - turnY * tiltSin) * perspective;
+      item.y = (turnX * tiltSin + turnY * tiltCos) * perspective;
     }
   }
 
@@ -163,7 +166,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   }
 
   function depthScale(item) {
-    return Math.min(.76 + .31 * Math.max(0, item.depth), sphereRadius() * 1.87 / (magnification * Math.max(item.width, 1)));
+    return Math.min(.72 + .35 * Math.max(0, item.depth), sphereRadius() * 1.87 / (magnification * Math.max(item.width, 1)));
   }
 
   function packingBox(item, offsetX, offsetY, scale) {
@@ -235,7 +238,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   function packWords(time, focused) {
     const placed = [];
     const turningManually = drag?.active || orientation;
-    const visiblePreference = turningManually ? .16 : .58;
+    const visiblePreference = !paused && !turningManually && !packingDirty ? 5 : .16;
     const exitDepth = !paused && !turningManually ? -.075 : .025;
     const overlaps = box => placed.some(other => Math.abs(box.x - other.x) < box.halfWidth + other.halfWidth + 3
       && Math.abs(box.y - other.y) < box.halfHeight + other.halfHeight + 2);
@@ -243,7 +246,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       const roomForShortWords = width < 360 && item.key !== "gestures" ? item.width / 160 : 0;
       return item.depth + (item.related ? 30 : 0) + (item.control === focused ? 20 : 0) + (item.selected ? 6 : 0)
         + (item.key === "gestures" ? 3 : 0) + (item.available ? 1.3 : 0)
-        + (item.visible ? visiblePreference : 0) - roomForShortWords;
+        + (item.visible && item.available ? visiblePreference : 0) - roomForShortWords;
     }
     const candidates = points.filter(item => item.related || item.control === focused || item.depth > (item.visible ? exitDepth : .09));
     candidates.sort((a, b) => priority(b) - priority(a));
@@ -283,9 +286,10 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
         item.fontCursor = 0;
         item.nextFontChange = time + 2400 + (item.glyphs[0]?.phase % 4 || 0) * 300;
       }
-      const leavingEdge = !paused && !visibleNow && item.depth <= exitDepth;
-      if (leavingEdge) item.hiddenAt = time;
-      item.control.classList.toggle("is-leaving", leavingEdge);
+      const leaving = !paused && !visibleNow;
+      if (leaving) item.hiddenAt = time;
+      item.control.classList.toggle("is-leaving", leaving);
+      item.control.classList.toggle("is-leaving-edge", leaving && item.depth <= exitDepth);
       item.control.classList.toggle("is-visible", visibleNow);
       item.control.tabIndex = visibleNow && item.available ? 0 : -1;
     }
@@ -436,7 +440,8 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       item.screenY = height * .48 + position.y;
       item.control.style.transform = `translate3d(${item.screenX.toFixed(2)}px, ${item.screenY.toFixed(2)}px, 0) translate(-50%, -50%) scale(${scale.toFixed(3)})`;
       item.control.style.setProperty("--globe-depth", String(1 + Math.round(Math.max(item.depth, 0) * 8)));
-      if (item.key !== "gestures") item.run.style.opacity = (.70 + .30 * Math.max(0, item.depth)).toFixed(2);
+      const clarity = paused || item.related ? 1 : .58 + .42 * Math.min(1, Math.max(0, item.depth) / .75);
+      item.run.style.opacity = clarity.toFixed(2);
     }
     if (!stage.dataset.ready) stage.dataset.ready = "true";
     drawLine(time);

@@ -110,9 +110,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 }
 .globe-node.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
 .globe-stage[data-motion="running"] .globe-node.is-leaving {
+  transition: opacity .2s ease-out, visibility 0s .2s;
+}
+.globe-stage[data-motion="running"] .globe-node.is-leaving-edge {
   transition: opacity .45s ease-out, visibility 0s .45s;
 }
-.globe-stage[data-motion="running"] .globe-node.is-visible { transition: opacity .14s ease-out; }
+.globe-stage[data-motion="running"] .globe-node.is-visible { transition: opacity .44s ease-out; }
+.globe-stage[data-motion="running"] .globe-node.is-visible:is(:hover, :focus-visible, .related) { transition: none; }
 .cloud-word { display: block; padding: .19rem .24rem; pointer-events: none; transform: scale(1); }
 .globe-stage[data-motion="running"] .cloud-word { transition: transform .18s ease-out; }
 .cloud-gesture { color: #282130; font-size: clamp(.98rem, 1.75vw, 1.45rem); font-weight: 700; }
