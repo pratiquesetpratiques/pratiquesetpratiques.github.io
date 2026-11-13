@@ -462,6 +462,17 @@ function renderArticle(article) {
 
 const globe = createGlobe(byId("globe-stage"), catalogue?.words || [], changeFilter, locale, displayLabel);
 const resultJump = byId("result-jump");
+const resultsList = byId("results");
+function updateResultsFade() {
+  const visibleHeight = resultsList.clientHeight;
+  const remaining = resultsList.scrollHeight - visibleHeight - resultsList.scrollTop;
+  resultsList.classList.toggle("has-more-results", visibleHeight > 0 && remaining > 1);
+}
+resultsList.addEventListener("scroll", updateResultsFade, {passive: true});
+if (typeof ResizeObserver === "function") new ResizeObserver(updateResultsFade).observe(resultsList);
+else window.addEventListener("resize", updateResultsFade);
+document.fonts?.ready.then(updateResultsFade);
+
 let beforeDetour = null;
 const listButtons = new Map(globe.gestures.map(value => [value, button(displayLabel(value), "", () => {
   changeFilter("gestures", value);
@@ -501,7 +512,8 @@ function leaveDetour() {
   render();
   if (previous) {
     globe.restoreOrientation(previous.orientation);
-    byId("results").scrollTop = previous.resultsScroll;
+    resultsList.scrollTop = previous.resultsScroll;
+    updateResultsFade();
     window.scrollTo(0, previous.pageScroll);
   }
   byId("detour-button").focus({preventScroll: true});
@@ -553,8 +565,9 @@ function render() {
   if (!cards.length) cards.push(node("p", "empty-results", articles.length
     ? translate("Aucune publication pour cette recherche.", "No publications match this search.")
     : translate("Le catalogue n’a pas pu être chargé.", "The catalog could not be loaded.")));
-  byId("results").replaceChildren(...cards);
-  byId("results").scrollTop = 0;
+  resultsList.replaceChildren(...cards);
+  resultsList.scrollTop = 0;
+  updateResultsFade();
 }
 
 function readQuery() {
