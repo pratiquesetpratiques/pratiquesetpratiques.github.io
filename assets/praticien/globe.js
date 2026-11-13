@@ -226,7 +226,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       }
       if (changingFont) {
         item.fontCursor = (item.fontCursor + 1) % item.glyphs.length;
-        item.nextFontChange = time + (item.fontCursor === 0 ? 10000 : 180);
+        item.nextFontChange = time + (item.fontCursor === 0 ? 3500 : 180);
       }
     }
   }
@@ -278,7 +278,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       item.visible = visibleNow;
       if (visibleNow) {
         item.fontCursor = 0;
-        item.nextFontChange = time + 9000 + (item.glyphs[0]?.phase % 4 || 0) * 500;
+        item.nextFontChange = time + 2400 + (item.glyphs[0]?.phase % 4 || 0) * 300;
       }
       const leavingEdge = !visibleNow && item.depth <= .025;
       if (leavingEdge) item.hiddenAt = time;
