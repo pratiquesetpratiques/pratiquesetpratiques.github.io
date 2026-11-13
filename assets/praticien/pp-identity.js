@@ -37,7 +37,7 @@
   const wordHeight = word.length * characterHeight;
   const stampSize = 28;
   const headingFontInterval = 12;
-  const backgroundInterval = 100;
+  const backgroundInterval = 1000 / 30;
 
   function fontAt(phase, fonts) {
     const index = Math.floor((Math.sin(phase) + 1) / 2 * fonts.length) % fonts.length;
@@ -126,7 +126,7 @@
       const x = column * columnWidth + columnWidth / 2;
       const dx = (x - width / 2) / (width / 2);
       const stagger = column % 2 === 0 ? 0 : wordHeight / 2;
-      const columnFonts = Array.from(word, (_, index) => fontAt(column * .9 + index * .5 + time * .28, backgroundFonts));
+      const columnFonts = Array.from(word, (_, index) => fontAt(column * .9 + index * .5 + time * 1.6, backgroundFonts));
 
       for (let row = 0; row < rows; row++) {
         const rawY = row * characterHeight + stagger + scroll - wordHeight;
@@ -136,7 +136,7 @@
         const index = row % word.length;
         const letter = word[index];
         const position = column * 97 + row;
-        const slot = Math.floor(time * .06 + position / 7);
+        const slot = Math.floor(time * .15 + position / 7);
         const hieroglyph = position % 7 === slot % 7 ? hieroglyphs[letter] : "";
         const dy = (y - height / 2) / (height / 2);
         context.globalAlpha = Math.min(.6, .03 + (dx * dx + dy * dy) * .6);
