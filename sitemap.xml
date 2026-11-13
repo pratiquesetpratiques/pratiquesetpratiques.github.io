@@ -126,4 +126,19 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://pratiquesetpratiques.github.io/articles/2026-14/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pratiquesetpratiques.github.io/articles/2026-14/" />
   </url>
+  <url>
+    <loc>https://pratiquesetpratiques.github.io/fr/praticien/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/praticien/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://pratiquesetpratiques.github.io/en/practitioner/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pratiquesetpratiques.github.io/en/practitioner/" />
+  </url>
+
+  <url>
+    <loc>https://pratiquesetpratiques.github.io/en/practitioner/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/praticien/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://pratiquesetpratiques.github.io/en/practitioner/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pratiquesetpratiques.github.io/en/practitioner/" />
+  </url>
 </urlset>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Practitioner · Pratiques et pratiques</title>
+  <meta name="description" content="Explore Pratiques et pratiques by topic, practice, or reference. Follow reading suggestions, discover bibliographic guides, and connect publications in the word globe.">
+  <link rel="canonical" href="https://pratiquesetpratiques.github.io/en/practitioner/">
+  <link rel="alternate" hreflang="fr" href="https://pratiquesetpratiques.github.io/fr/praticien/">
+  <link rel="alternate" hreflang="en-US" href="https://pratiquesetpratiques.github.io/en/practitioner/">
+  <link rel="alternate" hreflang="x-default" href="https://pratiquesetpratiques.github.io/en/practitioner/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pratiques et pratiques">
+  <meta property="og:title" content="The Practitioner · Pratiques et pratiques">
+  <meta property="og:description" content="Explore Pratiques et pratiques by topic, practice, or reference. Follow reading suggestions, discover bibliographic guides, and connect publications in the word globe.">
+  <meta property="og:url" content="https://pratiquesetpratiques.github.io/en/practitioner/">
+  <meta property="og:image" content="https://pratiquesetpratiques.github.io/assets/logo.png">
+  <meta property="og:locale" content="en_US">
+  <link rel="stylesheet" href="/assets/praticien/styles.css?v=6">
+  <link rel="stylesheet" href="/assets/praticien/pp-identity.css?v=3">
+  <script src="/assets/praticien/catalogue.js" defer></script>
+  <script src="/assets/praticien/catalogue.en.js" defer></script>
+  <script src="/assets/praticien/globe.js?v=9" defer></script>
+  <script src="/assets/praticien/app.js?v=5" defer></script>
+  <script src="/assets/praticien/pp-identity.js?v=2" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#search">Skip to search</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/en/about.html">
+        <img src="/assets/logo.png" alt="Pratiques et pratiques" width="573" height="275">
+        <span class="title">Pratiques et pratiques</span>
+      </a>
+      <span class="lang-switch">
+        <a href="/fr/praticien/" class="mix-2" hreflang="fr" lang="fr" aria-label="Version française">
+          <span aria-hidden="true"><span class="f1">F</span><span class="f2">R</span></span>
+        </a>
+      </span>
+      <nav aria-label="Main navigation">
+        <a href="/en/about.html" class="nav-mixed" aria-label="About"><span aria-hidden="true"><span class="f1">A</span><span class="f2">b</span><span class="f3">o</span><span class="f4">u</span><span class="f1">t</span></span></a>
+        <a href="/en/numeros.html" class="nav-mixed" aria-label="Browse all issues"><span aria-hidden="true"><span class="f1">B</span><span class="f2">r</span><span class="f3">o</span><span class="f4">w</span><span class="f1">s</span><span class="f2">e</span><span class="f3">&nbsp;</span><span class="f4">a</span><span class="f1">l</span><span class="f2">l</span><span class="f3">&nbsp;</span><span class="f4">i</span><span class="f1">s</span><span class="f2">s</span><span class="f3">u</span><span class="f4">e</span><span class="f1">s</span></span></a>
+        <a href="/en/practitioner/" class="nav-mixed" aria-label="The Practitioner" aria-current="page"><span aria-hidden="true"><span class="f1">T</span><span class="f2">h</span><span class="f3">e</span><span class="f4">&nbsp;</span><span class="f1">P</span><span class="f2">r</span><span class="f3">a</span><span class="f4">c</span><span class="f1">t</span><span class="f2">i</span><span class="f3">t</span><span class="f4">i</span><span class="f1">o</span><span class="f2">n</span><span class="f3">e</span><span class="f4">r</span></span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title" class="mix-4" aria-label="The Practitioner"><span aria-hidden="true"><span class="f1">T</span><span class="f2">h</span><span class="f3">e</span><span class="f4">&nbsp;</span><span class="f1">P</span><span class="f2">r</span><span class="f3">a</span><span class="f4">c</span><span class="f1">t</span><span class="f2">i</span><span class="f3">t</span><span class="f4">i</span><span class="f1">o</span><span class="f2">n</span><span class="f3">e</span><span class="f4">r</span></span></h1>
+      <p>Let’s put ancient studies into practice!</p>
+    </section>
+    <section class="search-area" aria-label="Explore publications">
+      <form id="search" role="search">
+        <label class="visually-hidden" for="query">Search for a topic, practice, or reference</label>
+        <div class="query-wrap">
+          <i class="search-icon" aria-hidden="true"></i>
+          <input id="query" type="search" maxlength="200" autocomplete="off" placeholder="Topic, practice, or reference">
+        </div>
+        <button class="search-submit" type="submit" aria-label="Search"><span class="pp-action-label">Search</span></button>
+      </form>
+      <div class="search-tools">
+        <div class="quick-searches" id="quick-discovery" aria-label="Reading suggestions"></div>
+        <button id="filter-toggle" class="filter-toggle" type="button" aria-label="Reading paths" aria-expanded="false" aria-controls="facets"><span class="pp-action-label">Reading paths</span> <span id="filter-count" hidden></span><span aria-hidden="true" id="filter-indicator">+</span></button>
+      </div>
+      <section id="facets" class="facets" aria-label="Reading paths by topic, period, source, and method" hidden></section>
+      <div id="active-filters" class="active-filters" aria-label="Active filters" hidden></div>
+    </section>
+    <div class="workspace">
+      <section class="globe-area" aria-label="Globe of practices">
+        <div class="globe-tools">
+          <p id="globe-hint" class="globe-hint"><span class="globe-hint-mouse">Drag the globe. Click a word to explore.</span><span class="globe-hint-touch">Swipe the globe. Tap a word to explore.</span></p>
+          <div class="globe-controls">
+            <button id="rotate-left" type="button" aria-label="Rotate the globe left" title="Rotate left">←</button>
+            <button id="rotate-right" type="button" aria-label="Rotate the globe right" title="Rotate right">→</button>
+          </div>
+        </div>
+        <div class="globe-stage" id="globe-stage" role="group" aria-label="Word globe" aria-describedby="globe-hint">
+          <canvas id="globe-lines" aria-hidden="true"></canvas>
+          <div id="globe-nodes" class="globe-nodes" aria-label="Practices and topics to explore"></div>
+        </div>
+        <a id="result-jump" class="result-jump" href="#results-panel" hidden></a>
+        <div class="globe-foot">
+          <div id="gesture-list" class="gesture-list" aria-label="List of practices">
+            <button id="gesture-toggle" type="button" aria-label="Practices" aria-expanded="false" aria-controls="gesture-options"><span class="pp-action-label">Practices</span> <span aria-hidden="true">⌄</span></button>
+            <div id="gesture-options" hidden></div>
+          </div>
+          <div class="detour-actions">
+            <button id="detour-button" type="button" class="detour-button" aria-label="Take a detour"><span class="detour-mark" aria-hidden="true">&amp;</span><span class="pp-action-label">Take a detour</span></button>
+            <button id="detour-return" class="small-button" type="button" hidden>Leave the detour</button>
+          </div>
+        </div>
+      </section>
+      <section id="results-panel" class="results-panel" aria-label="Publications" tabindex="-1">
+        <div id="results-home">
+          <div class="results-header">
+            <h2 id="results-title">Explore publications</h2>
+            <span id="result-count" class="result-count" role="status" aria-live="polite"></span>
+          </div>
+          <div id="detour-note" class="detour-note" hidden></div>
+          <div id="results" class="results"></div>
+        </div>
+        <div id="article-detail" class="article-detail" hidden></div>
+      </section>
+    </div>
+    <p id="feedback" class="visually-hidden" role="status" aria-live="polite"></p>
+    <noscript><p>Enable JavaScript to explore the publications.</p></noscript>
+  </main>
+  <footer class="shell site-footer">
+    <span>Pratiques et pratiques</span>
+    <a href="/en/about.html" target="_blank" rel="noopener">Bibliothèque ouverte des mondes anciens ↗</a>
+  </footer>
+</body>
+</html>
