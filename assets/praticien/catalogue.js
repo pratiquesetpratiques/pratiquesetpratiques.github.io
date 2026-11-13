@@ -1585,7 +1585,7 @@ window.PRATICIEN = {
         5,
         6
       ],
-      "title": "Lire Platon & Étudier l’égyptomanie",
+      "title": "L’Égypte de Platon & l’Égypte rêvée en Amérique",
       "reason": "Deux guides interrogent la réception de l’Égypte ancienne, chez Platon puis dans les États-Unis du XIXe siècle."
     },
     {
@@ -1601,7 +1601,7 @@ window.PRATICIEN = {
         10,
         12
       ],
-      "title": "Filmer & Mesurer l’audience",
+      "title": "Du scénario aux chiffres de YouTube",
       "reason": "Deux retours sur la médiation égyptologique en vidéo. Le Phare à On explique la fabrique des scénarios et Science Factory analyse la circulation de ses formats sur YouTube."
     },
     {
@@ -1617,7 +1617,7 @@ window.PRATICIEN = {
         4,
         7
       ],
-      "title": "Étudier les témoins & Organiser un fonds",
+      "title": "Des sarcophages aux rayons de Tsukuba",
       "reason": "Deux usages de données structurées dans la recherche. MORTEXVAR les mobilise pour étudier des variantes textuelles et le catalogue de Tsukuba pour repérer des ouvrages et leurs cotes."
     },
     {
@@ -1625,7 +1625,7 @@ window.PRATICIEN = {
         1,
         3
       ],
-      "title": "Étudier deux royautés",
+      "title": "Régner en Macédoine et en Égypte",
       "reason": "Deux guides bibliographiques éclairent l’étude des institutions monarchiques, de la dynastie antigonide en Macédoine à la royauté égyptienne et à ses sources."
     }
   ],
@@ -1648,7 +1648,7 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Religion funéraire",
-      "label": "Rites funéraires"
+      "label": "Religion funéraire"
     },
     {
       "key": "topics",
@@ -1668,22 +1668,22 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Poésie amoureuse",
-      "label": "Poésie"
+      "label": "Poèmes d’amour"
     },
     {
       "key": "topics",
       "value": "Mythe de Theuth",
-      "label": "Theuth"
+      "label": "Mythe de Theuth"
     },
     {
       "key": "topics",
       "value": "Platon et l’Égypte",
-      "label": "Platon"
+      "label": "Platon et l’Égypte"
     },
     {
       "key": "topics",
       "value": "Catalogue public en ligne (OPAC)",
-      "label": "OPAC"
+      "label": "Catalogue en ligne"
     },
     {
       "key": "topics",
@@ -1693,7 +1693,7 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Égyptomanie américaine",
-      "label": "Égyptomanie"
+      "label": "Égyptomanie américaine"
     },
     {
       "key": "topics",
@@ -1723,7 +1723,7 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Pugilat",
-      "label": "Pugilat"
+      "label": "Boxe antique"
     },
     {
       "key": "topics",
@@ -1783,7 +1783,7 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Variation textuelle",
-      "label": "Variantes funéraires"
+      "label": "Variantes textuelles"
     },
     {
       "key": "topics",
@@ -1833,12 +1833,12 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Grammaires d’Okajima",
-      "label": "Okajima"
+      "label": "Grammaires d’Okajima"
     },
     {
       "key": "topics",
       "value": "Phonologie de l’égyptien",
-      "label": "Phonologie"
+      "label": "Sons de l’égyptien"
     },
     {
       "key": "topics",
@@ -1853,12 +1853,12 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Archéologie du sport",
-      "label": "Pratiques sportives"
+      "label": "Archéologie du sport"
     },
     {
       "key": "topics",
       "value": "Proche-Orient ancien",
-      "label": "Proche-Orient"
+      "label": "Proche-Orient ancien"
     },
     {
       "key": "topics",
@@ -1873,7 +1873,7 @@ window.PRATICIEN = {
     {
       "key": "topics",
       "value": "Jeux olympiques antiques",
-      "label": "Jeux antiques"
+      "label": "Jeux olympiques antiques"
     },
     {
       "key": "topics",
@@ -1883,7 +1883,7 @@ window.PRATICIEN = {
     {
       "key": "sources",
       "value": "Textes des Sarcophages",
-      "label": "Sarcophages"
+      "label": "Textes des Sarcophages"
     },
     {
       "key": "sources",
@@ -1993,7 +1993,7 @@ window.PRATICIEN = {
     {
       "key": "methods",
       "value": "Reconnaissance de hiéroglyphes (OCR)",
-      "label": "OCR"
+      "label": "OCR des hiéroglyphes"
     },
     {
       "key": "methods",
@@ -2028,12 +2028,12 @@ window.PRATICIEN = {
     {
       "key": "methods",
       "value": "Gestion des cotes",
-      "label": "Cotes"
+      "label": "Du catalogue au rayon"
     },
     {
       "key": "methods",
       "value": "Sous-titrage multilingue",
-      "label": "Sous-titres"
+      "label": "Sous-titres multilingues"
     },
     {
       "key": "methods",
@@ -2048,7 +2048,7 @@ window.PRATICIEN = {
     {
       "key": "methods",
       "value": "Jeu sérieux",
-      "label": "Jeu sérieux"
+      "label": "Jouer avec une frise"
     },
     {
       "key": "methods",
@@ -2158,7 +2158,7 @@ window.PRATICIEN = {
     {
       "key": "periods",
       "value": "Époque hellénistique",
-      "label": "Hellénisme"
+      "label": "Époque hellénistique"
     },
     {
       "key": "periods",
@@ -2175,5 +2175,10 @@ window.PRATICIEN = {
       "value": "Néolithique",
       "label": "Néolithique"
     }
-  ]
+  ],
+  "gestureLabels": {
+    "Faire circuler une revue": "Faire vivre une revue",
+    "Filmer l’Égypte": "Raconter l’Égypte en vidéo",
+    "Mesurer l’audience": "Lire les chiffres de YouTube"
+  }
 };

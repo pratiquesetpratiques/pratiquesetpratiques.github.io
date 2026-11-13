@@ -8,11 +8,20 @@
     "Chercher en quatre langues": "Search in four languages",
     "Dater un strigile": "Date a strigil",
     "Exposer avec l’IA": "Exhibit with AI",
-    "Faire circuler une revue": "Circulate a journal",
-    "Filmer l’Égypte": "Film Egypt",
+    "Faire circuler une revue": "Keep a journal running",
+    "Filmer l’Égypte": "Tell Egypt’s story on video",
     "Lire les sarcophages": "Read the coffins",
-    "Mesurer l’audience": "Measure the audience",
+    "Mesurer l’audience": "Read YouTube analytics",
     "Pister une référence": "Track down a reference",
+    "Poèmes d’amour": "Love poems",
+    "Catalogue en ligne": "Online catalog",
+    "Boxe antique": "Ancient boxing",
+    "Variantes textuelles": "Textual variants",
+    "Sons de l’égyptien": "Sounds of Egyptian",
+    "OCR des hiéroglyphes": "Hieroglyph OCR",
+    "Du catalogue au rayon": "From catalog to shelf",
+    "Sous-titres multilingues": "Multilingual subtitles",
+    "Jouer avec une frise": "Play with a timeline",
 
     "Bibliothéconomie": "Library science",
     "Histoire ancienne": "Ancient history",
@@ -435,12 +444,12 @@
   const detours = {
     "8,7": ["Track down a reference & Search in four languages", "Two publications by So Miyagawa explore the same collection in Tsukuba. The guide helps readers find work in Japanese, and the case report explains how the collections became searchable in four languages."],
     "14,11": ["Sing in ancient Egyptian & Date a strigil", "A workshop sets Egyptian poems to music. In ArchéoSport, players date objects on a timeline. Both projects give the public hands-on experience with materials from the past."],
-    "5,6": ["Read Plato & Explore Egyptomania", "Two guides examine the reception of ancient Egypt in Plato and in the 19th-century United States."],
+    "5,6": ["Egypt in Plato & Egypt in the American imagination", "Two guides examine the reception of ancient Egypt in Plato and in the 19th-century United States."],
     "2,9": ["Publish in Changchun & Publish open access", "The JAC discusses its choices about circulation and peer review. BOMA describes the resources and editorial decisions behind its diamond open access model."],
-    "10,12": ["Film Egypt & Measure the audience", "Two accounts of Egyptology outreach through video. Le Phare à On explains how scripts are made, and Science Factory examines how different formats reach audiences on YouTube."],
+    "10,12": ["From the script to YouTube analytics", "Two accounts of Egyptology outreach through video. Le Phare à On explains how scripts are made, and Science Factory examines how different formats reach audiences on YouTube."],
     "13,14": ["Exhibit & Sing", "The TA-MERI exhibition works with Egyptian art. The NASHAQ workshop starts from poetry. Both projects give ancient sources a contemporary form."],
-    "4,7": ["Study textual witnesses & Organize a collection", "Two research uses for structured data. MORTEXVAR studies textual variants, and the Tsukuba catalog helps readers locate books and their call numbers."],
-    "1,3": ["Study two traditions of kingship", "Two bibliographic guides open up the study of monarchies, from the Antigonid dynasty in Macedonia to Egyptian kingship and its sources."]
+    "4,7": ["From coffins to the Tsukuba shelves", "Two research uses for structured data. MORTEXVAR studies textual variants, and the Tsukuba catalog helps readers locate books and their call numbers."],
+    "1,3": ["Ruling Macedonia and Egypt", "Two bibliographic guides open up the study of monarchies, from the Antigonid dynasty in Macedonia to Egyptian kingship and its sources."]
   };
 
   const display = value => Object.hasOwn(labels, value) ? labels[value] : value;

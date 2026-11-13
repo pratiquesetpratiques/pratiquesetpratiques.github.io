@@ -12,7 +12,8 @@ const sectionNames = {
 };
 const languages = {fr: "Français", en: "Anglais"};
 const englishLabels = (english && window.PRATICIEN_EN?.labels) || {};
-const displayLabel = value => Object.hasOwn(englishLabels, value) ? englishLabels[value] : value;
+const displayLabel = value => Object.hasOwn(englishLabels, value)
+  ? englishLabels[value] : catalogue?.gestureLabels?.[value] ?? value;
 const facets = [
   ["disciplines", "Discipline", "Disciplines"], ["topics", translate("Sujet", "Topic"), translate("Sujets", "Topics")],
   ["periods", translate("Période", "Period"), translate("Périodes", "Periods")],
@@ -82,12 +83,11 @@ function valuesOf(article, key) {
 
 const articles = (catalogue?.articles || []).map(article => {
   const tagText = [...facets.map(([key]) => valuesOf(article, key)).flat(), ...article.gestures];
-  if (english) {
-    tagText.push(...tagText.map(displayLabel));
-    for (const word of catalogue.words) {
-      if (valuesOf(article, word.key).includes(word.value)) tagText.push(word.label);
-    }
+  const visibleLabels = tagText.map(displayLabel);
+  for (const word of catalogue.words) {
+    if (valuesOf(article, word.key).includes(word.value)) visibleLabels.push(word.label);
   }
+  tagText.push(...visibleLabels);
   return {...article, indexedReferences: article.bibliography.map(entry => ({
     entry, text: normalize(entry.citation)
   })), fields: {
