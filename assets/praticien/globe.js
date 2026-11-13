@@ -13,6 +13,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   const detourDuration = 820;
   const magnification = 1.16;
   const edgePadding = 8;
+  const edgeFadeMs = 450;
   const tilt = Math.PI / 12;
   const tiltCos = Math.cos(tilt);
   const tiltSin = Math.sin(tilt);
@@ -233,7 +234,9 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
 
   function packWords(time, focused) {
     const placed = [];
-    const visiblePreference = drag?.active || orientation ? .16 : .58;
+    const turningManually = drag?.active || orientation;
+    const visiblePreference = turningManually ? .16 : .58;
+    const exitDepth = !paused && !turningManually ? -.075 : .025;
     const overlaps = box => placed.some(other => Math.abs(box.x - other.x) < box.halfWidth + other.halfWidth + 3
       && Math.abs(box.y - other.y) < box.halfHeight + other.halfHeight + 2);
     function priority(item) {
@@ -242,7 +245,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
         + (item.key === "gestures" ? 3 : 0) + (item.available ? 1.3 : 0)
         + (item.visible ? visiblePreference : 0) - roomForShortWords;
     }
-    const candidates = points.filter(item => item.related || item.control === focused || item.depth > (item.visible ? .025 : .09));
+    const candidates = points.filter(item => item.related || item.control === focused || item.depth > (item.visible ? exitDepth : .09));
     candidates.sort((a, b) => priority(b) - priority(a));
     const visible = new Set();
     for (const item of candidates) {
@@ -280,7 +283,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
         item.fontCursor = 0;
         item.nextFontChange = time + 2400 + (item.glyphs[0]?.phase % 4 || 0) * 300;
       }
-      const leavingEdge = !visibleNow && item.depth <= .025;
+      const leavingEdge = !paused && !visibleNow && item.depth <= exitDepth;
       if (leavingEdge) item.hiddenAt = time;
       item.control.classList.toggle("is-leaving", leavingEdge);
       item.control.classList.toggle("is-visible", visibleNow);
@@ -414,7 +417,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
     wordsSettling = false;
     const boxes = [];
     for (const item of points) {
-      if (!item.visible && time - item.hiddenAt > 170) {
+      if (!item.visible && time - item.hiddenAt > edgeFadeMs) {
         item.pullX = item.pullY = 0;
         continue;
       }
