@@ -439,7 +439,7 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
       ? controls.querySelector('.globe-node.is-visible:not([aria-disabled="true"]):hover') : null;
     const previousYaw = yaw;
     const previousPitch = pitch;
-    if (!paused) {
+    if (!paused && !drag) {
       const follow = 1 - Math.exp(-elapsed * 8);
       if (orientation) {
         yaw = approach(yaw, orientation.yaw, follow, .001);
@@ -528,6 +528,8 @@ function createGlobe(stage, topicWords, onSelect, locale, displayLabel) {
   for (const event of ["pointerup", "pointercancel", "lostpointercapture"]) {
     stage.addEventListener(event, input => {
       if (drag?.id !== input.pointerId) return;
+      // A touch that starts on a word transfers capture to the globe when it becomes a drag.
+      if (event === "lostpointercapture" && input.target !== stage) return;
       if (drag.active) {
         const now = performance.now();
         suppressClickUntil = now + 180;
