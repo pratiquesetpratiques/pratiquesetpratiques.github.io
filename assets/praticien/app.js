@@ -313,8 +313,15 @@ function articleCard(article) {
   number.setAttribute("aria-hidden", "true");
   const content = node("div", "article-content");
   const meta = node("p", "article-meta", article.author + " · " + article.section + " · " + article.year);
-  const title = button(article.title, "article-title", () => openArticle(article));
+  const title = node("a", "article-title", article.title);
+  title.href = article.url;
+  title.id = "result-" + article.id;
   title.lang = article.language;
+  title.addEventListener("click", event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openArticle(article);
+  });
   const arrow = node("span", "", "→");
   arrow.setAttribute("aria-hidden", "true");
   title.append(arrow);
@@ -557,11 +564,7 @@ function render() {
     note.replaceChildren(node("strong", "", state.detour.title), node("p", "", state.detour.reason),
       button(translate("Revenir aux résultats", "Back to results"), "small-button", leaveDetour));
   } else note.replaceChildren();
-  const cards = shown.map(article => {
-    const card = articleCard(article);
-    card.querySelector("button").id = "result-" + article.id;
-    return card;
-  });
+  const cards = shown.map(articleCard);
   if (!cards.length) cards.push(node("p", "empty-results", articles.length
     ? translate("Aucune publication pour cette recherche.", "No publications match this search.")
     : translate("Le catalogue n’a pas pu être chargé.", "The catalog could not be loaded.")));

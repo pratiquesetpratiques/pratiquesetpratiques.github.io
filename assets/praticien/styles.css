@@ -184,7 +184,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .article-content { min-width: 0; }
 .card-heading { margin: 0; font: inherit; }
 .article-meta { margin: 0 0 .17rem; color: var(--muted); font: 700 .7rem/1.45 var(--mono); overflow-wrap: anywhere; }
-.article-title { display: block; width: 100%; padding: 0; border: 0; background: none; color: var(--ink); font: 700 1.3rem/1.13 var(--serif); text-align: left; overflow-wrap: anywhere; }
+.article-title { display: block; width: 100%; padding: 0; border: 0; background: none; color: var(--ink); font: 700 1.3rem/1.13 var(--serif); text-align: left; text-decoration: none; overflow-wrap: anywhere; }
 .article-title:hover { color: var(--red); text-decoration: underline; text-underline-offset: .1em; }
 .article-title span { margin-left: .22em; color: var(--red); font: 400 .76em/1 var(--sans); }
 .article-lead { color: #554956; margin: .3rem 0 .38rem; font-size: .83rem; line-height: 1.43; overflow-wrap: anywhere; }
